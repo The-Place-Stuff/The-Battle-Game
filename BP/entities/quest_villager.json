@@ -1,0 +1,195 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "rpg:quest_villager",
+			"is_summonable": true,
+			"is_spawnable": true,
+			"properties": {
+				"rpg:biome_variant": {
+					"client_sync": true,
+					"type": "int",
+					"default": 0,
+					"range": [
+						0,
+						6
+					]
+				}
+			}
+		},
+		"component_groups": {
+			"rpg:instant_despawn": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:health": {
+				"min": 1,
+				"max": 1,
+				"value": 1
+			},
+			"minecraft:nameable": {
+				"allow_name_tag_renaming": false,
+				"always_show": false
+			},
+			"minecraft:physics": {},
+			"minecraft:damage_sensor": {
+				"triggers": {
+				"cause": "all",
+				"deals_damage": false
+				}
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 1,
+				"look_distance": 5
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 7,
+				"look_time": [ 3, 7 ]
+			},
+			"minecraft:interact": {
+				"interactions": [
+					{
+						"swing": true,
+						"on_interact": {
+							"event": "rpg:switch_biome_variant",
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_equipment",
+										"subject": "other",
+										"domain": "hand",
+										"value": "echo_shard"
+									},
+									{
+										"test": "has_ability",
+										"subject": "other",
+										"value": "invulnerable"
+									}
+								]
+							}
+						}
+					},
+					{
+						"swing": true,
+						"on_interact": {
+							"event": "rpg:instant_despawn",
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_equipment",
+										"subject": "other",
+										"domain": "hand",
+										"value": "blaze_rod"
+									},
+									{
+										"test": "has_ability",
+										"subject": "other",
+										"value": "invulnerable"
+									}
+								]
+							}
+						}
+					}
+				]
+			},
+			"minecraft:loot": {
+				"table": "loot_tables/empty.json"
+			},
+			"minecraft:collision_box": {
+				"width": 0.6,
+				"height": 2
+			},
+			"minecraft:persistent": {},
+			"minecraft:npc": {
+				"npc_data": {
+					"portrait_offsets": {
+						"translate": [
+							-7,
+							50,
+							0
+						],
+						"scale": [
+							1.75,
+							1.75,
+							1.75
+						]
+					},
+					"picker_offsets": {
+						"translate": [
+							0,
+							20,
+							0
+						],
+						"scale": [
+							1.7,
+							1.7,
+							1.7
+						]
+					},
+					"skin_list": [
+						{
+							"variant": 0
+						},
+						{
+							"variant": 1
+						},
+						{
+							"variant": 2
+						},
+						{
+							"variant": 3
+						},
+						{
+							"variant": 4
+						},
+						{
+							"variant": 5
+						},
+						{
+							"variant": 6
+						},
+						{
+							"variant": 7
+						},
+						{
+							"variant": 8
+						},
+						{
+							"variant": 9
+						},
+						{
+							"variant": 10
+						},
+						{
+							"variant": 11
+						},
+						{
+							"variant": 12
+						},
+						{
+							"variant": 13
+						},
+						{
+							"variant": 14
+						}
+					]
+				}
+			}
+		},
+		"events": {
+			"rpg:switch_biome_variant": {
+				"set_property": {
+					"rpg:biome_variant": "query.property('rpg:biome_variant') < 6 ? query.property('rpg:biome_variant') + 1 : 0"
+				}
+			},
+			"rpg:instant_despawn": {
+				"add": {
+					"component_groups": [
+						"rpg:instant_despawn"
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,23 @@
+pack.name=RPG World RP
+pack.description=
+
+item.rpg:slime_nugget=Slime Nugget
+item.rpg:sludgy_slasher=Sludgy Slasher
+
+entity.rpg:quest_villager.name=NPC
+item.spawn_egg.entity.rpg:quest_villager.name=Place NPC
+
+entity.rpg:meadow_slime.name=Meadow Slime
+item.spawn_egg.entity.rpg:meadow_slime.name=Spawn Meadow Slime
+
+entity.rpg:pet_allay.name=Allay
+item.rpg:bottled_allay=Bottled Allay
+
+entity.rpg:pet_wolf.name=Wolf
+item.rpg:loyal_bone=Loyal Bone
+
+entity.rpg:bootrap.name=Bootrap
+item.rpg:foreign_diamond=Foreign Diamond
+
+item.spawn_egg.entity.rpg:mob_spawner.name=Spawn Mob Spawner
+entity.rpg:mob_spawner.name=Mob Spawner

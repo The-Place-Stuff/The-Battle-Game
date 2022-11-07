@@ -1,0 +1,58 @@
+{
+    "entity_sounds": {
+        "entities": {
+            "rpg:meadow_slime": {
+                "volume": 1,
+                "pitch": 1,
+                "events": {
+                    "hurt": "mob.slime.hurt",
+                    "death": "mob.slime.death"
+                }
+            },
+            "rpg:pet_allay": {
+                "events": {
+                    "ambient": "mob.allay.idle",
+                    "ambient.tame": "mob.allay.idle_holding",
+                    "death": "mob.allay.death",
+                    "hurt": "mob.allay.hurt"
+                },
+                "pitch": [0.80, 1.20],
+                "volume": 1
+            },
+            "rpg:pet_wolf": {
+                "events": {
+                    "ambient": "mob.wolf.bark",
+                    "death": "mob.wolf.death",
+                    "growl": "mob.wolf.growl",
+                    "hurt": "mob.wolf.hurt",
+                    "pant": "mob.wolf.panting",
+                    "shake": {
+                        "pitch": [
+                            0.80,
+                            1.20
+                        ],
+                        "sound": "mob.wolf.shake"
+                    },
+                    "step": {
+                        "pitch": 1.0,
+                        "sound": "mob.wolf.step",
+                        "volume": 0.650
+                    },
+                    "whine": "mob.wolf.whine"
+                },
+                "pitch": [
+                    0.80,
+                    1.20
+                ],
+                "volume": 1.0
+            },
+            "rpg:pet_bootrap": {
+                "events": {
+                    "ambient": "item.book.page_turn"
+                },
+                "pitch": 1,
+                "volume": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:item": {
+		"description": {
+			"identifier": "rpg:sludgy_slasher"
+		},
+		"components": {
+			"minecraft:icon": {
+				"texture": "sludgy_slasher"
+			},
+			"minecraft:damage": 4,
+			"minecraft:hand_equipped": true,
+			"minecraft:can_destroy_in_creative": false,
+			"minecraft:durability": {
+				"max_durability": 496
+			},
+			"minecraft:item_storage": {
+				"capacity": 16
+			},
+			"minecraft:render_offsets": {
+				"main_hand": {
+					"third_person": {
+						"position": [ 0.2, 1.3, -0.5 ]
+					}
+				}
+			},
+			"minecraft:max_stack_size": 1,
+			"minecraft:weapon": {},
+			"minecraft:on_use": {
+				"on_use": {
+					"event": "rpg:on_use",
+					"target": "self"
+				}
+			},
+			"minecraft:cooldown": {
+				"category": "sludgy_slasher",
+				"duration": 1
+			}
+		},
+		"events": {
+			"rpg:on_use": {
+				"swing": {}
+			}
+		}
+	}
+}

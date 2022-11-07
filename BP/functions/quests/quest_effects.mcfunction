@@ -1,0 +1,1 @@
+playsound random.levelup @s ~ ~ ~

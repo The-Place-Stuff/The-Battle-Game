@@ -1,0 +1,37 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.meadow_slime": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"jump": "!query.is_on_ground"
+						}
+					]
+				},
+				"jump": {
+					"animations": [
+						"jump"
+					],
+					"transitions": [
+						{
+							"grounded": "query.is_on_ground"
+						}
+					]
+				},
+				"grounded": {
+					"animations": [
+						"ground"
+					],
+					"transitions": [
+						{
+							"default": "query.any_animation_finished"
+						}
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,68 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "rpg:mob_spawner",
+			"is_summonable": true,
+			"is_spawnable": true
+		},
+		"component_groups": {
+			"rpg:instant_despawn": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:health": {
+				"min": 1,
+				"value": 1,
+				"max": 1
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+				"cause": "all",
+				"deals_damage": false
+				}
+			},
+			"minecraft:interact": {
+				"interactions": [
+					{
+						"swing": true,
+						"on_interact": {
+							"event": "rpg:instant_despawn",
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_equipment",
+										"subject": "other",
+										"domain": "hand",
+										"value": "blaze_rod"
+									},
+									{
+										"test": "has_ability",
+										"subject": "other",
+										"value": "invulnerable"
+									}
+								]
+							}
+						}
+					}
+				]
+			},
+			"minecraft:nameable": {
+				"allow_name_tag_renaming": true,
+				"always_show": false
+			},
+			"minecraft:physics": {}
+		},
+		"events": {
+			"minecraft:entity_spawned": {},
+			"rpg:instant_despawn": {
+				"add": {
+					"component_groups": [
+						"rpg:instant_despawn"
+					]
+				}
+			}
+		}
+	}
+}

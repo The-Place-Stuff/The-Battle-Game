@@ -1,0 +1,33 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "rpg:pet_bootrap",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/bootrap"
+			},
+			"geometry": {
+				"default": "geometry.bootrap"
+			},
+			"animations": {
+				"idle": "animation.bootrap.idle",
+				"move": "animation.bootrap.move",
+				"look_at_target": "animation.bootrap.look_at_target"
+			},
+			"scripts": {
+				"animate": [
+					"look_at_target",
+					{
+						"move": "0.5 + (query.modified_move_speed * 0.75)"
+					}
+				]
+			},
+			"render_controllers": [
+				"controller.render.default"
+			]
+		}
+	}
+}

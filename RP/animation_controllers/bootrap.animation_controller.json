@@ -1,0 +1,32 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.bootrap": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"idle"
+					],
+					"transitions": [
+						{
+							"move": "query.is_moving"
+						}
+					],
+					"blend_transition": true
+				},
+				"move": {
+					"animations": [
+						"move"
+					],
+					"transitions": [
+						{
+							"default": "!query.is_moving"
+						}
+					],
+					"blend_transition": true
+				}
+			}
+		}
+	}
+}

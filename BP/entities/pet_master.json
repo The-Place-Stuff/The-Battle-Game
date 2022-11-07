@@ -1,0 +1,57 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "rpg:pet_master",
+			"is_summonable": true,
+			"is_spawnable": true,
+			"runtime_identifier": "minecraft:arrow"
+		},
+		"component_groups": {
+			"rpg:transform_into_allay": {
+				"minecraft:transformation": {
+					"into": "rpg:pet_allay<rpg:on_tame>",
+					"keep_owner": true
+				}
+			},
+			"rpg:transform_into_wolf": {
+				"minecraft:transformation": {
+					"into": "rpg:pet_wolf<rpg:on_tame>",
+					"keep_owner": true
+				}
+			},
+			"rpg:transform_into_bootrap": {
+				"minecraft:transformation": {
+					"into": "rpg:pet_bootrap<rpg:on_tame>",
+					"keep_owner": true
+				}
+			}
+		},
+		"components": {
+			"minecraft:projectile": {}
+		},
+		"events": {
+			"rpg:transform_into_allay": {
+				"add": {
+					"component_groups": [
+						"rpg:transform_into_allay"
+					]
+				}
+			},
+			"rpg:transform_into_wolf": {
+				"add": {
+					"component_groups": [
+						"rpg:transform_into_wolf"
+					]
+				}
+			},
+			"rpg:transform_into_bootrap": {
+				"add": {
+					"component_groups": [
+						"rpg:transform_into_bootrap"
+					]
+				}
+			}
+		}
+	}
+}

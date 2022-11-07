@@ -1,0 +1,98 @@
+{
+	"format_version": "1.19.40",
+	"sound_definitions": {
+		"music.plains": {
+			"category": "music",
+			"sounds": [
+				{
+					"stream": true,
+					"name": "sounds/music/plains",
+					"volume": 0.2,
+					"load_on_low_memory": true
+				}
+			]
+		},
+		"music.king_jello": {
+			"category": "music",
+			"sounds": [
+				{
+					"stream": true,
+					"name": "sounds/music/king_jello",
+					"volume": 0.4,
+					"load_on_low_memory": true
+				}
+			]
+		},
+		"music.desert": {
+			"category": "music",
+			"sounds": [
+				{
+					"stream": true,
+					"name": "sounds/music/desert",
+					"volume": 0.2,
+					"load_on_low_memory": true
+				}
+			]
+		},
+		"random.sweep": {
+			"category": "player",
+			"min_distance": 5,
+			"sounds": [
+				"sounds/random/sweep1",
+				"sounds/random/sweep2",
+				"sounds/random/sweep3",
+				"sounds/random/sweep4",
+				"sounds/random/sweep5",
+				"sounds/random/sweep6",
+				"sounds/random/sweep7"
+			]
+		},
+		"mob.wolf.summon": {
+			"category": "player",
+			"sounds": [
+				"sounds/mob/wolf/bark1",
+				"sounds/mob/wolf/bark2",
+				"sounds/mob/wolf/bark3"
+			]
+		},
+		"mob.wolf.despawn": {
+			"category": "player",
+			"sounds": [
+				"sounds/mob/wolf/whine"
+			]
+		},
+		"mob.allay.summon": {
+			"category": "player",
+			"sounds": [
+				"sounds/mob/allay/item_given1",
+				"sounds/mob/allay/item_given2",
+				"sounds/mob/allay/item_given3",
+				"sounds/mob/allay/item_given4"
+			]
+		},
+		"mob.allay.despawn": {
+			"category": "player",
+			"sounds": [
+				"sounds/mob/allay/item_taken1",
+				"sounds/mob/allay/item_taken2",
+				"sounds/mob/allay/item_taken3",
+				"sounds/mob/allay/item_taken4"
+			]
+		},
+		"mob.bootrap.summon": {
+			"category": "player",
+			"sounds": [
+				"sounds/item/book/open_flip1",
+				"sounds/item/book/open_flip2",
+				"sounds/item/book/open_flip3"
+			]
+		},
+		"mob.bootrap.despawn": {
+			"category": "player",
+			"sounds": [
+				"sounds/item/book/close_put1",
+				"sounds/item/book/close_put2"
+			]
+		}
+	}
+}

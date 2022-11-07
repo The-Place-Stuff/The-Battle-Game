@@ -1,0 +1,40 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.meadow_slime.jump": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.16,
+			"bones": {
+				"cube": {
+					"scale": {
+						"0.0": [1, 1, 1],
+						"0.16": [0.7, 1.3, 1]
+					}
+				}
+			}
+		},
+		"animation.meadow_slime.ground": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.4,
+			"sound_effects": {
+				"0.3": {
+					"effect": "land"
+				}
+			},
+			"bones": {
+				"cube": {
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.2": [0, -0.4, 0],
+						"0.4": [0, 0, 0]
+					},
+					"scale": {
+						"0.0": [0.7, 1.3, 1],
+						"0.2": [1.5, 0.7, 1],
+						"0.4": [1, 1, 1]
+					}
+				}
+			}
+		}
+	}
+}

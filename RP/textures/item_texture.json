@@ -1,0 +1,24 @@
+{
+	"resource_pack_name": "RPG World",
+	"texture_name": "atlas.items",
+	"texture_data": {
+		"place_npc": {
+			"textures": "textures/items/place_npc"
+		},
+		"slime_nugget": {
+			"textures": "textures/items/slime_nugget"
+		},
+		"sludgy_slasher": {
+			"textures": "textures/items/sludgy_slasher"
+		},
+		"bottled_allay": {
+			"textures": "textures/items/bottled_allay"
+		},
+		"loyal_bone": {
+			"textures": "textures/items/loyal_bone"
+		},
+		"foreign_diamond": {
+			"textures": "textures/items/foreign_diamond"
+		}
+	}
+}
