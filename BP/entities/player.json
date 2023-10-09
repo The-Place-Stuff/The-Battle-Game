@@ -16,7 +16,7 @@
 							"max_wait_time": 0,
 							"num_to_spawn": 1,
 							"single_use": true,
-							"spawn_entity": "rpg:pet_master",
+							"spawn_entity": "rpg:pet_summoner",
 							"spawn_event": "rpg:transform_into_allay"
 						}
 					]
@@ -30,7 +30,7 @@
 							"max_wait_time": 0,
 							"num_to_spawn": 1,
 							"single_use": true,
-							"spawn_entity": "rpg:pet_master",
+							"spawn_entity": "rpg:pet_summoner",
 							"spawn_event": "rpg:transform_into_wolf"
 						}
 					]
@@ -44,7 +44,7 @@
 							"max_wait_time": 0,
 							"num_to_spawn": 1,
 							"single_use": true,
-							"spawn_entity": "rpg:pet_master",
+							"spawn_entity": "rpg:pet_summoner",
 							"spawn_event": "rpg:transform_into_bootrap"
 						}
 					]

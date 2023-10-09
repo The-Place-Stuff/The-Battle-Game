@@ -2,9 +2,9 @@
 	"format_version": "1.19.40",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "rpg:pet_master",
+			"identifier": "rpg:pet_summoner",
 			"is_summonable": true,
-			"is_spawnable": true,
+			"is_spawnable": false,
 			"runtime_identifier": "minecraft:arrow"
 		},
 		"component_groups": {

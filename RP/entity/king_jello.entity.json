@@ -2,7 +2,7 @@
   "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
-      "identifier": "rpg:meadow_slime",
+      "identifier": "rpg:king_jello",
       "materials": {
         "default": "slime",
         "outer": "slime_outer"

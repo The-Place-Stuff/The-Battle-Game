@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.meadow_slime.jump": {
+		"animation.revamped_slime.jump": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.16,
 			"bones": {
@@ -13,7 +13,7 @@
 				}
 			}
 		},
-		"animation.meadow_slime.ground": {
+		"animation.revamped_slime.ground": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.4,
 			"sound_effects": {

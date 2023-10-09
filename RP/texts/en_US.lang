@@ -1,5 +1,5 @@
-pack.name=RPG World RP
-pack.description=
+pack.name=RPG World Resources
+pack.description=Resources for RPG World
 
 item.rpg:slime_nugget=Slime Nugget
 item.rpg:sludgy_slasher=Sludgy Slasher

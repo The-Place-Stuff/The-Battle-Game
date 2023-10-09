@@ -3,15 +3,7 @@
 	"metadata": {
 		"authors": [
 			"ExDrill"
-		],
-		"generated_with": {
-			"bridge": [
-				"2.3.7"
-			],
-			"dash": [
-				"0.10.6"
-			]
-		}
+		]
 	},
 	"header": {
 		"name": "pack.name",
