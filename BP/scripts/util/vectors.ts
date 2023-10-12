@@ -12,16 +12,7 @@ export class Vector3d implements Vector3 {
     }
 }
 
-export class BlockPos implements Vector3 {
-    public x: number
-    public y: number
-    public z: number
-
-    public constructor(x: number, y: number, z: number) {
-        this.x = x
-        this.y = y
-        this.z = z
-    } 
+export class BlockPos extends Vector3d {
 
     public offset(direction: Direction, offsetAmount: number): BlockPos {
         let offsetPos: Vector3 = Vector.zero

@@ -1,11 +1,10 @@
-import { world } from '@minecraft/server'
-import { Level } from './level/level.js'
+// Mechanics
+import './mechanics/playerProperties.js'
+import './mechanics/volumeManager.js'
+import './mechanics/petSummoner.js'
 
+// Items
 import './items/sludgySlasher.js'
-import './items/petSummoner.js'
 
+// Utils
 import './util/experienceCalculator.js'
-
-world.afterEvents.worldInitialize.subscribe(event => {
-    new Level()
-})

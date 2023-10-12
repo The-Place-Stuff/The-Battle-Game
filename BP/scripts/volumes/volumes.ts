@@ -1,6 +1,6 @@
 import { MusicVolume } from './musicVolume.js'
 import { WarpVolume } from './warpVolume.js'
-import { Vector3d } from '../../util/vectors.js' 
+import { Vector3d } from '../util/vectors.js' 
 
 export const WARP_TO_PLAINS = new WarpVolume(
     new Vector3d(9916, 16, 9987), 

@@ -1,3 +1,6 @@
+
+// REQUIRES TYPESCRIPT PORT, MOST LIKELY REQUIRES COMPLETE REVAMP
+
 import { world, Location } from '@minecraft/server'
 import * as ExtraMath from '../utility/math.js'
 import { createUUID } from '../utility/uuid.js'

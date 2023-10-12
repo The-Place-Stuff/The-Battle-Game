@@ -1,3 +1,6 @@
+
+// REQUIRES TYPESCRIPT PORT
+
 import { world, BlockLocation } from '@minecraft/server'
 import * as ShopUtils from '../utility/shop.js'
 
