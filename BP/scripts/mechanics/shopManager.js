@@ -34,4 +34,3 @@ world.events.buttonPush.subscribe(event => {
     }
 
 })
-

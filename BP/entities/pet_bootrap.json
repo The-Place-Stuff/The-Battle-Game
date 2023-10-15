@@ -1,76 +1,63 @@
 {
-	"format_version": "1.19.40",
-	"minecraft:entity": {
-		"description": {
-			"identifier": "rpg:pet_bootrap",
-			"is_summonable": true,
-			"is_spawnable": false
-		},
-		"component_groups": {
-			"rpg:instant_despawn": {
-				"minecraft:instant_despawn": {}
-			},
-			"rpg:wild_bootrap": {
-				"minecraft:tameable": {
-					"probability": 1,
-					"tame_items": "book",
-					"tame_event": {
-						"event": "rpg:on_tame",
-						"target": "self"
-					}
-				}
-			},
-			"rpg:tamed_bootrap": {
-				"minecraft:is_tamed": {}
-			}
-		},
-		"components": {
-			"minecraft:health": {
-				"value": 10,
-				"max": 10
-			},
-			"minecraft:movement": {
-				"value": 0.3
-			},
-			"minecraft:physics": {},
-			"minecraft:pushable": {},
-			"minecraft:navigation.generic": {},
-			"minecraft:movement.generic": {},
-			"minecraft:behavior.follow_owner": {
-				"priority": 1,
-				"can_teleport": true,
-				"speed_multiplier": 1.5,
-				"start_distance": 1,
-				"stop_distance": 5
-			}
-		},
-		"events": {
-			"rpg:instant_despawn": {
-				"add": {
-					"component_groups": [
-						"rpg:instant_despawn"
-					]
-				}
-			},
-			"minecraft:entity_spawned": {
-				"add": {
-					"component_groups": [
-						"rpg:wild_bootrap"
-					]
-				}
-			},
-			"rpg:on_tame": {
-				"add": {
-					"component_groups": [
-						"rpg:tamed_bootrap"
-					]
-				},
-				"remove": {
-					"component_groups": [
-						"rpg:wild_bootrap"
-					]
-				}
-			}
-		}
-	}
+  "format_version": "1.20.40",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "rpg:pet_bootrap",
+      "is_summonable": true,
+      "is_spawnable": false
+    },
+    "component_groups": {
+      "rpg:instant_despawn": {
+        "minecraft:instant_despawn": {}
+      },
+      "rpg:tamed_bootrap": {
+        "minecraft:is_tamed": {}
+      }
+    },
+    "components": {
+      "minecraft:health": {
+        "value": 20,
+        "max": 20
+      },
+      "minecraft:movement": {
+        "value": 0.3
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 0.8
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:behavior.follow_owner": {
+        "priority": 6,
+        "start_distance": 5,
+        "stop_distance": 3
+      },
+      "minecraft:jump.static": {},
+      "minecraft:physics": {},
+      "minecraft:pushable": {}
+    },
+    "events": {
+      "rpg:instant_despawn": {
+        "add": {
+          "component_groups": [
+            "rpg:instant_despawn"
+          ]
+        }
+      },
+      "rpg:on_tame": {
+        "add": {
+          "component_groups": [
+             "rpg:tamed_bootrap"
+          ]
+        }
+      }
+    }
+  }
 }

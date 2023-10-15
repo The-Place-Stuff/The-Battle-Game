@@ -1,1 +1,14 @@
-[]
+[
+    {
+        "flipbook_texture": "textures/blocks/water_flow_grey",
+        "atlas_tile": "flowing_water_grey",
+        "ticks_per_frame": 2,
+        "blend_frames": false
+    },
+    {
+        "flipbook_texture": "textures/blocks/water_still_grey",
+        "atlas_tile": "still_water_grey",
+        "ticks_per_frame": 2,
+        "blend_frames": false
+    }
+]

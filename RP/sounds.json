@@ -11,8 +11,7 @@
             },
             "rpg:pet_allay": {
                 "events": {
-                    "ambient": "mob.allay.idle",
-                    "ambient.tame": "mob.allay.idle_holding",
+                    "ambient": "mob.allay.idle_holding",
                     "death": "mob.allay.death",
                     "hurt": "mob.allay.hurt"
                 },

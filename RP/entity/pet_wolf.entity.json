@@ -30,7 +30,7 @@
         "wolf_baby_scaling": "animation.wolf.baby_scaling",
         "wolf_look_at": "animation.common.look_at_target",
         "wolf_head_rot_z": "animation.wolf.head_rot_z",
-        "wolf_tail_default": "animation.wolf.tail_default",
+        "wolf_tail_default": "animation.pet_wolf.tail_default",
         "wolf_angry": "animation.wolf.angry",
         "wolf_sitting": "animation.wolf.sitting",
         "wolf_shaking": "animation.wolf.shaking",
@@ -46,11 +46,7 @@
         { "wolf_sitting": "controller.animation.wolf.sitting" },
         { "wolf_shaking": "controller.animation.wolf.shaking" }
       ],
-      "render_controllers": [ "controller.render.wolf" ],
-      "spawn_egg": {
-        "texture": "spawn_egg",
-        "texture_index": 4
-      }
+      "render_controllers": [ "controller.render.wolf" ]
     }
   }
 }

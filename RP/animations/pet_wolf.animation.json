@@ -1,0 +1,13 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.pet_wolf.tail_default": {
+            "loop": true,
+            "bones": {
+                "tail": {
+                    "rotation": [ "100 - this", 0, "variable.tail_rot_z - this"]
+                }
+            }
+        }
+    }
+}

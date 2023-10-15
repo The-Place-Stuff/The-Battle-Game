@@ -21,7 +21,7 @@
 				"animate": [
 					"look_at_target",
 					{
-						"move": "0.5 + (query.modified_move_speed * 0.75)"
+						"move": "0.5 + (query.modified_move_speed * 0.25)"
 					}
 				]
 			},

@@ -4,8 +4,6 @@ import { Volume } from '../volumes/volume.js'
 import * as Volumes from '../volumes/volumes.js'
 
 const VOLUMES: Map<string, Volume> = new Map()
-
-VOLUMES.set('plains_music', Volumes.PLAINS_MUSIC)
 VOLUMES.set('warp_to_plains', Volumes.WARP_TO_PLAINS)
 
 system.runInterval(() => world.getAllPlayers().forEach(tick), 1)
@@ -15,7 +13,9 @@ function tick(player: Player) {
     const oldVolume = player.getDynamicProperty('OldVolume') as string
 
     if (oldVolume != currentVolume && oldVolume != 'none') {
-        VOLUMES.get(oldVolume).onExit(player)
+        if (VOLUMES.has(oldVolume)) {
+            VOLUMES.get(oldVolume).onExit(player)
+        }
     }
     player.setDynamicProperty('Volume', 'none')
 

@@ -13,12 +13,12 @@ world.afterEvents.itemUse.subscribe(async event => {
     const newPet = ITEM_TO_PET.get(stack.typeId)
 
     if (!ITEM_TO_PET.has(stack.typeId)) return
-    
-    if (currentPet == newPet || currentPet != 'none') {
-        await owner.runCommandAsync(`event entity @e[tag=${owner.nameTag}] rpg:instant_despawn`)
-        world.playSound(`mob.${newPet}.despawn`, owner.location, { pitch: 1.0, volume: 1.0 })
 
-        if (currentPet == newPet) {
+    if (newPet == currentPet || currentPet != 'none') {
+        await owner.runCommandAsync(`event entity @e[tag=${owner.nameTag}] rpg:instant_despawn`)
+        world.playSound(`mob.${currentPet}.despawn`, owner.location, { pitch: 1.0, volume: 1.0 })
+
+        if (newPet == currentPet) {
             owner.setDynamicProperty('Pet', 'none')
             return
         }
