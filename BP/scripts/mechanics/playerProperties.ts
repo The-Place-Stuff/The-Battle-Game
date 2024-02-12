@@ -2,12 +2,12 @@ import { world } from '@minecraft/server'
 
 world.afterEvents.playerSpawn.subscribe(event => {
     const player = event.player
-    const pet = player.getDynamicProperty('Pet')
+    const pet = player.getDynamicProperty('rpg:pet')
     
-    player.setDynamicProperty('Volume', 'none')
-    player.setDynamicProperty('OldVolume', 'none')
+    player.setDynamicProperty('rpg:volume', 'none')
+    player.setDynamicProperty('rpg:previous_volume', 'none')
 
-    if (pet == undefined) {
-        player.setDynamicProperty('Pet', 'none')
+    if (!pet) {
+        player.setDynamicProperty('rpg:pet', 'none')
     }
 })

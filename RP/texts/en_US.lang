@@ -1,5 +1,5 @@
-pack.name=RPG World Resources
-pack.description=Resources for RPG World
+pack.name=The Battle Game Resources
+pack.description=Resources for The Battle Game
 
 item.rpg:slime_nugget=Slime Nugget
 item.rpg:sludgy_slasher=Sludgy Slasher
@@ -7,8 +7,11 @@ item.rpg:sludgy_slasher=Sludgy Slasher
 entity.rpg:quest_villager.name=NPC
 item.spawn_egg.entity.rpg:quest_villager.name=Place NPC
 
-entity.rpg:meadow_slime.name=Meadow Slime
-item.spawn_egg.entity.rpg:meadow_slime.name=Spawn Meadow Slime
+entity.rpg:slime.name=Slime
+item.spawn_egg.entity.rpg:slime.name=Spawn Slime
+
+item.spawn_egg.entity.rpg:king_jello.name=Spawn King Jello
+entity.rpg:king_jello.name=King Jello
 
 entity.rpg:pet_allay.name=Allay
 item.rpg:bottled_allay=Bottled Allay

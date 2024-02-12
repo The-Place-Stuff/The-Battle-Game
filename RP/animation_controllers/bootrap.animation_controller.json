@@ -13,18 +13,20 @@
 							"move": "query.is_moving"
 						}
 					],
-					"blend_transition": true
+					"blend_transition": 0.1
 				},
 				"move": {
 					"animations": [
-						"move"
+						{
+							"move": "0.5 + (query.modified_move_speed * 0.25)"
+						}
 					],
 					"transitions": [
 						{
 							"default": "!query.is_moving"
 						}
 					],
-					"blend_transition": true
+					"blend_transition": 2
 				}
 			}
 		}

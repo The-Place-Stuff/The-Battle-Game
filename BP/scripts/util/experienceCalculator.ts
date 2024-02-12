@@ -10,11 +10,12 @@ world.afterEvents.itemUse.subscribe(async event => {
 
         ui.slider('XP Amount', 0, 50, 1, 0)
         const uiResult = await ui.show(player)
+        if (uiResult.canceled) return
 
         const sliderInput = uiResult.formValues[0]
 
-        world.sendMessage(`The amount of xp required to level up from ${sliderInput} is ${calculateDifference(sliderInput)}`)
-        world.sendMessage(`The total experience required is ${calculateTotal(sliderInput)}`)
+        player.sendMessage(`The amount of xp required to upgrade from level ${sliderInput} to the next level is ${calculateDifference(sliderInput)}`)
+        player.sendMessage(`The total experience required is ${calculateTotal(sliderInput)}`)
     }
 })
 

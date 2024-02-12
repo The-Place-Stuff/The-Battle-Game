@@ -48,6 +48,7 @@
 			]
 		},
 		"mob.wolf.summon": {
+			"max_distance": 12,
 			"category": "player",
 			"sounds": [
 				"sounds/mob/wolf/bark1",
@@ -56,12 +57,14 @@
 			]
 		},
 		"mob.wolf.despawn": {
+			"max_distance": 12,
 			"category": "player",
 			"sounds": [
 				"sounds/mob/wolf/whine"
 			]
 		},
 		"mob.allay.summon": {
+			"max_distance": 12,
 			"category": "player",
 			"sounds": [
 				"sounds/mob/allay/item_given1",
@@ -71,6 +74,7 @@
 			]
 		},
 		"mob.allay.despawn": {
+			"max_distance": 12,
 			"category": "player",
 			"sounds": [
 				"sounds/mob/allay/item_taken1",
@@ -80,6 +84,7 @@
 			]
 		},
 		"mob.bootrap.summon": {
+			"max_distance": 12,
 			"category": "player",
 			"sounds": [
 				"sounds/item/book/open_flip1",
@@ -88,10 +93,19 @@
 			]
 		},
 		"mob.bootrap.despawn": {
+			"max_distance": 12,
 			"category": "player",
 			"sounds": [
 				"sounds/item/book/close_put1",
 				"sounds/item/book/close_put2"
+			]
+		},
+		"mob.king_jello.launch": {
+			"max_distance": 12,
+			"category": "player",
+			"sounds": [
+				"sounds/mob/king_jello/launch1",
+				"sounds/mob/king_jello/launch2"
 			]
 		}
 	}

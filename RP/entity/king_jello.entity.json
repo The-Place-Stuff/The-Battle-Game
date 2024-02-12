@@ -5,35 +5,44 @@
       "identifier": "rpg:king_jello",
       "materials": {
         "default": "slime",
-        "outer": "slime_outer"
+        "outer": "slime_outer",
+        "crown": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/entity/slime/slime"
+        "default": "textures/entity/king_jello"
       },
       "geometry": {
-        "default": "geometry.revamped_slime",
-        "armor": "geometry.revamped_slime.armor"
+        "default": "geometry.king_jello",
+        "armor": "geometry.king_jello.armor"
       },
       "animations": {
-        "jump": "animation.revamped_slime.jump",
-        "ground": "animation.revamped_slime.ground",
-        "controller": "controller.animation.revamped_slime"
+        "scale": "animation.king_jello.scale",
+        "position_crown": "animation.king_jello.position_crown",
+        "jump": "animation.king_jello.jump",
+        "ground": "animation.king_jello.ground",
+        "summon": "animation.king_jello.summon",
+        "controller": "controller.animation.king_jello",
+        "summon_controller": "controller.animation.king_jello.summon"
       },
       "scripts": {
         "animate": [
-          "controller"
+          "scale",
+          "position_crown",
+          "controller",
+          "summon_controller"
         ]
       },
       "sound_effects": {
-        "land": "mob.slime.small"
+        "land": "mob.slime.big",
+        "launch": "mob.king_jello.launch"
       },
       "render_controllers": [
-        "controller.render.slime",
-        "controller.render.slime_armor"
+        "controller.render.king_jello",
+        "controller.render.king_jello_armor"
       ],
       "spawn_egg": {
-        "base_color": "#51A03E",
-        "overlay_color": "#64FF64"
+        "base_color": "#2D6E2F",
+        "overlay_color": "#86FF64"
       }
     }
   }

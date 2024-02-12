@@ -11,9 +11,6 @@
 			"minecraft:damage": 4,
 			"minecraft:hand_equipped": true,
 			"minecraft:can_destroy_in_creative": false,
-			"minecraft:item_storage": {
-				"capacity": 16
-			},
 			"minecraft:render_offsets": {
 				"main_hand": {
 					"third_person": {
@@ -22,16 +19,7 @@
 				}
 			},
 			"minecraft:max_stack_size": 1,
-			"minecraft:weapon": {},
-			"minecraft:cooldown": {
-				"category": "sludgy_slasher",
-				"duration": 1
-			}
-		},
-		"events": {
-			"rpg:on_use": {
-				"swing": {}
-			}
+			"minecraft:weapon": {}
 		}
 	}
 }

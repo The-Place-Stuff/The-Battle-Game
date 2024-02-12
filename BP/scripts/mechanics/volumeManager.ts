@@ -9,12 +9,12 @@ VOLUMES.set('warp_to_plains', Volumes.WARP_TO_PLAINS)
 system.runInterval(() => world.getAllPlayers().forEach(tick), 1)
 
 function tick(player: Player) {
-    const currentVolume = player.getDynamicProperty('Volume') as string
-    const oldVolume = player.getDynamicProperty('OldVolume') as string
+    const currentVolume = player.getDynamicProperty('rpg:volume') as string
+    const previousVolume = player.getDynamicProperty('rpg:previous_volume') as string
 
-    if (oldVolume != currentVolume && oldVolume != 'none') {
-        if (VOLUMES.has(oldVolume)) {
-            VOLUMES.get(oldVolume).onExit(player)
+    if (previousVolume != currentVolume && previousVolume != 'none') {
+        if (VOLUMES.has(previousVolume)) {
+            VOLUMES.get(previousVolume).onExit(player)
         }
     }
     player.setDynamicProperty('Volume', 'none')
@@ -25,11 +25,11 @@ function tick(player: Player) {
         player.setDynamicProperty('Volume', id)
         volume.onTick(player)
 
-        if (currentVolume != oldVolume) {
+        if (currentVolume != previousVolume) {
             if (currentVolume != 'none') {
                 volume.onEnter(player)
             }
         }
     }
-    player.setDynamicProperty('OldVolume', currentVolume)
+    player.setDynamicProperty('rpg:previous_volume', currentVolume)
 }

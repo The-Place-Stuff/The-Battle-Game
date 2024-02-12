@@ -7,50 +7,7 @@
 			"is_summonable": false,
 			"is_experimental": false
 		},
-		"component_groups": {
-			"rpg:spawn_pet_allay": {
-				"minecraft:spawn_entity": {
-					"entities": [
-						{
-							"min_wait_time": 0,
-							"max_wait_time": 0,
-							"num_to_spawn": 1,
-							"single_use": true,
-							"spawn_entity": "rpg:pet_summoner",
-							"spawn_event": "rpg:transform_into_allay"
-						}
-					]
-				}
-			},
-			"rpg:spawn_pet_wolf": {
-				"minecraft:spawn_entity": {
-					"entities": [
-						{
-							"min_wait_time": 0,
-							"max_wait_time": 0,
-							"num_to_spawn": 1,
-							"single_use": true,
-							"spawn_entity": "rpg:pet_summoner",
-							"spawn_event": "rpg:transform_into_wolf"
-						}
-					]
-				}
-			},
-			"rpg:spawn_pet_bootrap": {
-				"minecraft:spawn_entity": {
-					"entities": [
-						{
-							"min_wait_time": 0,
-							"max_wait_time": 0,
-							"num_to_spawn": 1,
-							"single_use": true,
-							"spawn_entity": "rpg:pet_summoner",
-							"spawn_event": "rpg:transform_into_bootrap"
-						}
-					]
-				}
-			}
-		},
+		"component_groups": {},
 		"components": {
 			"minecraft:type_family": {
 				"family": [

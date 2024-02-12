@@ -12,27 +12,6 @@
       },
       "rpg:tamed_allay": {
         "minecraft:is_tamed": {}
-      },
-      "rpg:pickup_cooldown": {
-        "minecraft:timer": {
-          "looping": false,
-          "time": 3,
-          "time_down_event": {
-            "event": "rpg:finish_pickup_cooldown"
-          }
-        }
-      },
-      "rpg:can_pickup_items": {
-        "minecraft:behavior.pickup_items": {
-          "priority": 6,
-          "max_dist": 16,
-          "search_height": 16,
-          "goal_radius": 2,
-          "can_pickup_any_item": false,
-          "pickup_based_on_chance": false,
-          "pickup_same_items_as_in_hand": true,
-          "track_target": true
-        }
       }
     },
     "components": {
@@ -89,73 +68,22 @@
           }
         ]
       },
-      "minecraft:equip_item": {},
-      "minecraft:shareables": {
-        "all_items": true,
-        "items": [
-          {
-            "pickup_only": true,
-            "stored_in_inventory": true
-          }
-        ]
-      },
-      "minecraft:behavior.equip_item": {
-        "priority": 5
-      },
-      "minecraft:behavior.follow_owner": {
-        "priority": 6,
-        "start_distance": 16,
-        "stop_distance": 4,
-        "can_teleport": true
-      },
-      "minecraft:behavior.go_and_give_items_to_owner": {
-        "priority": 3,
-        "throw_sound": "item_thrown",
-        "on_item_throw": [
-          {
-            "event": "rpg:start_pickup_cooldown"
-          }
-        ]
-      },
       "minecraft:jump.static": {},
       "minecraft:can_fly": {},
       "minecraft:physics": {
-        "has_gravity": true
+        "has_gravity": false
       },
-      "minecraft:pushable": {}
+      "minecraft:pushable": {},
+
+      // Behaviors
+      "minecraft:behavior.follow_owner": {
+        "priority": 1,
+        "start_distance": 3,
+        "stop_distance": 2,
+        "can_teleport": true
+      }
     },
     "events": {
-      "minecraft:entity_spawned": {
-        "add": {
-          "component_groups": [
-            "rpg:can_pickup_items"
-          ]
-        }
-      },
-      "rpg:start_pickup_cooldown": {
-        "add": {
-          "component_groups": [
-            "rpg:pickup_cooldown"
-          ]
-        },
-        "remove": {
-          "component_groups": [
-            "rpg:can_pickup_items"
-          ]
-        }
-      },
-      "rpg:finish_pickup_cooldown": {
-        "add": {
-          "component_groups": [
-            "rpg:can_pickup_items"
-          ]
-        },
-        "remove": {
-          "component_groups": [
-            "rpg:pickup_cooldown"
-          ]
-        }
-      },
       "rpg:instant_despawn": {
         "add": {
           "component_groups": [

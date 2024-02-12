@@ -1,0 +1,26 @@
+{
+    "format_version": "1.10.0",
+    "render_controllers": {
+        "controller.render.king_jello": {
+            "geometry": "Geometry.default",
+            "textures": [
+                "Texture.default"
+            ],
+            "materials": [
+                {"*": "Material.default"}
+            ]
+        },
+        "controller.render.king_jello_armor": {
+            "geometry": "Geometry.armor",
+            "textures": [
+                "Texture.default"
+            ],
+            "materials": [
+                {
+                    "*": "Material.outer",
+                    "crown": "Material.crown"
+                }
+            ]
+        }
+    }
+}

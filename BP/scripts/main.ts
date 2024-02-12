@@ -1,17 +1,14 @@
 // Mechanics
-import './mechanics/playerProperties.js'
-import './mechanics/debugScreen.js'
-import './mechanics/volumeManager.js'
-import './mechanics/petSummoner.js'
+import './mechanics/playerProperties'
+import './mechanics/debugScreen'
+import './mechanics/volumeManager'
+import './mechanics/petSummoner'
 
 // Items
-import './items/sludgySlasher.js'
+import './items/sludgySlasher'
+
+// Entities
+import './entities/kingJello'
 
 // Utils
-import './util/experienceCalculator.js'
-
-import { world } from '@minecraft/server'
-
-world.afterEvents.dataDrivenEntityTriggerEvent.subscribe(event => {
-    console.warn(event.id)
-})
+import './util/experienceCalculator'

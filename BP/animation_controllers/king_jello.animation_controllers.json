@@ -1,0 +1,52 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.king_jello.leap": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"leap": "!query.is_on_ground"
+						}
+					]
+				},
+				"leap": {
+					"on_exit": [
+						"@s rpg:perform_stomp_attack"
+					],
+					"transitions": [
+						{
+							"default": "query.is_on_ground"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.king_jello.summon": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"summoning": "query.property('rpg:phase') == 'summoning'"
+						}
+					]
+				},
+				"summoning": {
+					"animations": [
+						"summon"
+					],
+					"transitions": [
+						{
+							"default": "query.property('rpg:phase') != 'summoning'"
+						}
+					],
+					"on_exit": [
+						"@s rpg:switch_to_leaping_phase"
+					]
+				}
+			}
+		}
+	}
+}

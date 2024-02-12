@@ -1,0 +1,64 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+		"controller.animation.king_jello": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"jump": "!query.is_on_ground"
+						}
+					]
+				},
+				"jump": {
+					"animations": [
+						"jump"
+					],
+					"transitions": [
+						{
+							"grounded": "query.is_on_ground"
+						}
+					]
+				},
+				"grounded": {
+					"animations": [
+						"ground"
+					],
+					"particle_effects": [
+						{
+							"effect": "stomp_emitter"
+						}
+					],
+					"transitions": [
+						{
+							"default": "query.any_animation_finished"
+						}
+					]
+				}
+			}
+		},
+        "controller.animation.king_jello.summon": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"summoning": "query.property('rpg:phase') == 'summoning'"
+						}
+					]
+				},
+				"summoning": {
+					"animations": [
+						"summon"
+					],
+					"transitions": [
+						{
+							"default": "query.property('rpg:phase') != 'summoning'"
+						}
+					]
+				}
+			}
+		}
+    }
+}

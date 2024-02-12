@@ -1,0 +1,23 @@
+{
+	"format_version": "1.10.0",
+	"animations": {
+		"animation.king_jello.summon": {
+			"timeline": {
+				"0.6": [
+					"@s rpg:summon_minion"
+				],
+				"1.6": [
+					"@s rpg:summon_minion"
+				],
+				"2.6": [
+					"@s rpg:summon_minion"
+				],
+				"3.0": [
+					"@s rpg:switch_to_leaping_phase"
+				]
+			},
+			"animation_length": 3.0,
+			"loop": false
+		}
+	}
+}

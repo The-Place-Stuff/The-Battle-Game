@@ -13,16 +13,14 @@
 				"default": "geometry.bootrap"
 			},
 			"animations": {
+				"controller": "controller.animation.bootrap",
 				"idle": "animation.bootrap.idle",
 				"move": "animation.bootrap.move",
 				"look_at_target": "animation.bootrap.look_at_target"
 			},
 			"scripts": {
 				"animate": [
-					"look_at_target",
-					{
-						"move": "0.5 + (query.modified_move_speed * 0.25)"
-					}
+					"controller"
 				]
 			},
 			"render_controllers": [
