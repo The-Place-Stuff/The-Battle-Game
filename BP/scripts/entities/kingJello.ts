@@ -5,13 +5,6 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
     const id = event.eventId
 
     if (entity.typeId != 'rpg:king_jello') return
-
-    for (const modifier of event.getModifiers()) {
-        world.sendMessage(`Event Name: ${id}`)
-        world.sendMessage(`Added groups: ${modifier.addedComponentGroups.toString()}`)
-        world.sendMessage(`Removed groups: ${modifier.removedComponentGroups.toString()}`)
-        world.sendMessage(`---------------------------------------------------------`)
-    }
     
     if (id == 'rpg:perform_stomp_attack') {
         performStompAttack(entity)
