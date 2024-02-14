@@ -1,0 +1,28 @@
+{
+    "format_version": "1.20.60",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "rpg:plankton",
+            "is_spawnable": true,
+            "is_summonable": true
+        },
+        "components": {
+            "minecraft:health": {
+                "value": 20,
+                "max": 20
+            },
+            "minecraft:movement": {
+                "value": 0.2
+            },
+            "minecraft:movement.basic": {},
+            "minecraft:navigation.walk": {},
+            "minecraft:jump.static": {},
+            "minecraft:physics": {},
+            "minecraft:behavior.random_stroll": {
+                "priority": 0,
+                "xz_dist": 10,
+                "y_dist": 3
+            }
+        }
+    }
+}

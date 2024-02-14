@@ -29,7 +29,7 @@
 				"default": {
 					"transitions": [
 						{
-							"summoning": "query.property('rpg:phase') == 'summoning'"
+							"summoning": "query.property('rpg:state') == 'summoning'"
 						}
 					]
 				},
@@ -39,11 +39,30 @@
 					],
 					"transitions": [
 						{
-							"default": "query.property('rpg:phase') != 'summoning'"
+							"default": "query.property('rpg:state') != 'summoning'"
 						}
+					]
+				}
+			}
+		},
+		"controller.animation.king_jello.roar": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"roaring": "query.property('rpg:state') == 'roaring' && query.property('rpg:second_phase') == false"
+						}
+					]
+				},
+				"roaring": {
+					"animations": [
+						"roar"
 					],
-					"on_exit": [
-						"@s rpg:switch_to_leaping_phase"
+					"transitions": [
+						{
+							"default": "query.property('rpg:state') != 'roaring'"
+						}
 					]
 				}
 			}

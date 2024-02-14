@@ -1,0 +1,413 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "rpg:king_jello",
+			"is_summonable": true,
+			"is_spawnable": true,
+			"properties": {
+				"rpg:state": {
+					"client_sync": true,
+					"type": "enum",
+					"default": "none",
+					"values": [
+						"none",
+						"leaping",
+						"charging",
+						"summoning",
+						"roaring"
+					]
+				},
+				"rpg:second_phase": {
+					"client_sync": true,
+					"type": "bool",
+					"default": false
+				}
+			},
+			"animations": {
+				"summon": "animation.king_jello.summon",
+				"roar": "animation.king_jello.roar",
+				"leap_controller": "controller.animation.king_jello.leap",
+				"summon_controller": "controller.animation.king_jello.summon",
+				"roar_controller": "controller.animation.king_jello.roar"
+			},
+			"scripts": {
+				"animate": ["leap_controller", "summon_controller", "roar_controller"]
+			}
+		},
+		"component_groups": {
+			"rpg:leaping_state": {
+				"minecraft:movement": {
+					"value": 1.0
+				},
+				"minecraft:movement.jump": {
+					"jump_delay": [ 2, 3 ]
+				},
+				"minecraft:jump.static": {
+					"jump_power": 1.25
+				},
+				"minecraft:timer": {
+					"looping": true,
+					"time": [ 2, 10 ],
+					"time_down_event": {
+						"event": "rpg:switch_state",
+						"filters": {
+							"all_of": [
+								{
+									"test": "on_ground",
+									"value": true
+								},
+								{
+									"test": "has_target",
+									"value": true
+								}
+							]
+						}
+					}
+				}
+			},
+			"rpg:charging_state": {
+				"minecraft:movement": {
+					"value": 2.25
+				},
+				"minecraft:movement.jump": {
+					"jump_delay": [ 1, 1 ]
+				},
+				"minecraft:jump.static": {
+					"jump_power": 0.75
+				},
+				"minecraft:timer": {
+					"looping": true,
+					"time": 5,
+					"time_down_event": {
+						"event": "rpg:switch_state",
+						"target": "self"
+					}
+				}
+			},
+			"rpg:summoning_state": {
+				"minecraft:movement": {
+					"value": 0.0
+				},
+				"minecraft:jump.static": {
+					"jump_power": 0.0
+				}
+			},
+			"rpg:roaring_state": {
+				"minecraft:movement": {
+					"value": 0.0
+				},
+				"minecraft:jump.static": {
+					"jump_power": 0.0
+				}
+			},
+			"rpg:movement_behaviors": {
+				"minecraft:behavior.slime_attack": {
+					"priority": 3,
+					"set_persistent": true
+				},
+				"minecraft:behavior.slime_random_direction": {
+					"priority": 4,
+					"add_random_time_range": 3,
+					"turn_range": 360,
+					"min_change_direction_time": 2.0
+				},
+				"minecraft:behavior.slime_keep_on_jumping": {
+					"priority": 5,
+					"speed_multiplier": 1.0
+				},
+				"minecraft:behavior.slime_float": {
+					"priority": 1,
+					"jump_chance_percentage": 0.8,
+					"speed_multiplier": 1.2
+				}
+			}
+		},
+		"components": {
+			"minecraft:health": {
+				"value": 400,
+				"max": 400
+			},
+			"minecraft:movement": {
+				"value": 1.0
+			},
+			"minecraft:jump.static": {
+				"jump_power": 1.25
+			},
+			"minecraft:attack": {
+				"damage": 4
+			},
+			"minecraft:knockback_resistance": {
+				"value": 1.0
+			},
+			"minecraft:boss": {
+				"hud_range": 256,
+				"name": "King Jello",
+				"should_darken_sky": false
+			},
+			"minecraft:area_attack": {
+				"cause": "entity_attack",
+				"damage_range": 1,
+				"damage_per_tick": 4,
+				"entity_filter": {
+					"test": "is_target",
+					"subject": "other"
+				}
+			},
+			"minecraft:physics": {},
+			"minecraft:navigation.walk": {
+				"avoid_water": true,
+				"can_path_over_water": true
+			},
+			"minecraft:persistent": {},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"on_damage": {
+							"filters": {
+								"test": "enum_property",
+								"domain": "rpg:state",
+								"value": "roaring"
+							}
+						},
+						"deals_damage": false
+					},
+					{
+						"cause": "fall",
+						"deals_damage": false
+					},
+					{
+						"cause": "entity_explosion",
+						"damage_multiplier": 0.5
+					},
+					{
+						"cause": "magic",
+						"damage_multiplier": 0.5
+					}
+				]
+			},
+			"minecraft:environment_sensor": {
+				"triggers": [
+					{
+						"event": "rpg:switch_to_roaring_state",
+						"filters": {
+							"all_of": [
+								{
+									"test": "actor_health",
+									"operator": "<=",
+									"value": 200
+								},
+								{
+									"test": "bool_property",
+									"domain": "rpg:second_phase",
+									"value": false
+								},
+								{
+									"test": "enum_property",
+									"domain": "rpg:state",
+									"operator": "not",
+									"value": "roaring"
+								},
+								{
+									"test": "on_ground",
+									"value": true
+								}
+							]
+						}
+					}
+				]
+			},
+			"minecraft:can_climb": {},
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 2,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "player"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "snowgolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "irongolem"
+								}
+							]
+						},
+						"max_dist": 128
+					}
+				],
+				"must_see": true,
+				"persist_time": 0
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 5
+			},
+			"minecraft:type_family": {
+				"family": [
+                    "boss",
+                    "king_jello",
+					"slime",
+					"monster",
+					"mob"
+				]
+			},
+			"minecraft:collision_box": {
+				"height": 2,
+				"width": 2
+			}
+		},
+		"events": {
+			"rpg:disable_ai": {
+				"remove": {
+					"component_groups": [
+						"rpg:leaping_state",
+						"rpg:charging_state",
+						"rpg:summoning_state",
+						"rpg:movement_behaviors"
+					]
+				},
+				"set_property": {
+					"rpg:state": "'none'"
+				}
+			},
+			"rpg:toggle_second_phase": {
+				"set_property": {
+					"rpg:second_phase": "query.property('rpg:second_phase') == true ? false : true"
+				}
+			},
+			"rpg:switch_state": {
+				"sequence": [
+					{
+						"randomize": [
+							{
+								"filters": {
+									"test": "bool_property",
+									"domain": "rpg:second_phase",
+									"value": true
+								},
+								"trigger": "rpg:switch_to_charging_state",
+								"weight": 3
+							},
+							{
+								"trigger": "rpg:switch_to_summoning_state",
+								"weight": 2
+							}
+						],
+						"filters": {
+							"test": "enum_property",
+							"domain": "rpg:state",
+							"value": "leaping"
+						}
+					},
+					{
+						"randomize": [
+							{
+								"trigger": "rpg:switch_to_leaping_state",
+								"weight": 2
+							},
+							{
+								"filters": {
+									"test": "on_ground",
+									"value": true
+								},
+								"trigger": "rpg:switch_to_summoning_state",
+								"weight": 3
+							}
+						],
+						"filters": {
+							"test": "enum_property",
+							"domain": "rpg:state",
+							"value": "charging"
+						}
+					}
+				]
+			},
+			"rpg:switch_to_leaping_state": {
+				"add": {
+					"component_groups": [
+						"rpg:leaping_state",
+						"rpg:movement_behaviors"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"rpg:charging_state",
+						"rpg:summoning_state",
+						"rpg:roaring_state"
+					]
+				},
+				"set_property": {
+					"rpg:state": "'leaping'"
+				}
+			},
+			"rpg:switch_to_charging_state": {
+				"add": {
+					"component_groups": [
+						"rpg:charging_state",
+						"rpg:movement_behaviors"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"rpg:leaping_state",
+						"rpg:summoning_state",
+						"rpg:roaring_state"
+					]
+				},
+				"set_property": {
+					"rpg:state": "'charging'"
+				}
+			},
+			"rpg:switch_to_summoning_state": {
+				"add": {
+					"component_groups": [
+						"rpg:summoning_state"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"rpg:leaping_state",
+						"rpg:charging_state",
+						"rpg:roaring_state",
+						"rpg:movement_behaviors"
+					]
+				},
+				"set_property": {
+					"rpg:state": "'summoning'"
+				}
+			},
+			"rpg:switch_to_roaring_state": {
+				"add": {
+					"component_groups": [
+						"rpg:roaring_state"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"rpg:leaping_state",
+						"rpg:charging_state",
+						"rpg:summoning_state",
+						"rpg:movement_behaviors"
+					]
+				},
+				"set_property": {
+					"rpg:state": "'roaring'"
+				}
+			},
+
+			// Scripted events
+			"rpg:perform_stomp_attack": {},
+			"rpg:summon_minion": {},
+			"rpg:perform_knockback_roar": {}
+		}
+	}
+}

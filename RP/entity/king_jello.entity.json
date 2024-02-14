@@ -21,20 +21,24 @@
         "jump": "animation.king_jello.jump",
         "ground": "animation.king_jello.ground",
         "summon": "animation.king_jello.summon",
+        "roar": "animation.king_jello.roar",
         "controller": "controller.animation.king_jello",
-        "summon_controller": "controller.animation.king_jello.summon"
+        "summon_controller": "controller.animation.king_jello.summon",
+        "roar_controller": "controller.animation.king_jello.roar"
       },
       "scripts": {
         "animate": [
           "scale",
           "position_crown",
           "controller",
-          "summon_controller"
+          "summon_controller",
+          "roar_controller"
         ]
       },
       "sound_effects": {
         "land": "mob.slime.big",
-        "launch": "mob.king_jello.launch"
+        "launch": "mob.king_jello.launch",
+        "roar": "mob.king_jello.roar"
       },
       "render_controllers": [
         "controller.render.king_jello",

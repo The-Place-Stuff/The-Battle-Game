@@ -4,19 +4,32 @@
 		"animation.king_jello.summon": {
 			"timeline": {
 				"0.6": [
-					"@s rpg:summon_minion"
+					"/event entity @s rpg:summon_minion"
 				],
 				"1.6": [
-					"@s rpg:summon_minion"
+					"/event entity @s rpg:summon_minion"
 				],
 				"2.6": [
-					"@s rpg:summon_minion"
+					"/event entity @s rpg:summon_minion"
 				],
 				"3.0": [
-					"@s rpg:switch_to_leaping_phase"
+					"/event entity @s rpg:switch_to_leaping_state"
 				]
 			},
 			"animation_length": 3.0,
+			"loop": false
+		},
+		"animation.king_jello.roar": {
+			"timeline": {
+				"1.0": [
+					"/event entity @s rpg:perform_knockback_roar"
+				],
+				"2.5": [
+					"/event entity @s rpg:toggle_second_phase",
+					"/event entity @s rpg:switch_to_charging_state"
+				]
+			},
+			"animation_length": 2.5,
 			"loop": false
 		}
 	}

@@ -12,36 +12,17 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
     }
     if (id == 'rpg:summon_minion') {
         summonMinion(entity)
+        return
+    }
+    if (id == 'rpg:perform_knockback_roar') {
+        performKnockbackRoar(entity)
+        return
     }
 })
-
-world.afterEvents.projectileHitBlock.subscribe(event => {
-    if (event.projectile.typeId != 'rpg:falling_slime') return
-    onSlimeLand(event.projectile, event.location)
-})
-
-world.afterEvents.projectileHitEntity.subscribe(event => {
-    if (event.projectile.typeId != 'rpg:falling_slime') return
-    onSlimeLand(event.projectile, event.location)
-})
-
-function onSlimeLand(projectile: Entity, location: Vector3) {
-    const dimension = projectile.dimension
-    if (projectile.lifetimeState) {
-        const slime = dimension.spawnEntity('rpg:slime', location)
-        slime.triggerEvent('rpg:from_king_jello')
-        dimension.spawnParticle('rpg:small_stomp_emitter', {
-            x: location.x,
-            y: location.y + 0.5,
-            z: location.z
-        })
-        projectile.remove()
-    }
-}
 
 function performStompAttack(entity: Entity) {
     const dimension = entity.dimension
-    for (const target of getStompTargets(entity.location, dimension)) {
+    for (const target of getKnockbackTargets(entity.location, dimension)) {
         const knockbackDir = getLaunchDirection(entity, target)
         target.applyKnockback(knockbackDir.x, knockbackDir.z, 3, 0.5)
     }
@@ -75,6 +56,15 @@ function summonMinion(entity: Entity) {
     })
 }
 
+function performKnockbackRoar(entity: Entity) {
+    const dimension = entity.dimension
+    for (const target of getKnockbackTargets(entity.location, dimension)) {
+        const knockbackDir = getLaunchDirection(entity, target)
+        target.applyKnockback(knockbackDir.x, knockbackDir.z, 3, 0.5)
+    }
+    dimension.spawnParticle('minecraft:knockback_roar_particle', entity.location)
+}
+
 function getTarget(location: Vector3, dimension: Dimension): Player {
     const targets = dimension.getEntities({
         location,
@@ -88,7 +78,7 @@ function getLaunchDirection(entity: Entity, target: Entity): Vector3 {
     return new Vector(target.location.x - entity.location.x, 0, target.location.z - entity.location.z).normalized()
 }
 
-function getStompTargets(location: Vector3, dimension: Dimension) {
+function getKnockbackTargets(location: Vector3, dimension: Dimension) {
     return dimension.getEntities({
         location,
         excludeTypes: [
@@ -96,6 +86,6 @@ function getStompTargets(location: Vector3, dimension: Dimension) {
             'rpg:falling_slime',
             'minecraft:item'
         ],
-        maxDistance: 5
+        maxDistance: 7
     })
 }

@@ -1,7 +1,7 @@
 {
     "entity_sounds": {
         "entities": {
-            "rpg:meadow_slime": {
+            "rpg:slime": {
                 "volume": 1,
                 "pitch": 1,
                 "events": {
@@ -50,6 +50,15 @@
                     "ambient": "item.book.page_turn"
                 },
                 "pitch": 1,
+                "volume": 1
+            },
+            "rpg:plankton": {
+                "events": {
+                    "ambient": "mob.plankton.idle",
+                    "hurt": "mob.plankton.hurt",
+                    "death": "mob.plankton.death"
+                },
+                "pitch": [0.9, 1.2],
                 "volume": 1
             }
         }

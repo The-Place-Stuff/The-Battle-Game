@@ -10,8 +10,11 @@ item.spawn_egg.entity.rpg:quest_villager.name=Place NPC
 entity.rpg:slime.name=Slime
 item.spawn_egg.entity.rpg:slime.name=Spawn Slime
 
-item.spawn_egg.entity.rpg:king_jello.name=Spawn King Jello
 entity.rpg:king_jello.name=King Jello
+item.spawn_egg.entity.rpg:king_jello.name=Spawn King Jello
+
+entity.rpg:plankton.name=Plankton
+item.spawn_egg.entity.rpg:plankton.name=Spawn Plankton
 
 entity.rpg:pet_allay.name=Allay
 item.rpg:bottled_allay=Bottled Allay

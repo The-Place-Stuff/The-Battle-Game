@@ -100,12 +100,51 @@
 				"sounds/item/book/close_put2"
 			]
 		},
+		"mob.king_jello.roar": {
+			"max_distance": 20,
+			"category": "neutral",
+			"sounds": [
+				"sounds/mob/king_jello/roar"
+			]
+		},
 		"mob.king_jello.launch": {
 			"max_distance": 12,
 			"category": "player",
 			"sounds": [
 				"sounds/mob/king_jello/launch1",
 				"sounds/mob/king_jello/launch2"
+			]
+		},
+		"mob.falling_slime.land": {
+			"max_distance": 12,
+			"category": "hostile",
+			"sounds": [
+				"sounds/mob/falling_slime/land1",
+				"sounds/mob/falling_slime/land2"
+			]
+		},
+		"mob.plankton.idle": {
+			"max_distance": 12,
+			"category": "neutral",
+			"sounds": [
+				"sounds/mob/plankton/idle1",
+				"sounds/mob/plankton/idle2",
+				"sounds/mob/plankton/idle3"
+			]
+		},
+		"mob.plankton.hurt": {
+			"max_distance": 12,
+			"category": "neutral",
+			"sounds": [
+				"sounds/mob/plankton/hurt"
+			]
+		},
+		"mob.plankton.death": {
+			"max_distance": 12,
+			"category": "neutral",
+			"sounds": [
+				"sounds/mob/plankton/death1",
+				"sounds/mob/plankton/death2"
 			]
 		}
 	}

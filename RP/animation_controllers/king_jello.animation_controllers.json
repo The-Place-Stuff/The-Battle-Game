@@ -25,11 +25,6 @@
 					"animations": [
 						"ground"
 					],
-					"particle_effects": [
-						{
-							"effect": "stomp_emitter"
-						}
-					],
 					"transitions": [
 						{
 							"default": "query.any_animation_finished"
@@ -44,7 +39,7 @@
 				"default": {
 					"transitions": [
 						{
-							"summoning": "query.property('rpg:phase') == 'summoning'"
+							"summoning": "query.property('rpg:state') == 'summoning'"
 						}
 					]
 				},
@@ -54,7 +49,29 @@
 					],
 					"transitions": [
 						{
-							"default": "query.property('rpg:phase') != 'summoning'"
+							"default": "query.property('rpg:state') != 'summoning'"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.king_jello.roar": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"roaring": "query.property('rpg:state') == 'roaring'"
+						}
+					]
+				},
+				"roaring": {
+					"animations": [
+						"roar"
+					],
+					"transitions": [
+						{
+							"default": "query.property('rpg:state') != 'roaring'"
 						}
 					]
 				}

@@ -1,0 +1,37 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "rpg:plankton",
+            "geometry": {
+                "default": "geometry.plankton"
+            },
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/entity/plankton"
+            },
+            "animations": {
+                "idle": "animation.plankton.idle",
+                "walk": "animation.plankton.walk"
+            },
+            "scripts": {
+                "pre_animation": [
+                    "variable.tcos0 = (math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
+                ],
+                "animate": [
+                    "idle",
+                    "walk"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ],
+            "spawn_egg": {
+                "base_color": "#0D5E4A",
+                "overlay_color": "#D5D89A"
+            }
+        }
+    }
+}
