@@ -22,6 +22,16 @@
                 "priority": 0,
                 "xz_dist": 10,
                 "y_dist": 3
+            },
+            "minecraft:behavior.melee_attack": {
+                "priority": 1,
+                "speed_multiplier": 2
+            },
+            "minecraft:attack": {
+                "damage": 2
+            },
+            "minecraft:behavior.hurt_by_target": {
+                "priority": 0
             }
         }
     }
