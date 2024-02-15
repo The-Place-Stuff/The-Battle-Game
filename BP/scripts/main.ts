@@ -9,6 +9,7 @@ import './items/sludgySlasher'
 
 // Entities
 import './entities/kingJello'
+import './entities/fallingSlime'
 
 // Utils
 import './util/experienceCalculator'

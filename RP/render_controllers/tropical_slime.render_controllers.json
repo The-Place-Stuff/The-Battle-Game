@@ -1,0 +1,27 @@
+{
+    "format_version": "1.10.0",
+    "render_controllers": {
+        "controller.render.tropical_slime.inner": {
+            "geometry": "Geometry.default",
+            "textures": [
+                "Texture.default"
+            ],
+            "materials": [
+                {"*": "Material.default"}
+            ],
+            "uv_anim": {
+                "scale": [ 1.0, "1 / 12" ],
+                "offset": [ 0.0, "math.mod(math.floor(q.life_time * 8), 12) / 12"]
+            }
+        },
+        "controller.render.tropical_slime.outer": {
+            "geometry": "Geometry.outer",
+            "textures": [
+                "Texture.outer"
+            ],
+            "materials": [
+                {"*": "Material.outer"}
+            ]
+        }
+    }
+}

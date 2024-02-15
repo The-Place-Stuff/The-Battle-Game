@@ -2,14 +2,14 @@
 	"format_version": "1.20.60",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "rpg:slime",
+			"identifier": "rpg:tropical_slime",
 			"is_summonable": true,
 			"is_spawnable": true
 		},
 		"component_groups": {
 			"rpg:calm_slime": {
 				"minecraft:movement": {
-					"value": 0.5
+					"value": 0.65
 				},
 				"minecraft:movement.jump": {
 					"jump_delay": [ 1, 1.2 ]
@@ -31,25 +31,28 @@
 						"subject": "other",
 						"value": true
 					}
-				}
-			},
-			"rpg:from_king_jello": {
-				"minecraft:health": {
-					"value": 5,
-					"max": 5
+				},
+				"minecraft:behavior.jump_to_block": {
+					"priority": 0,
+					"cooldown_range": [ 4, 6 ],
+					"minimum_distance": 2,
+					"minimum_path_length": 1,
+					"search_height": 15,
+					"search_width": 10,
+					"max_velocity": 3
 				}
 			}
 		},
 		"components": {
 			"minecraft:health": {
-				"value": 15,
-				"max": 15
+				"value": 20,
+				"max": 20
 			},
 			"minecraft:attack": {
 				"damage": 4
 			},
 			"minecraft:scale": {
-				"value": 1.5
+				"value": 2
 			},
 			"minecraft:physics": {},
 			"minecraft:navigation.walk": {
@@ -143,13 +146,6 @@
 				"add": {
 					"component_groups": [
 						"rpg:calm_slime"
-					]
-				}
-			},
-			"rpg:from_king_jello": {
-				"add": {
-					"component_groups": [
-						"rpg:from_king_jello"
 					]
 				}
 			},

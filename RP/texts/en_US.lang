@@ -10,6 +10,9 @@ item.spawn_egg.entity.rpg:quest_villager.name=Place NPC
 entity.rpg:slime.name=Slime
 item.spawn_egg.entity.rpg:slime.name=Spawn Slime
 
+entity.rpg:tropical_slime.name=Tropical Slime
+item.spawn_egg.entity.rpg:tropical_slime.name=Spawn Tropical Slime
+
 entity.rpg:king_jello.name=King Jello
 item.spawn_egg.entity.rpg:king_jello.name=Spawn King Jello
 

@@ -2,17 +2,18 @@
   "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
-      "identifier": "rpg:slime",
+      "identifier": "rpg:tropical_slime",
       "materials": {
-        "default": "slime",
+        "default": "tropical_slime",
         "outer": "slime_outer"
       },
       "textures": {
-        "default": "textures/entity/revamped_slime/slime"
+        "default": "textures/entity/tropical_slime/inner",
+        "outer": "textures/entity/tropical_slime/outer"
       },
       "geometry": {
         "default": "geometry.revamped_slime",
-        "armor": "geometry.revamped_slime.armor"
+        "outer": "geometry.revamped_slime.armor"
       },
       "animations": {
         "jump": "animation.revamped_slime.jump",
@@ -28,12 +29,12 @@
         "land": "mob.slime.small"
       },
       "render_controllers": [
-        "controller.render.slime",
-        "controller.render.slime_armor"
+        "controller.render.tropical_slime.inner",
+        "controller.render.tropical_slime.outer"
       ],
       "spawn_egg": {
-        "base_color": "#51A03E",
-        "overlay_color": "#64FF64"
+        "base_color": "#459DB1",
+        "overlay_color": "#73A6C6"
       }
     }
   }

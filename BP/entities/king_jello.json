@@ -242,7 +242,7 @@
 								}
 							]
 						},
-						"max_dist": 128
+						"max_dist": 256
 					}
 				],
 				"must_see": true,
@@ -266,12 +266,16 @@
 			}
 		},
 		"events": {
+			"minecraft:entity_spawned": {
+				"trigger": "rpg:switch_to_leaping_state"
+			},
 			"rpg:disable_ai": {
 				"remove": {
 					"component_groups": [
 						"rpg:leaping_state",
 						"rpg:charging_state",
 						"rpg:summoning_state",
+						"rpg:roaring_state",
 						"rpg:movement_behaviors"
 					]
 				},

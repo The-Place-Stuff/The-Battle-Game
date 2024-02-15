@@ -60,7 +60,13 @@ function performKnockbackRoar(entity: Entity) {
     const dimension = entity.dimension
     for (const target of getKnockbackTargets(entity.location, dimension)) {
         const knockbackDir = getLaunchDirection(entity, target)
-        target.applyKnockback(knockbackDir.x, knockbackDir.z, 3, 0.5)
+        try {
+            target.applyKnockback(knockbackDir.x, knockbackDir.z, 3, 0.5)
+        }
+        catch {
+            console.warn(target.typeId)
+        }
+        
     }
     dimension.spawnParticle('minecraft:knockback_roar_particle', entity.location)
 }
