@@ -2,15 +2,15 @@
   "format_version": "1.20.40",
   "minecraft:entity": {
     "description": {
-      "identifier": "rpg:pet_allay",
+      "identifier": "the_battle_game:pet_allay",
       "is_summonable": true,
       "is_spawnable": false
     },
     "component_groups": {
-      "rpg:instant_despawn": {
+      "the_battle_game:instant_despawn": {
         "minecraft:instant_despawn": {}
       },
-      "rpg:tamed_allay": {
+      "the_battle_game:tamed_allay": {
         "minecraft:is_tamed": {}
       }
     },
@@ -84,17 +84,17 @@
       }
     },
     "events": {
-      "rpg:instant_despawn": {
+      "the_battle_game:instant_despawn": {
         "add": {
           "component_groups": [
-            "rpg:instant_despawn"
+            "the_battle_game:instant_despawn"
           ]
         }
       },
-      "rpg:on_tame": {
+      "the_battle_game:on_tame": {
         "add": {
           "component_groups": [
-            "rpg:tamed_allay"
+            "the_battle_game:tamed_allay"
           ]
         }
       }

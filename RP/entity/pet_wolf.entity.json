@@ -2,7 +2,7 @@
   "format_version": "1.8.0",
   "minecraft:client_entity": {
     "description": {
-      "identifier": "rpg:pet_wolf",
+      "identifier": "the_battle_game:pet_wolf",
       "materials": { "default": "wolf" },
       "textures": {
         "default": "textures/entity/wolf/wolf",

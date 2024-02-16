@@ -2,7 +2,7 @@
 import './mechanics/playerProperties'
 import './mechanics/debugScreen'
 import './mechanics/volumeManager'
-import './mechanics/petSummoner'
+import './mechanics/summonManager'
 
 // Items
 import './items/sludgySlasher'

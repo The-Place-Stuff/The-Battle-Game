@@ -1,16 +1,11 @@
 import { world, system, Player } from '@minecraft/server'
-
-import { Volume } from '../volumes/volume.js'
-import * as Volumes from '../volumes/volumes.js'
-
-const VOLUMES: Map<string, Volume> = new Map()
-VOLUMES.set('warp_to_plains', Volumes.WARP_TO_PLAINS)
+import { VOLUMES } from '../util/constants'
 
 system.runInterval(() => world.getAllPlayers().forEach(tick), 1)
 
 function tick(player: Player) {
-    const currentVolume = player.getDynamicProperty('rpg:volume') as string
-    const previousVolume = player.getDynamicProperty('rpg:previous_volume') as string
+    const currentVolume = player.getDynamicProperty('the_battle_game:volume') as string
+    const previousVolume = player.getDynamicProperty('the_battle_game:previous_volume') as string
 
     if (previousVolume != currentVolume && previousVolume != 'none') {
         if (VOLUMES.has(previousVolume)) {
@@ -31,5 +26,5 @@ function tick(player: Player) {
             }
         }
     }
-    player.setDynamicProperty('rpg:previous_volume', currentVolume)
+    player.setDynamicProperty('the_battle_game:previous_volume', currentVolume)
 }

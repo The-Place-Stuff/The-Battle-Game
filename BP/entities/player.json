@@ -78,24 +78,24 @@
 		},
 		"events": {
 			"minecraft:entity_spawned": {},
-			"rpg:spawn_pet_allay": {
+			"the_battle_game:spawn_pet_allay": {
 				"add": {
 					"component_groups": [
-						"rpg:spawn_pet_allay"
+						"the_battle_game:spawn_pet_allay"
 					]
 				}
 			},
-			"rpg:spawn_pet_wolf": {
+			"the_battle_game:spawn_pet_wolf": {
 				"add": {
 					"component_groups": [
-						"rpg:spawn_pet_wolf"
+						"the_battle_game:spawn_pet_wolf"
 					]
 				}
 			},
-			"rpg:spawn_pet_bootrap": {
+			"the_battle_game:spawn_pet_bootrap": {
 				"add": {
 					"component_groups": [
-						"rpg:spawn_pet_bootrap"
+						"the_battle_game:spawn_pet_bootrap"
 					]
 				}
 			},

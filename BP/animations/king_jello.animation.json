@@ -4,29 +4,52 @@
 		"animation.king_jello.summon": {
 			"timeline": {
 				"0.6": [
-					"@s rpg:summon_minion"
+					"@s the_battle_game:summon_minion"
 				],
 				"1.6": [
-					"@s rpg:summon_minion"
+					"@s the_battle_game:summon_minion"
 				],
 				"2.6": [
-					"@s rpg:summon_minion"
+					"@s the_battle_game:summon_minion"
 				],
 				"3.0": [
-					"@s rpg:switch_to_leaping_state"
+					"@s the_battle_game:switch_to_leaping_state"
 				]
 			},
 			"animation_length": 3.1,
 			"loop": false
 		},
+		"animation.king_jello.rapid_summon": {
+			"animation_length": 2.6,
+			"timeline": {
+				"0.3": [
+					"@s the_battle_game:summon_minion"
+				],
+				"0.8": [
+					"@s the_battle_game:summon_minion"
+				],
+				"1.3": [
+					"@s the_battle_game:summon_minion"
+				],
+				"1.8": [
+					"@s the_battle_game:summon_minion"
+				],
+				"2.3": [
+					"@s the_battle_game:summon_minion"
+				],
+				"2.5": [
+					"@s the_battle_game:switch_to_leaping_state"
+				]
+			}
+		},
 		"animation.king_jello.roar": {
 			"timeline": {
 				"1.0": [
-					"@s rpg:perform_knockback_roar"
+					"@s the_battle_game:perform_knockback_roar"
 				],
 				"2.5": [
-					"@s rpg:toggle_second_phase",
-					"@s rpg:switch_to_charging_state"
+					"@s the_battle_game:toggle_second_phase",
+					"@s the_battle_game:switch_to_charging_state"
 				]
 			},
 			"animation_length": 2.6,

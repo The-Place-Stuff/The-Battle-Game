@@ -2,18 +2,22 @@
 	"format_version": "1.19.40",
 	"minecraft:item": {
 		"description": {
-			"identifier": "rpg:bottled_allay"
+			"identifier": "the_battle_game:allay_bottle"
 		},
 		"components": {
 			"minecraft:max_stack_size": 1,
 			"minecraft:icon": {
-				"texture": "bottled_allay"
+				"texture": "allay_bottle"
 			},
 			"minecraft:on_use": {
 				"on_use": {
 					"event": "swing",
 					"target": "self"
 				}
+			},
+			"minecraft:cooldown": {
+				"category": "summon",
+				"duration": 1
 			}
 		},
 		"events": {

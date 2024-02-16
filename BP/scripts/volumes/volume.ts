@@ -1,6 +1,6 @@
 import { Vector3, BlockVolume, BlockVolumeUtils, Player } from '@minecraft/server'
 
-export abstract class Volume implements BlockVolume {
+export default abstract class Volume implements BlockVolume {
     public from: Vector3
     public to: Vector3
 

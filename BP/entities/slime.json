@@ -2,12 +2,12 @@
 	"format_version": "1.20.60",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "rpg:slime",
+			"identifier": "the_battle_game:slime",
 			"is_summonable": true,
 			"is_spawnable": true
 		},
 		"component_groups": {
-			"rpg:calm_slime": {
+			"the_battle_game:calm_slime": {
 				"minecraft:movement": {
 					"value": 0.5
 				},
@@ -15,7 +15,7 @@
 					"jump_delay": [ 1, 1.2 ]
 				}
 			},
-			"rpg:aggressive_slime": {
+			"the_battle_game:aggressive_slime": {
 				"minecraft:movement": {
 					"value": 0.9
 				},
@@ -33,10 +33,10 @@
 					}
 				}
 			},
-			"rpg:from_king_jello": {
+			"the_battle_game:from_king_jello": {
 				"minecraft:health": {
-					"value": 5,
-					"max": 5
+					"value": 6,
+					"max": 6
 				}
 			}
 		},
@@ -129,11 +129,11 @@
 				"width": 0.5
 			},
 			"minecraft:on_target_acquired": {
-				"event": "rpg:become_aggressive",
+				"event": "the_battle_game:become_aggressive",
 				"target": "self"
 			},
 			"minecraft:on_target_escape": {
-				"event": "rpg:become_calm",
+				"event": "the_battle_game:become_calm",
 				"target": "self"
 			},
 			"minecraft:jump.static": {}
@@ -142,38 +142,38 @@
 			"minecraft:entity_spawned": {
 				"add": {
 					"component_groups": [
-						"rpg:calm_slime"
+						"the_battle_game:calm_slime"
 					]
 				}
 			},
-			"rpg:from_king_jello": {
+			"the_battle_game:from_king_jello": {
 				"add": {
 					"component_groups": [
-						"rpg:from_king_jello"
+						"the_battle_game:from_king_jello"
 					]
 				}
 			},
-			"rpg:become_calm": {
+			"the_battle_game:become_calm": {
 				"add": {
 					"component_groups": [
-						"rpg:calm_slime"
+						"the_battle_game:calm_slime"
 					]
 				},
 				"remove": {
 					"component_groups": [
-						"rpg:aggressive_slime"
+						"the_battle_game:aggressive_slime"
 					]
 				}
 			},
-			"rpg:become_aggressive": {
+			"the_battle_game:become_aggressive": {
 				"add": {
 					"component_groups": [
-						"rpg:aggressive_slime"
+						"the_battle_game:aggressive_slime"
 					]
 				},
 				"remove": {
 					"component_groups": [
-						"rpg:calm_slime"
+						"the_battle_game:calm_slime"
 					]
 				}
 			}

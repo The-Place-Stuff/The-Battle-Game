@@ -2,18 +2,22 @@
 	"format_version": "1.19.40",
 	"minecraft:item": {
 		"description": {
-			"identifier": "rpg:foreign_diamond"
+			"identifier": "the_battle_game:otherworldly_diamond"
 		},
 		"components": {
 			"minecraft:max_stack_size": 1,
 			"minecraft:icon": {
-				"texture": "foreign_diamond"
+				"texture": "otherworldly_diamond"
 			},
 			"minecraft:on_use": {
 				"on_use": {
 					"event": "swing",
 					"target": "self"
 				}
+			},
+			"minecraft:cooldown": {
+				"category": "summon",
+				"duration": 1
 			}
 		},
 		"events": {

@@ -2,7 +2,7 @@
   "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
-      "identifier": "rpg:king_jello",
+      "identifier": "the_battle_game:king_jello",
       "materials": {
         "default": "slime",
         "outer": "slime_outer",
@@ -21,6 +21,7 @@
         "jump": "animation.king_jello.jump",
         "ground": "animation.king_jello.ground",
         "summon": "animation.king_jello.summon",
+        "rapid_summon": "animation.king_jello.rapid_summon",
         "roar": "animation.king_jello.roar",
         "controller": "controller.animation.king_jello",
         "summon_controller": "controller.animation.king_jello.summon",

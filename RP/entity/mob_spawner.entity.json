@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "rpg:mob_spawner",
+			"identifier": "the_battle_game:mob_spawner",
 			"materials": {
 				"default": "armor_stand"
 			},

@@ -2,12 +2,12 @@
 	"format_version": "1.19.40",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "rpg:mob_spawner",
+			"identifier": "the_battle_game:mob_spawner",
 			"is_summonable": true,
 			"is_spawnable": true
 		},
 		"component_groups": {
-			"rpg:instant_despawn": {
+			"the_battle_game:instant_despawn": {
 				"minecraft:instant_despawn": {}
 			}
 		},
@@ -28,7 +28,7 @@
 					{
 						"swing": true,
 						"on_interact": {
-							"event": "rpg:instant_despawn",
+							"event": "the_battle_game:instant_despawn",
 							"filters": {
 								"all_of": [
 									{
@@ -56,10 +56,10 @@
 		},
 		"events": {
 			"minecraft:entity_spawned": {},
-			"rpg:instant_despawn": {
+			"the_battle_game:instant_despawn": {
 				"add": {
 					"component_groups": [
-						"rpg:instant_despawn"
+						"the_battle_game:instant_despawn"
 					]
 				}
 			}

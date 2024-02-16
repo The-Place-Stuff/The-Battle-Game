@@ -2,7 +2,7 @@
 	"format_version": "1.19.40",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "rpg:falling_slime",
+			"identifier": "the_battle_game:falling_slime",
 			"is_summonable": true,
 			"is_spawnable": false,
 			"runtime_identifier": "minecraft:arrow"

@@ -1,32 +1,33 @@
 pack.name=The Battle Game Resources
 pack.description=Resources for The Battle Game
 
-item.rpg:slime_nugget=Slime Nugget
-item.rpg:sludgy_slasher=Sludgy Slasher
+item.the_battle_game:slime_nugget=Slime Nugget
+item.the_battle_game:sludgy_slasher=Sludgy Slasher
+item.the_battle_game:slingshot=Slingshot
 
-entity.rpg:quest_villager.name=NPC
-item.spawn_egg.entity.rpg:quest_villager.name=Place NPC
+entity.the_battle_game:quest_villager.name=NPC
+item.spawn_egg.entity.the_battle_game:quest_villager.name=Place NPC
 
-entity.rpg:slime.name=Slime
-item.spawn_egg.entity.rpg:slime.name=Spawn Slime
+entity.the_battle_game:slime.name=Slime
+item.spawn_egg.entity.the_battle_game:slime.name=Spawn Slime
 
-entity.rpg:tropical_slime.name=Tropical Slime
-item.spawn_egg.entity.rpg:tropical_slime.name=Spawn Tropical Slime
+entity.the_battle_game:tropical_slime.name=Tropical Slime
+item.spawn_egg.entity.the_battle_game:tropical_slime.name=Spawn Tropical Slime
 
-entity.rpg:king_jello.name=King Jello
-item.spawn_egg.entity.rpg:king_jello.name=Spawn King Jello
+entity.the_battle_game:king_jello.name=King Jello
+item.spawn_egg.entity.the_battle_game:king_jello.name=Spawn King Jello
 
-entity.rpg:plankton.name=Plankton
-item.spawn_egg.entity.rpg:plankton.name=Spawn Plankton
+entity.the_battle_game:plankton.name=Plankton
+item.spawn_egg.entity.the_battle_game:plankton.name=Spawn Plankton
 
-entity.rpg:pet_allay.name=Allay
-item.rpg:bottled_allay=Bottled Allay
+entity.the_battle_game:pet_allay.name=Allay
+item.the_battle_game:allay_bottle.name=Bottle of Allay
 
-entity.rpg:pet_wolf.name=Wolf
-item.rpg:loyal_bone=Loyal Bone
+entity.the_battle_game:pet_wolf.name=Wolf
+item.the_battle_game:loyal_bone=Loyal Bone
 
-entity.rpg:bootrap.name=Bootrap
-item.rpg:foreign_diamond=Foreign Diamond
+entity.the_battle_game:bootrap.name=Bootrap
+item.the_battle_game:otherworldly_diamond=Otherworldly Diamond
 
-item.spawn_egg.entity.rpg:mob_spawner.name=Spawn Mob Spawner
-entity.rpg:mob_spawner.name=Mob Spawner
+item.spawn_egg.entity.the_battle_game:mob_spawner.name=Spawn Mob Spawner
+entity.the_battle_game:mob_spawner.name=Mob Spawner

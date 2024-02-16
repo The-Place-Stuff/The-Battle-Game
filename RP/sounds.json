@@ -1,7 +1,7 @@
 {
     "entity_sounds": {
         "entities": {
-            "rpg:slime": {
+            "the_battle_game:slime": {
                 "volume": 1,
                 "pitch": 1,
                 "events": {
@@ -9,7 +9,7 @@
                     "death": "mob.slime.death"
                 }
             },
-            "rpg:tropical_slime": {
+            "the_battle_game:tropical_slime": {
                 "volume": 1,
                 "pitch": 1,
                 "events": {
@@ -17,7 +17,7 @@
                     "death": "mob.slime.death"
                 }
             },
-            "rpg:king_jello": {
+            "the_battle_game:king_jello": {
                 "volume": 1,
                 "pitch": 1,
                 "events": {
@@ -25,7 +25,7 @@
                     "death": "mob.slime.death"
                 }
             },
-            "rpg:pet_allay": {
+            "the_battle_game:pet_allay": {
                 "events": {
                     "ambient": "mob.allay.idle_holding",
                     "death": "mob.allay.death",
@@ -34,7 +34,7 @@
                 "pitch": [0.80, 1.20],
                 "volume": 1
             },
-            "rpg:pet_wolf": {
+            "the_battle_game:pet_wolf": {
                 "events": {
                     "ambient": "mob.wolf.bark",
                     "death": "mob.wolf.death",
@@ -61,14 +61,14 @@
                 ],
                 "volume": 1.0
             },
-            "rpg:pet_bootrap": {
+            "the_battle_game:pet_bootrap": {
                 "events": {
                     "ambient": "item.book.page_turn"
                 },
                 "pitch": 1,
                 "volume": 1
             },
-            "rpg:plankton": {
+            "the_battle_game:plankton": {
                 "events": {
                     "ambient": "mob.plankton.idle",
                     "hurt": "mob.plankton.hurt",

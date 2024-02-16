@@ -10,9 +10,9 @@ const dimension = world.getDimension("overworld")
 
 world.events.tick.subscribe(event => {
     tickCount = event.currentTick
-    for (let entity of dimension.getEntities({type : "rpg:mob_spawner"})) {
+    for (let entity of dimension.getEntities({type : "the_battle_game:mob_spawner"})) {
         addNightMobSpawn("minecraft:zombie", 200, entity)
-        addMobSpawn("rpg:meadow_slime", 200, entity)
+        addMobSpawn("the_battle_game:meadow_slime", 200, entity)
     }
 })
 
@@ -39,7 +39,7 @@ function addNightMobSpawn(mobId = "", frequency = 0, entity = dimension.spawnEnt
 // Gives the spawner entity 
 world.events.dataDrivenEntityTriggerEvent.subscribe(event => {
     const entity = event.entity
-    if (entity.typeId == "rpg:mob_spawner" && event.id == "minecraft:entity_spawned") {
+    if (entity.typeId == "the_battle_game:mob_spawner" && event.id == "minecraft:entity_spawned") {
         entity.addTag(createUUID())
         console.warn("Triggered")
         entity.setDynamicProperty("MobSpawnerCapacity", 5)
@@ -54,7 +54,7 @@ world.events.entityHurt.subscribe(event => {
     if (healthComponent.current <= 0) {
         const entityQueryOptions = {
             location : entity.location,
-            type : "rpg:mob_spawner"
+            type : "the_battle_game:mob_spawner"
         }
 
         for (let owner of dimension.getEntities(entityQueryOptions)) {

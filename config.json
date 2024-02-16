@@ -1,7 +1,7 @@
 {
 	"type": "minecraftBedrock",
 	"name": "The Battle Game",
-	"namespace": "rpg",
+	"namespace": "the_battle_game",
 	"authors": [
 		"ExDrill"
 	],
@@ -37,7 +37,7 @@
 			[
 				"simpleRewrite",
 				{
-					"packName": "RPG World"
+					"packName": "The Battle Game"
 				}
 			]
 		]

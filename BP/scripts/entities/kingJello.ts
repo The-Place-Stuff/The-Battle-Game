@@ -1,20 +1,20 @@
-import { world, Dimension, Player, Entity, Vector, Vector3 } from '@minecraft/server'
+import { world, Dimension, Player, Entity, Vector, Vector3, GameMode } from '@minecraft/server'
 
 world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
     const entity = event.entity
     const id = event.eventId
 
-    if (entity.typeId != 'rpg:king_jello') return
+    if (entity.typeId != 'the_battle_game:king_jello') return
     
-    if (id == 'rpg:perform_stomp_attack') {
+    if (id == 'the_battle_game:perform_stomp_attack') {
         performStompAttack(entity)
         return
     }
-    if (id == 'rpg:summon_minion') {
+    if (id == 'the_battle_game:summon_minion') {
         summonMinion(entity)
         return
     }
-    if (id == 'rpg:perform_knockback_roar') {
+    if (id == 'the_battle_game:perform_knockback_roar') {
         performKnockbackRoar(entity)
         return
     }
@@ -22,17 +22,22 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
 
 function performStompAttack(entity: Entity) {
     const dimension = entity.dimension
-    for (const target of getKnockbackTargets(entity.location, dimension)) {
+    for (const target of getKnockbackTargets(5, entity.location, dimension)) {
         const knockbackDir = getLaunchDirection(entity, target)
-        target.applyKnockback(knockbackDir.x, knockbackDir.z, 3, 0.5)
+        try {
+            target.applyKnockback(knockbackDir.x, knockbackDir.z, 6, 0.25)
+        }
+        catch {
+            console.warn(target.typeId)
+        }
     }
-    dimension.spawnParticle('rpg:stomp_emitter', { x: entity.location.x, y: entity.location.y + 0.5, z: entity.location.z})
+    dimension.spawnParticle('the_battle_game:stomp_emitter', { x: entity.location.x, y: entity.location.y + 0.5, z: entity.location.z})
     entity.runCommand('camerashake add @a[r=4] 0.1 0.5 rotational')
 }
 
 function summonMinion(entity: Entity) {
     const dimension = entity.dimension
-    const projectile = dimension.spawnEntity('rpg:falling_slime', {
+    const projectile = dimension.spawnEntity('the_battle_game:falling_slime', {
         x: entity.location.x,
         y: entity.location.y + 5,
         z: entity.location.z
@@ -58,10 +63,10 @@ function summonMinion(entity: Entity) {
 
 function performKnockbackRoar(entity: Entity) {
     const dimension = entity.dimension
-    for (const target of getKnockbackTargets(entity.location, dimension)) {
+    for (const target of getKnockbackTargets(7, entity.location, dimension)) {
         const knockbackDir = getLaunchDirection(entity, target)
         try {
-            target.applyKnockback(knockbackDir.x, knockbackDir.z, 3, 0.5)
+            target.applyKnockback(knockbackDir.x, knockbackDir.z, 6, 0.25)
         }
         catch {
             console.warn(target.typeId)
@@ -84,14 +89,18 @@ function getLaunchDirection(entity: Entity, target: Entity): Vector3 {
     return new Vector(target.location.x - entity.location.x, 0, target.location.z - entity.location.z).normalized()
 }
 
-function getKnockbackTargets(location: Vector3, dimension: Dimension) {
+function getKnockbackTargets(maxDistance: number, location: Vector3, dimension: Dimension) {
     return dimension.getEntities({
         location,
         excludeTypes: [
             'minecraft:arrow',
-            'rpg:falling_slime',
+            'the_battle_game:falling_slime',
             'minecraft:item'
         ],
-        maxDistance: 7
+        excludeGameModes: [
+            GameMode.creative,
+            GameMode.spectator
+        ],
+        maxDistance
     })
 }

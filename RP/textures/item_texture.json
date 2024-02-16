@@ -11,14 +11,17 @@
 		"sludgy_slasher": {
 			"textures": "textures/items/sludgy_slasher"
 		},
-		"bottled_allay": {
-			"textures": "textures/items/bottled_allay"
+		"slingshot": {
+			"textures": "textures/items/slingshot"
+		},
+		"allay_bottle": {
+			"textures": "textures/items/allay_bottle"
 		},
 		"loyal_bone": {
 			"textures": "textures/items/loyal_bone"
 		},
-		"foreign_diamond": {
-			"textures": "textures/items/foreign_diamond"
+		"otherworldly_diamond": {
+			"textures": "textures/items/otherworldly_diamond"
 		}
 	}
 }

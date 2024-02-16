@@ -2,15 +2,15 @@
   "format_version": "1.20.40",
   "minecraft:entity": {
     "description": {
-      "identifier": "rpg:pet_wolf",
+      "identifier": "the_battle_game:pet_wolf",
       "is_summonable": true,
       "is_spawnable": false
     },
     "component_groups": {
-      "rpg:instant_despawn": {
+      "the_battle_game:instant_despawn": {
         "minecraft:instant_despawn": {}
       },
-      "rpg:tamed_wolf": {
+      "the_battle_game:tamed_wolf": {
         "minecraft:is_tamed": {},
         "minecraft:color": {
           "value": 14
@@ -37,18 +37,10 @@
         "avoid_damage_blocks": true
       },
       "minecraft:movement.basic": {},
-      "minecraft:damage_sensor": {
-        "triggers": [
-          {
-            "cause": "all",
-            "deals_damage": false
-          }
-        ]
-      },
       "minecraft:jump.static": {},
       "minecraft:physics": {},
       "minecraft:pushable": {},
-
+      
       // Behaviors
       "minecraft:behavior.melee_attack": {
         "priority": 3
@@ -76,17 +68,17 @@
       }
     },
     "events": {
-      "rpg:instant_despawn": {
+      "the_battle_game:instant_despawn": {
         "add": {
           "component_groups": [
-            "rpg:instant_despawn"
+            "the_battle_game:instant_despawn"
           ]
         }
       },
-      "rpg:on_tame": {
+      "the_battle_game:on_tame": {
         "add": {
           "component_groups": [
-             "rpg:tamed_wolf"
+             "the_battle_game:tamed_wolf"
           ]
         }
       }

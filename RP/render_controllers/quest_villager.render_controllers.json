@@ -40,7 +40,7 @@
 			"geometry": "Geometry.default",
 			"materials": [{"*": "Material.masked"}],
 			"textures": [
-				"Array.biomes[query.property('rpg:biome_variant')]",
+				"Array.biomes[query.property('the_battle_game:biome_variant')]",
 				"Array.profession[query.variant]"
 			]
 		}

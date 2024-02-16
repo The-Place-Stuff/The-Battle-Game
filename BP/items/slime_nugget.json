@@ -2,7 +2,7 @@
 	"format_version": "1.19.40",
 	"minecraft:item": {
 		"description": {
-			"identifier": "rpg:slime_nugget"
+			"identifier": "the_battle_game:slime_nugget"
 		},
 		"components": {
 			"minecraft:food": {
@@ -10,7 +10,7 @@
 				"nutrition": 1,
 				"saturation_modifier": 0.05,
 				"on_consume": {
-					"event": "rpg:apply_regeneration",
+					"event": "the_battle_game:apply_regeneration",
 					"target": "self"
 				}
 			},
@@ -21,7 +21,7 @@
 			"minecraft:use_duration": 1.6
 		},
 		"events": {
-			"rpg:apply_regeneration": {
+			"the_battle_game:apply_regeneration": {
 				"add_mob_effect": {
 					"effect": "regeneration",
 					"duration": 10,

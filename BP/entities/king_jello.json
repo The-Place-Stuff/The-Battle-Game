@@ -2,11 +2,11 @@
 	"format_version": "1.19.40",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "rpg:king_jello",
+			"identifier": "the_battle_game:king_jello",
 			"is_summonable": true,
 			"is_spawnable": true,
 			"properties": {
-				"rpg:state": {
+				"the_battle_game:state": {
 					"client_sync": true,
 					"type": "enum",
 					"default": "none",
@@ -18,7 +18,7 @@
 						"roaring"
 					]
 				},
-				"rpg:second_phase": {
+				"the_battle_game:second_phase": {
 					"client_sync": true,
 					"type": "bool",
 					"default": false
@@ -26,6 +26,7 @@
 			},
 			"animations": {
 				"summon": "animation.king_jello.summon",
+				"rapid_summon": "animation.king_jello.rapid_summon",
 				"roar": "animation.king_jello.roar",
 				"leap_controller": "controller.animation.king_jello.leap",
 				"summon_controller": "controller.animation.king_jello.summon",
@@ -36,7 +37,7 @@
 			}
 		},
 		"component_groups": {
-			"rpg:leaping_state": {
+			"the_battle_game:leaping_state": {
 				"minecraft:movement": {
 					"value": 1.0
 				},
@@ -48,9 +49,22 @@
 				},
 				"minecraft:timer": {
 					"looping": true,
-					"time": [ 2, 10 ],
+					"random_time_choices": [
+						{
+							"value": 8,
+							"weight": 11
+						},
+						{
+							"value": 6,
+							"weight": 7
+						},
+						{
+							"value": 2,
+							"weight": 2
+						}
+					],
 					"time_down_event": {
-						"event": "rpg:switch_state",
+						"event": "the_battle_game:switch_state",
 						"filters": {
 							"all_of": [
 								{
@@ -66,7 +80,7 @@
 					}
 				}
 			},
-			"rpg:charging_state": {
+			"the_battle_game:charging_state": {
 				"minecraft:movement": {
 					"value": 2.25
 				},
@@ -80,12 +94,12 @@
 					"looping": true,
 					"time": 5,
 					"time_down_event": {
-						"event": "rpg:switch_state",
+						"event": "the_battle_game:switch_state",
 						"target": "self"
 					}
 				}
 			},
-			"rpg:summoning_state": {
+			"the_battle_game:summoning_state": {
 				"minecraft:movement": {
 					"value": 0.0
 				},
@@ -93,7 +107,7 @@
 					"jump_power": 0.0
 				}
 			},
-			"rpg:roaring_state": {
+			"the_battle_game:roaring_state": {
 				"minecraft:movement": {
 					"value": 0.0
 				},
@@ -101,7 +115,7 @@
 					"jump_power": 0.0
 				}
 			},
-			"rpg:movement_behaviors": {
+			"the_battle_game:movement_behaviors": {
 				"minecraft:behavior.slime_attack": {
 					"priority": 3,
 					"set_persistent": true
@@ -140,6 +154,9 @@
 			"minecraft:knockback_resistance": {
 				"value": 1.0
 			},
+			"minecraft:follow_range": {
+				"value": 256
+			},
 			"minecraft:boss": {
 				"hud_range": 256,
 				"name": "King Jello",
@@ -147,8 +164,8 @@
 			},
 			"minecraft:area_attack": {
 				"cause": "entity_attack",
-				"damage_range": 1,
-				"damage_per_tick": 4,
+				"damage_range": 0.5,
+				"damage_per_tick": 5,
 				"entity_filter": {
 					"test": "is_target",
 					"subject": "other"
@@ -167,11 +184,31 @@
 						"on_damage": {
 							"filters": {
 								"test": "enum_property",
-								"domain": "rpg:state",
+								"domain": "the_battle_game:state",
 								"value": "roaring"
 							}
 						},
 						"deals_damage": false
+					},
+					{
+						"cause": "all",
+						"on_damage": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "enum_property",
+										"domain": "the_battle_game:state",
+										"value": "summoning"
+									},
+									{
+										"test": "bool_property",
+										"domain": "the_battle_game:second_phase",
+										"value": true
+									}
+								]
+							}
+						},
+						"damage_multiplier": 0.5
 					},
 					{
 						"cause": "fall",
@@ -182,6 +219,10 @@
 						"damage_multiplier": 0.5
 					},
 					{
+						"cause": "projectile",
+						"damage_multiplier": 1.5
+					},
+					{
 						"cause": "magic",
 						"damage_multiplier": 0.5
 					}
@@ -190,7 +231,7 @@
 			"minecraft:environment_sensor": {
 				"triggers": [
 					{
-						"event": "rpg:switch_to_roaring_state",
+						"event": "the_battle_game:switch_to_roaring_state",
 						"filters": {
 							"all_of": [
 								{
@@ -200,12 +241,12 @@
 								},
 								{
 									"test": "bool_property",
-									"domain": "rpg:second_phase",
+									"domain": "the_battle_game:second_phase",
 									"value": false
 								},
 								{
 									"test": "enum_property",
-									"domain": "rpg:state",
+									"domain": "the_battle_game:state",
 									"operator": "not",
 									"value": "roaring"
 								},
@@ -223,6 +264,7 @@
 				"priority": 2,
 				"entity_types": [
 					{
+						"max_dist": 256,
 						"filters": {
 							"any_of": [
 								{
@@ -241,11 +283,10 @@
 									"value": "irongolem"
 								}
 							]
-						},
-						"max_dist": 256
+						}
 					}
 				],
-				"must_see": true,
+				"must_see": false,
 				"persist_time": 0
 			},
 			"minecraft:behavior.hurt_by_target": {
@@ -267,55 +308,76 @@
 		},
 		"events": {
 			"minecraft:entity_spawned": {
-				"trigger": "rpg:switch_to_leaping_state"
+				"trigger": "the_battle_game:switch_to_leaping_state"
 			},
-			"rpg:disable_ai": {
+			"the_battle_game:disable_ai": {
 				"remove": {
 					"component_groups": [
-						"rpg:leaping_state",
-						"rpg:charging_state",
-						"rpg:summoning_state",
-						"rpg:roaring_state",
-						"rpg:movement_behaviors"
+						"the_battle_game:leaping_state",
+						"the_battle_game:charging_state",
+						"the_battle_game:summoning_state",
+						"the_battle_game:roaring_state",
+						"the_battle_game:movement_behaviors"
 					]
 				},
 				"set_property": {
-					"rpg:state": "'none'"
+					"the_battle_game:state": "'none'"
 				}
 			},
-			"rpg:toggle_second_phase": {
+			"the_battle_game:toggle_second_phase": {
 				"set_property": {
-					"rpg:second_phase": "query.property('rpg:second_phase') == true ? false : true"
+					"the_battle_game:second_phase": "query.property('the_battle_game:second_phase') == true ? false : true"
 				}
 			},
-			"rpg:switch_state": {
+			"the_battle_game:switch_state": {
 				"sequence": [
 					{
-						"randomize": [
+						"sequence": [
 							{
 								"filters": {
-									"test": "bool_property",
-									"domain": "rpg:second_phase",
-									"value": true
+									"all_of": [
+										{
+											"test": "bool_property",
+											"domain": "the_battle_game:second_phase",
+											"value": true
+										},
+										{
+											"test": "target_distance",
+											"operator": ">=",
+											"value": 5
+										}
+									]
 								},
-								"trigger": "rpg:switch_to_charging_state",
-								"weight": 3
+								"trigger": "the_battle_game:switch_to_charging_state"
 							},
 							{
-								"trigger": "rpg:switch_to_summoning_state",
-								"weight": 2
+								"filters": {
+									"any_of": [
+										{
+											"test": "bool_property",
+											"domain": "the_battle_game:second_phase",
+											"value": false
+										},
+										{
+											"test": "target_distance",
+											"operator": "<",
+											"value": 5
+										}
+									]
+								},
+								"trigger": "the_battle_game:switch_to_summoning_state"
 							}
 						],
 						"filters": {
 							"test": "enum_property",
-							"domain": "rpg:state",
+							"domain": "the_battle_game:state",
 							"value": "leaping"
 						}
 					},
 					{
 						"randomize": [
 							{
-								"trigger": "rpg:switch_to_leaping_state",
+								"trigger": "the_battle_game:switch_to_leaping_state",
 								"weight": 2
 							},
 							{
@@ -323,95 +385,95 @@
 									"test": "on_ground",
 									"value": true
 								},
-								"trigger": "rpg:switch_to_summoning_state",
+								"trigger": "the_battle_game:switch_to_summoning_state",
 								"weight": 3
 							}
 						],
 						"filters": {
 							"test": "enum_property",
-							"domain": "rpg:state",
+							"domain": "the_battle_game:state",
 							"value": "charging"
 						}
 					}
 				]
 			},
-			"rpg:switch_to_leaping_state": {
+			"the_battle_game:switch_to_leaping_state": {
 				"add": {
 					"component_groups": [
-						"rpg:leaping_state",
-						"rpg:movement_behaviors"
+						"the_battle_game:leaping_state",
+						"the_battle_game:movement_behaviors"
 					]
 				},
 				"remove": {
 					"component_groups": [
-						"rpg:charging_state",
-						"rpg:summoning_state",
-						"rpg:roaring_state"
+						"the_battle_game:charging_state",
+						"the_battle_game:summoning_state",
+						"the_battle_game:roaring_state"
 					]
 				},
 				"set_property": {
-					"rpg:state": "'leaping'"
+					"the_battle_game:state": "'leaping'"
 				}
 			},
-			"rpg:switch_to_charging_state": {
+			"the_battle_game:switch_to_charging_state": {
 				"add": {
 					"component_groups": [
-						"rpg:charging_state",
-						"rpg:movement_behaviors"
+						"the_battle_game:charging_state",
+						"the_battle_game:movement_behaviors"
 					]
 				},
 				"remove": {
 					"component_groups": [
-						"rpg:leaping_state",
-						"rpg:summoning_state",
-						"rpg:roaring_state"
+						"the_battle_game:leaping_state",
+						"the_battle_game:summoning_state",
+						"the_battle_game:roaring_state"
 					]
 				},
 				"set_property": {
-					"rpg:state": "'charging'"
+					"the_battle_game:state": "'charging'"
 				}
 			},
-			"rpg:switch_to_summoning_state": {
+			"the_battle_game:switch_to_summoning_state": {
 				"add": {
 					"component_groups": [
-						"rpg:summoning_state"
+						"the_battle_game:summoning_state"
 					]
 				},
 				"remove": {
 					"component_groups": [
-						"rpg:leaping_state",
-						"rpg:charging_state",
-						"rpg:roaring_state",
-						"rpg:movement_behaviors"
+						"the_battle_game:leaping_state",
+						"the_battle_game:charging_state",
+						"the_battle_game:roaring_state",
+						"the_battle_game:movement_behaviors"
 					]
 				},
 				"set_property": {
-					"rpg:state": "'summoning'"
+					"the_battle_game:state": "'summoning'"
 				}
 			},
-			"rpg:switch_to_roaring_state": {
+			"the_battle_game:switch_to_roaring_state": {
 				"add": {
 					"component_groups": [
-						"rpg:roaring_state"
+						"the_battle_game:roaring_state"
 					]
 				},
 				"remove": {
 					"component_groups": [
-						"rpg:leaping_state",
-						"rpg:charging_state",
-						"rpg:summoning_state",
-						"rpg:movement_behaviors"
+						"the_battle_game:leaping_state",
+						"the_battle_game:charging_state",
+						"the_battle_game:summoning_state",
+						"the_battle_game:movement_behaviors"
 					]
 				},
 				"set_property": {
-					"rpg:state": "'roaring'"
+					"the_battle_game:state": "'roaring'"
 				}
 			},
 
 			// Scripted events
-			"rpg:perform_stomp_attack": {},
-			"rpg:summon_minion": {},
-			"rpg:perform_knockback_roar": {}
+			"the_battle_game:perform_stomp_attack": {},
+			"the_battle_game:summon_minion": {},
+			"the_battle_game:perform_knockback_roar": {}
 		}
 	}
 }

@@ -1,7 +1,7 @@
 import { Player, Vector3 } from '@minecraft/server'
-import { Volume } from './volume.js'
+import Volume from './volume.js'
 
-export class WarpVolume extends Volume {
+export default class WarpVolume extends Volume {
     private warpLocation: Vector3
 
     public constructor(warpLocation: Vector3, from: Vector3, to: Vector3) {

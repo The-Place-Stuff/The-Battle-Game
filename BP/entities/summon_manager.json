@@ -2,27 +2,27 @@
 	"format_version": "1.19.40",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "rpg:pet_summoner",
+			"identifier": "the_battle_game:summon_manager",
 			"is_summonable": true,
 			"is_spawnable": false,
 			"runtime_identifier": "minecraft:arrow"
 		},
 		"component_groups": {
-			"rpg:transform_into_allay": {
+			"the_battle_game:transform_into_allay": {
 				"minecraft:transformation": {
-					"into": "rpg:pet_allay<rpg:on_tame>",
+					"into": "the_battle_game:pet_allay<the_battle_game:on_tame>",
 					"keep_owner": true
 				}
 			},
-			"rpg:transform_into_wolf": {
+			"the_battle_game:transform_into_wolf": {
 				"minecraft:transformation": {
-					"into": "rpg:pet_wolf<rpg:on_tame>",
+					"into": "the_battle_game:pet_wolf<the_battle_game:on_tame>",
 					"keep_owner": true
 				}
 			},
-			"rpg:transform_into_bootrap": {
+			"the_battle_game:transform_into_bootrap": {
 				"minecraft:transformation": {
-					"into": "rpg:pet_bootrap<rpg:on_tame>",
+					"into": "the_battle_game:pet_bootrap<the_battle_game:on_tame>",
 					"keep_owner": true
 				}
 			}
@@ -31,24 +31,24 @@
 			"minecraft:projectile": {}
 		},
 		"events": {
-			"rpg:transform_into_allay": {
+			"the_battle_game:transform_into_allay": {
 				"add": {
 					"component_groups": [
-						"rpg:transform_into_allay"
+						"the_battle_game:transform_into_allay"
 					]
 				}
 			},
-			"rpg:transform_into_wolf": {
+			"the_battle_game:transform_into_wolf": {
 				"add": {
 					"component_groups": [
-						"rpg:transform_into_wolf"
+						"the_battle_game:transform_into_wolf"
 					]
 				}
 			},
-			"rpg:transform_into_bootrap": {
+			"the_battle_game:transform_into_bootrap": {
 				"add": {
 					"component_groups": [
-						"rpg:transform_into_bootrap"
+						"the_battle_game:transform_into_bootrap"
 					]
 				}
 			}

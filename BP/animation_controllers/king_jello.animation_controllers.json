@@ -13,7 +13,7 @@
 				},
 				"leap": {
 					"on_exit": [
-						"@s rpg:perform_stomp_attack"
+						"@s the_battle_game:perform_stomp_attack"
 					],
 					"transitions": [
 						{
@@ -29,7 +29,10 @@
 				"default": {
 					"transitions": [
 						{
-							"summoning": "query.property('rpg:state') == 'summoning'"
+							"summoning": "query.property('the_battle_game:state') == 'summoning' && query.property('the_battle_game:second_phase') == false"
+						},
+						{
+							"rapid_summoning": "query.property('the_battle_game:state') == 'summoning' && query.property('the_battle_game:second_phase') == true"
 						}
 					]
 				},
@@ -39,7 +42,17 @@
 					],
 					"transitions": [
 						{
-							"default": "query.property('rpg:state') != 'summoning'"
+							"default": "query.property('the_battle_game:state') != 'summoning'"
+						}
+					]
+				},
+				"rapid_summoning": {
+					"animations": [
+						"rapid_summon"
+					],
+					"transitions": [
+						{
+							"default": "query.property('the_battle_game:state') != 'summoning'"
 						}
 					]
 				}
@@ -51,7 +64,7 @@
 				"default": {
 					"transitions": [
 						{
-							"roaring": "query.property('rpg:state') == 'roaring' && query.property('rpg:second_phase') == false"
+							"roaring": "query.property('the_battle_game:state') == 'roaring' && query.property('the_battle_game:second_phase') == false"
 						}
 					]
 				},
@@ -61,7 +74,7 @@
 					],
 					"transitions": [
 						{
-							"default": "query.property('rpg:state') != 'roaring'"
+							"default": "query.property('the_battle_game:state') != 'roaring'"
 						}
 					]
 				}

@@ -2,11 +2,11 @@
 	"format_version": "1.19.40",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "rpg:quest_villager",
+			"identifier": "the_battle_game:quest_villager",
 			"is_summonable": true,
 			"is_spawnable": true,
 			"properties": {
-				"rpg:biome_variant": {
+				"the_battle_game:biome_variant": {
 					"client_sync": true,
 					"type": "int",
 					"default": 0,
@@ -18,7 +18,7 @@
 			}
 		},
 		"component_groups": {
-			"rpg:instant_despawn": {
+			"the_battle_game:instant_despawn": {
 				"minecraft:instant_despawn": {}
 			}
 		},
@@ -52,7 +52,7 @@
 					{
 						"swing": true,
 						"on_interact": {
-							"event": "rpg:switch_biome_variant",
+							"event": "the_battle_game:switch_biome_variant",
 							"filters": {
 								"all_of": [
 									{
@@ -73,7 +73,7 @@
 					{
 						"swing": true,
 						"on_interact": {
-							"event": "rpg:instant_despawn",
+							"event": "the_battle_game:instant_despawn",
 							"filters": {
 								"all_of": [
 									{
@@ -178,15 +178,15 @@
 			}
 		},
 		"events": {
-			"rpg:switch_biome_variant": {
+			"the_battle_game:switch_biome_variant": {
 				"set_property": {
-					"rpg:biome_variant": "query.property('rpg:biome_variant') < 6 ? query.property('rpg:biome_variant') + 1 : 0"
+					"the_battle_game:biome_variant": "query.property('the_battle_game:biome_variant') < 6 ? query.property('the_battle_game:biome_variant') + 1 : 0"
 				}
 			},
-			"rpg:instant_despawn": {
+			"the_battle_game:instant_despawn": {
 				"add": {
 					"component_groups": [
-						"rpg:instant_despawn"
+						"the_battle_game:instant_despawn"
 					]
 				}
 			}

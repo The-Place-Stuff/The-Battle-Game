@@ -2,12 +2,12 @@
 	"format_version": "1.20.60",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "rpg:tropical_slime",
+			"identifier": "the_battle_game:tropical_slime",
 			"is_summonable": true,
 			"is_spawnable": true
 		},
 		"component_groups": {
-			"rpg:calm_slime": {
+			"the_battle_game:calm_slime": {
 				"minecraft:movement": {
 					"value": 0.65
 				},
@@ -15,7 +15,7 @@
 					"jump_delay": [ 1, 1.2 ]
 				}
 			},
-			"rpg:aggressive_slime": {
+			"the_battle_game:aggressive_slime": {
 				"minecraft:movement": {
 					"value": 0.9
 				},
@@ -35,7 +35,7 @@
 				"minecraft:behavior.jump_to_block": {
 					"priority": 0,
 					"cooldown_range": [ 4, 6 ],
-					"minimum_distance": 2,
+					"minimum_distance": 1,
 					"minimum_path_length": 1,
 					"search_height": 15,
 					"search_width": 10,
@@ -132,11 +132,11 @@
 				"width": 0.5
 			},
 			"minecraft:on_target_acquired": {
-				"event": "rpg:become_aggressive",
+				"event": "the_battle_game:become_aggressive",
 				"target": "self"
 			},
 			"minecraft:on_target_escape": {
-				"event": "rpg:become_calm",
+				"event": "the_battle_game:become_calm",
 				"target": "self"
 			},
 			"minecraft:jump.static": {}
@@ -145,31 +145,31 @@
 			"minecraft:entity_spawned": {
 				"add": {
 					"component_groups": [
-						"rpg:calm_slime"
+						"the_battle_game:calm_slime"
 					]
 				}
 			},
-			"rpg:become_calm": {
+			"the_battle_game:become_calm": {
 				"add": {
 					"component_groups": [
-						"rpg:calm_slime"
+						"the_battle_game:calm_slime"
 					]
 				},
 				"remove": {
 					"component_groups": [
-						"rpg:aggressive_slime"
+						"the_battle_game:aggressive_slime"
 					]
 				}
 			},
-			"rpg:become_aggressive": {
+			"the_battle_game:become_aggressive": {
 				"add": {
 					"component_groups": [
-						"rpg:aggressive_slime"
+						"the_battle_game:aggressive_slime"
 					]
 				},
 				"remove": {
 					"component_groups": [
-						"rpg:calm_slime"
+						"the_battle_game:calm_slime"
 					]
 				}
 			}
