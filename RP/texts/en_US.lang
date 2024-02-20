@@ -21,7 +21,7 @@ entity.the_battle_game:plankton.name=Plankton
 item.spawn_egg.entity.the_battle_game:plankton.name=Spawn Plankton
 
 entity.the_battle_game:pet_allay.name=Allay
-item.the_battle_game:allay_bottle.name=Bottle of Allay
+item.the_battle_game:allay_bottle=Bottle of Allay
 
 entity.the_battle_game:pet_wolf.name=Wolf
 item.the_battle_game:loyal_bone=Loyal Bone
