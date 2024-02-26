@@ -1,0 +1,229 @@
+{
+	"format_version": "1.20.60",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "the_battle_game:knight_slime",
+			"is_summonable": true,
+			"is_spawnable": true,
+			"properties": {
+				"the_battle_game:state": {
+					"type": "enum",
+					"client_sync": true,
+					"default": "none",
+					"values": [
+						"none",
+						"chasing",
+						"guarding"
+					]
+				}
+			}
+		},
+		"component_groups": {
+			"the_battle_game:chasing": {
+				"minecraft:movement.jump": {
+					"jump_delay": [
+						0.15, 0.3
+					]
+				},
+				"minecraft:movement": {
+					"value": 0.6
+				},
+				"minecraft:jump.static": {
+					"jump_power": 0.3
+				}
+			},
+			"the_battle_game:guarding": {
+				"minecraft:movement.jump": {
+					"jump_delay": [
+						0.5, 1
+					]
+				},
+				"minecraft:movement": {
+					"value": 0.7
+				},
+				"minecraft:jump.static": {
+					"jump_power": 0.42
+				},
+				"minecraft:reflect_projectiles": {
+					"reflected_projectiles": [
+						"minecraft:arrow"
+					],
+					"azimuth_angle": "180.0 + Math.random(-20.0, 20.0)",
+					"reflection_scale": "0.25"
+				}
+			}
+		},
+		"components": {
+			"minecraft:health": {
+				"value": 30,
+				"max": 30
+			},
+			"minecraft:attack": {
+				"damage": 5
+			},
+			"minecraft:scale": {
+				"value": 1.5
+			},
+			"minecraft:collision_box": {
+				"height": 0.5,
+				"width": 0.5
+			},
+			"minecraft:type_family": {
+				"family": [
+					"slime",
+					"monster",
+					"mob"
+				]
+			},
+			"minecraft:physics": {},
+			"minecraft:navigation.walk": {
+				"avoid_water": true,
+				"can_path_over_water": true
+			},
+			"minecraft:persistent": {},
+			"minecraft:loot": {
+				"table": "loot_tables/mobs/slime.json"
+			},
+			"minecraft:can_climb": {},
+
+			// Sensors
+			"minecraft:environment_sensor": {
+				"triggers": [
+					{
+						"event": "the_battle_game:switch_to_chasing",
+						"filters": {
+							"all_of": [
+								{
+									"test": "target_distance",
+									"operator": "<",
+									"value": 3
+								},
+								{
+									"test": "enum_property",
+									"domain": "the_battle_game:state",
+									"value": "guarding"
+								}
+							]
+						}
+					},
+					{
+						"event": "the_battle_game:switch_to_guarding",
+						"filters": {
+							"all_of": [
+								{
+									"test": "target_distance",
+									"operator": ">=",
+									"value": 3
+								},
+								{
+									"test": "enum_property",
+									"domain": "the_battle_game:state",
+									"value": "chasing"
+								}
+							]
+						}
+					}
+				]
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "fall",
+						"damage_modifier": -20
+					},
+					{
+						"cause": "projectile",
+						"on_damage": {
+							"filters": {
+								"test": "has_component",
+								"value": "minecraft:reflect_projectiles"
+							}
+						},
+						"deals_damage": false
+					}
+				]
+			},
+			
+			
+			// Behaviors
+			"minecraft:behavior.slime_random_direction": {
+				"priority": 2,
+				"min_change_direction_time": 3,
+				"add_random_time_range": 2,
+				"turn_range": 360
+			},
+			"minecraft:behavior.slime_keep_on_jumping": {
+				"priority": 1,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.slime_attack": {
+				"priority": 0,
+				"speed_multiplier": 1.5,
+				"set_persistent": true
+			},
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 2,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "player"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "snowgolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "irongolem"
+								}
+							]
+						},
+						"max_dist": 16
+					}
+				],
+				"must_see": true
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"trigger": "the_battle_game:switch_to_guarding"
+			},
+			"the_battle_game:switch_to_chasing": {
+				"add": {
+					"component_groups": [
+						"the_battle_game:chasing"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"the_battle_game:guarding"
+					]
+				},
+				"set_property": {
+					"the_battle_game:state": "'chasing'"
+				}
+			},
+			"the_battle_game:switch_to_guarding": {
+				"add": {
+					"component_groups": [
+						"the_battle_game:guarding"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"the_battle_game:chasing"
+					]
+				},
+				"set_property": {
+					"the_battle_game:state": "'guarding'"
+				}
+			}
+		}
+	}
+}

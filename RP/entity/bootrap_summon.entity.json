@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"minecraft:client_entity": {
 		"description": {
-			"identifier": "the_battle_game:pet_bootrap",
+			"identifier": "the_battle_game:bootrap_summon",
 			"materials": {
 				"default": "entity_alphatest"
 			},

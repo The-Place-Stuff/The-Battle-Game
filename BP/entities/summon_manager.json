@@ -10,19 +10,19 @@
 		"component_groups": {
 			"the_battle_game:transform_into_allay": {
 				"minecraft:transformation": {
-					"into": "the_battle_game:pet_allay<the_battle_game:on_tame>",
+					"into": "the_battle_game:allay_summon<the_battle_game:on_tame>",
 					"keep_owner": true
 				}
 			},
 			"the_battle_game:transform_into_wolf": {
 				"minecraft:transformation": {
-					"into": "the_battle_game:pet_wolf<the_battle_game:on_tame>",
+					"into": "the_battle_game:wolf_summon<the_battle_game:on_tame>",
 					"keep_owner": true
 				}
 			},
 			"the_battle_game:transform_into_bootrap": {
 				"minecraft:transformation": {
-					"into": "the_battle_game:pet_bootrap<the_battle_game:on_tame>",
+					"into": "the_battle_game:bootrap_summon<the_battle_game:on_tame>",
 					"keep_owner": true
 				}
 			}

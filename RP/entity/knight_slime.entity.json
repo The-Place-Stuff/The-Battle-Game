@@ -1,0 +1,41 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "the_battle_game:knight_slime",
+      "materials": {
+        "default": "slime",
+        "outer": "slime_outer",
+        "helmet": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/knight_slime"
+      },
+      "geometry": {
+        "default": "geometry.revamped_slime",
+        "armor": "geometry.knight_slime.armor"
+      },
+      "animations": {
+        "jump": "animation.revamped_slime.jump",
+        "ground": "animation.revamped_slime.ground",
+        "controller": "controller.animation.revamped_slime"
+      },
+      "scripts": {
+        "animate": [
+          "controller"
+        ]
+      },
+      "sound_effects": {
+        "land": "mob.slime.small"
+      },
+      "render_controllers": [
+        "controller.render.knight_slime",
+        "controller.render.knight_slime_armor"
+      ],
+      "spawn_egg": {
+        "base_color": "#51A03E",
+        "overlay_color": "#64FF64"
+      }
+    }
+  }
+}

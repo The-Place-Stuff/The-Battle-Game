@@ -24,22 +24,22 @@ world.beforeEvents.itemUse.subscribe(async event => {
 world.afterEvents.itemUse.subscribe(async event => {
     const owner = event.source
     const stack = event.itemStack
-    const petID = owner.getDynamicProperty('the_battle_game:summon') as string
-    const newPetID = ITEM_TO_SUMMON.get(stack.typeId)
+    const summonId = owner.getDynamicProperty('the_battle_game:summon') as string
+    const newSummonId = ITEM_TO_SUMMON.get(stack.typeId)
 
     if (!ITEM_TO_SUMMON.has(stack.typeId)) return
 
-    if (newPetID == petID || petID != 'none') {
-        const currentPet = getSummon(owner, petID)
+    if (newSummonId == summonId || summonId != 'none') {
+        const summon = getSummon(owner, summonId)
 
-        if (!currentPet) {
+        if (!summon) {
             owner.setDynamicProperty('the_battle_game:summon', 'none')
             return
         }
-        currentPet.triggerEvent('the_battle_game:instant_despawn')
-        world.playSound(`mob.${petID}.despawn`, owner.location, { pitch: 1.0, volume: 1.0 })
+        summon.triggerEvent('the_battle_game:instant_despawn')
+        world.playSound(`mob.${summonId}.despawn`, owner.location, { pitch: 1.0, volume: 1.0 })
 
-        if (newPetID == petID) {
+        if (newSummonId == summonId) {
             owner.setDynamicProperty('the_battle_game:summon', 'none')
             if (owner.matches(cooldownCriteria)) {
                 owner.startItemCooldown('summon', 1200)
@@ -47,22 +47,7 @@ world.afterEvents.itemUse.subscribe(async event => {
             return
         }
     }
-    spawnPet(owner, newPetID)
-})
-
-/**
- * Asserts that a summon was spawned with a player's name, marking it as a summon.
- */
-world.afterEvents.entitySpawn.subscribe(event => {
-    if (event.cause != EntityInitializationCause.Event) return
-    const entity = event.entity
-    const players = world.getAllPlayers()
-
-    if (players.find(player => player.nameTag == entity.nameTag)) {
-        const ownerName = entity.nameTag
-        entity.nameTag = ''
-        entity.setDynamicProperty('the_battle_game:owner', ownerName)
-    }
+    createSummon(owner, newSummonId)
 })
 
 /**
@@ -70,8 +55,8 @@ world.afterEvents.entitySpawn.subscribe(event => {
  */
 world.afterEvents.entityDie.subscribe(event => {
     const entity = event.deadEntity
-    const players = world.getAllPlayers()
-    const owner = players.find(player => player.name == entity.getDynamicProperty('the_battle_game:owner'))
+    const owner = getOwner(entity)
+
     if (!owner) return
     owner.setDynamicProperty('the_battle_game:summon', 'none')
     if (owner.matches(cooldownCriteria)) {
@@ -80,28 +65,34 @@ world.afterEvents.entityDie.subscribe(event => {
 })
 
 /**
- * Looks for an entity with an owner.
- */
-function getSummon(owner: Player, petID: string): Entity {
-    const searchOptions: EntityQueryOptions = {
-        type: `the_battle_game:pet_${petID}`
-    }
-    const pets = owner.dimension.getEntities(searchOptions)
-    return pets.find(pet => pet.getDynamicProperty('the_battle_game:owner') == owner.name)
-}
-
-function getOwner()
-
-/**
  * Spawns in the summon manager and configures its owner and transforms into the correct summon.
  */
-function spawnPet(owner: Player, petID: string): void {
+function createSummon(owner: Player, summonId: string): void {
     const dimension = owner.dimension
-    const pet = dimension.spawnEntity('the_battle_game:summon_manager', owner.location)
-    const projectileComponent = pet.getComponent('minecraft:projectile')
+    const summonManager = dimension.spawnEntity('the_battle_game:summon_manager', owner.location)
+    const projectileComponent = summonManager.getComponent('minecraft:projectile')
     projectileComponent.owner = owner
 
-    pet.nameTag = owner.nameTag
-    pet.triggerEvent(`the_battle_game:transform_into_${petID}`)
-    owner.setDynamicProperty('the_battle_game:summon', petID)
+    summonManager.nameTag = `${owner.name}'s Summon`
+    summonManager.triggerEvent(`the_battle_game:transform_into_${summonId}`)
+    owner.setDynamicProperty('the_battle_game:summon', summonId)
+}
+
+/**
+ * Looks for the specified player's summon
+ */
+function getSummon(owner: Player, summonId: string): Entity {
+    const searchOptions: EntityQueryOptions = {
+        type: `the_battle_game:${summonId}_summon`
+    }
+    const summons = owner.dimension.getEntities(searchOptions)
+    return summons.find(summon => summon.nameTag.startsWith(owner.name))
+}
+
+/**
+ * Looks for the specified summon's owner
+ */
+function getOwner(summon: Entity): Player {
+    const players = world.getAllPlayers()
+    return players.find(player => summon.nameTag.startsWith(player.name))
 }

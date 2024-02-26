@@ -2,7 +2,7 @@
   "format_version": "1.20.40",
   "minecraft:entity": {
     "description": {
-      "identifier": "the_battle_game:pet_bootrap",
+      "identifier": "the_battle_game:allay_summon",
       "is_summonable": true,
       "is_spawnable": false
     },
@@ -10,7 +10,7 @@
       "the_battle_game:instant_despawn": {
         "minecraft:instant_despawn": {}
       },
-      "the_battle_game:tamed_bootrap": {
+      "the_battle_game:tamed_allay": {
         "minecraft:is_tamed": {}
       }
     },
@@ -23,22 +23,26 @@
         "value": 0.3
       },
       "minecraft:flying_speed": {
-        "value": 0.25
+        "value": 0.3
       },
       "minecraft:collision_box": {
-        "width": 0.6,
-        "height": 0.8
+        "width": 0.35,
+        "height": 0.6
+      },
+      "minecraft:inventory": {
+        "inventory_size": 1
       },
       "minecraft:damage_sensor": {
-        "triggers": [
-          {
-            "cause": "all",
-            "deals_damage": false
-          }
-        ]
-      },
-      "minecraft:follow_range": {
-        "value": 1024
+        "triggers": {
+          "on_damage": {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            }
+          },
+          "deals_damage": false
+        }
       },
       "minecraft:navigation.hover": {
         "can_path_over_water": true,
@@ -50,6 +54,25 @@
         "avoid_sun": false
       },
       "minecraft:movement.hover": {},
+      "minecraft:follow_range": {
+        "value": 1024
+      },
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "on_interact": {
+              "filters": {
+                "test": "is_owner",
+                "subject": "other",
+                "value": true
+              }
+            },
+            "swing": true,
+            "give_item": true,
+            "take_item": true
+          }
+        ]
+      },
       "minecraft:jump.static": {},
       "minecraft:can_fly": {},
       "minecraft:physics": {
@@ -62,7 +85,7 @@
         "priority": 1,
         "start_distance": 3,
         "stop_distance": 2,
-        "can_teleport": false
+        "can_teleport": true
       }
     },
     "events": {
@@ -76,7 +99,7 @@
       "the_battle_game:on_tame": {
         "add": {
           "component_groups": [
-             "the_battle_game:tamed_bootrap"
+            "the_battle_game:tamed_allay"
           ]
         }
       }

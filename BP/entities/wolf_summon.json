@@ -2,7 +2,7 @@
   "format_version": "1.20.40",
   "minecraft:entity": {
     "description": {
-      "identifier": "the_battle_game:pet_wolf",
+      "identifier": "the_battle_game:wolf_summon",
       "is_summonable": true,
       "is_spawnable": false
     },
@@ -40,6 +40,18 @@
       "minecraft:jump.static": {},
       "minecraft:physics": {},
       "minecraft:pushable": {},
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "on_damage": {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            }
+          },
+          "deals_damage": false
+        }
+      },
       
       // Behaviors
       "minecraft:behavior.melee_attack": {

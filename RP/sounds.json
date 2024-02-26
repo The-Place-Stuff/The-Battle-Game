@@ -25,7 +25,7 @@
                     "death": "mob.slime.death"
                 }
             },
-            "the_battle_game:pet_allay": {
+            "the_battle_game:allay_summon": {
                 "events": {
                     "ambient": "mob.allay.idle_holding",
                     "death": "mob.allay.death",
@@ -34,7 +34,7 @@
                 "pitch": [0.80, 1.20],
                 "volume": 1
             },
-            "the_battle_game:pet_wolf": {
+            "the_battle_game:wolf_summon": {
                 "events": {
                     "ambient": "mob.wolf.bark",
                     "death": "mob.wolf.death",
@@ -61,7 +61,7 @@
                 ],
                 "volume": 1.0
             },
-            "the_battle_game:pet_bootrap": {
+            "the_battle_game:bootrap_summon": {
                 "events": {
                     "ambient": "item.book.page_turn"
                 },
