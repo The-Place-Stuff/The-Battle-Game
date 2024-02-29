@@ -14,6 +14,9 @@ item.spawn_egg.entity.the_battle_game:slime.name=Spawn Slime
 entity.the_battle_game:tropical_slime.name=Tropical Slime
 item.spawn_egg.entity.the_battle_game:tropical_slime.name=Spawn Tropical Slime
 
+entity.the_battle_game:knight_slime.name=Knight Slime
+item.spawn_egg.entity.the_battle_game:knight_slime.name=Spawn Knight Slime
+
 entity.the_battle_game:king_jello.name=King Jello
 item.spawn_egg.entity.the_battle_game:king_jello.name=Spawn King Jello
 
