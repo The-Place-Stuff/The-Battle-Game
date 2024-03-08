@@ -2,26 +2,22 @@
 	"format_version": "1.19.40",
 	"minecraft:item": {
 		"description": {
-			"identifier": "the_battle_game:allay_bottle"
+			"identifier": "battle:allay_bottle"
 		},
 		"components": {
 			"minecraft:max_stack_size": 1,
 			"minecraft:icon": {
 				"texture": "allay_bottle"
 			},
-			"minecraft:on_use": {
-				"on_use": {
-					"event": "swing",
+			"minecraft:on_use_on": {
+				"on_use_on": {
+					"event": "battle:swing_hand",
 					"target": "self"
 				}
-			},
-			"minecraft:cooldown": {
-				"category": "summon",
-				"duration": 1
 			}
 		},
 		"events": {
-			"swing": {
+			"battle:swing_hand": {
 				"swing": {}
 			}
 		}

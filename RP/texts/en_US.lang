@@ -1,36 +1,34 @@
 pack.name=The Battle Game Resources
 pack.description=Resources for The Battle Game
 
-item.the_battle_game:slime_nugget=Slime Nugget
-item.the_battle_game:sludgy_slasher=Sludgy Slasher
-item.the_battle_game:slingshot=Slingshot
+entity.battle:quest_villager.name=NPC
+item.spawn_egg.entity.battle:quest_villager.name=Spawn NPC
 
-entity.the_battle_game:quest_villager.name=NPC
-item.spawn_egg.entity.the_battle_game:quest_villager.name=Place NPC
+## Items
+item.battle:sludge_slasher=Sludge Slasher
+item.battle:allay_bottle=Bottle of Allay
+item.battle:loyal_bone=Loyal Bone
+item.battle:otherworldly_diamond=Otherworldly Diamond
+item.battle:hammer=Hammer
 
-entity.the_battle_game:slime.name=Slime
-item.spawn_egg.entity.the_battle_game:slime.name=Spawn Slime
+item.battle:quiver=Quiver
+item.battle:quiver.desc=Increases the accuracy and damage of arrows
 
-entity.the_battle_game:tropical_slime.name=Tropical Slime
-item.spawn_egg.entity.the_battle_game:tropical_slime.name=Spawn Tropical Slime
+item.battle:cactus_hat=Cactus Hat
+item.battle:cactus_hat.desc=Attackers will receive 4 damage
 
-entity.the_battle_game:knight_slime.name=Knight Slime
-item.spawn_egg.entity.the_battle_game:knight_slime.name=Spawn Knight Slime
+item.spawn_egg.entity.battle:slime.name=Spawn Slime
+item.spawn_egg.entity.battle:tropical_slime.name=Spawn Tropical Slime
+item.spawn_egg.entity.battle:king_jello.name=Spawn King Jello
+item.spawn_egg.entity.battle:plankton.name=Spawn Plankton
+item.spawn_egg.entity.battle:villager_npc.name=Spawn Villager NPC
 
-entity.the_battle_game:king_jello.name=King Jello
-item.spawn_egg.entity.the_battle_game:king_jello.name=Spawn King Jello
-
-entity.the_battle_game:plankton.name=Plankton
-item.spawn_egg.entity.the_battle_game:plankton.name=Spawn Plankton
-
-entity.the_battle_game:pet_allay.name=Allay
-item.the_battle_game:allay_bottle=Bottle of Allay
-
-entity.the_battle_game:pet_wolf.name=Wolf
-item.the_battle_game:loyal_bone=Loyal Bone
-
-entity.the_battle_game:bootrap.name=Bootrap
-item.the_battle_game:otherworldly_diamond=Otherworldly Diamond
-
-item.spawn_egg.entity.the_battle_game:mob_spawner.name=Spawn Mob Spawner
-entity.the_battle_game:mob_spawner.name=Mob Spawner
+## Entities
+entity.battle:slime.name=Slime
+entity.battle:tropical_slime.name=Tropical Slime
+entity.battle:king_jello.name=King Jello
+entity.battle:plankton.name=Plankton
+entity.battle:allay.name=Allay
+entity.battle:wolf.name=Wolf
+entity.battle:bootrap.name=Bootrap
+entity.battle:villager_npc.name=Villager NPC

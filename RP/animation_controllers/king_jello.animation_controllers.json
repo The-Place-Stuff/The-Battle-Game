@@ -39,10 +39,10 @@
 				"default": {
 					"transitions": [
 						{
-							"summoning": "query.property('the_battle_game:state') == 'summoning' && query.property('the_battle_game:second_phase') == false"
+							"summoning": "query.property('battle:state') == 'summoning' && query.property('battle:second_phase') == false"
 						},
 						{
-							"rapid_summoning": "query.property('the_battle_game:state') == 'summoning' && query.property('the_battle_game:second_phase') == true"
+							"rapid_summoning": "query.property('battle:state') == 'summoning' && query.property('battle:second_phase') == true"
 						}
 					]
 				},
@@ -52,7 +52,7 @@
 					],
 					"transitions": [
 						{
-							"default": "query.property('the_battle_game:state') != 'summoning'"
+							"default": "query.property('battle:state') != 'summoning'"
 						}
 					]
 				},
@@ -62,7 +62,7 @@
 					],
 					"transitions": [
 						{
-							"default": "query.property('the_battle_game:state') != 'summoning'"
+							"default": "query.property('battle:state') != 'summoning'"
 						}
 					]
 				}
@@ -74,7 +74,7 @@
 				"default": {
 					"transitions": [
 						{
-							"roaring": "query.property('the_battle_game:state') == 'roaring'"
+							"roaring": "query.property('battle:state') == 'roaring'"
 						}
 					]
 				},
@@ -84,7 +84,7 @@
 					],
 					"transitions": [
 						{
-							"default": "query.property('the_battle_game:state') != 'roaring'"
+							"default": "query.property('battle:state') != 'roaring'"
 						}
 					]
 				}

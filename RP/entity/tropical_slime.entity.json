@@ -2,7 +2,7 @@
   "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
-      "identifier": "the_battle_game:tropical_slime",
+      "identifier": "battle:tropical_slime",
       "materials": {
         "default": "tropical_slime",
         "outer": "slime_outer"

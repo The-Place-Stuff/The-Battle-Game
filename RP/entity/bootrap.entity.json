@@ -1,0 +1,31 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "battle:bootrap",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/bootrap"
+			},
+			"geometry": {
+				"default": "geometry.bootrap"
+			},
+			"animations": {
+				"controller": "controller.animation.bootrap",
+				"idle": "animation.bootrap.idle",
+				"move": "animation.bootrap.move",
+				"look_at_target": "animation.bootrap.look_at_target"
+			},
+			"scripts": {
+				"animate": [
+					"controller"
+				]
+			},
+			"render_controllers": [
+				"controller.render.default"
+			]
+		}
+	}
+}

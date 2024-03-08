@@ -1,11 +1,11 @@
 {
 	"type": "minecraftBedrock",
 	"name": "The Battle Game",
-	"namespace": "the_battle_game",
+	"namespace": "battle",
 	"authors": [
 		"ExDrill"
 	],
-	"targetVersion": "1.20.60",
+	"targetVersion": "1.20.80",
 	"description": "",
 	"experimentalGameplay": {
 		"holidayCreatorFeatures": true,

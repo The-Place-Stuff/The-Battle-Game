@@ -1,0 +1,34 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:attachable": {
+        "description": {
+            "identifier": "battle:hammer",
+            "textures": {
+                "default": "textures/entity/hammer"
+            },
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "geometry": {
+                "default": "geometry.hammer"
+            },
+            "animations": {
+                "first_person": "animation.hammer.first_person",
+                "third_person": "animation.hammer.third_person"
+            },
+            "scripts": {
+                "animate": [
+                    {
+                        "first_person": "c.is_first_person"
+                    },
+                    {
+                        "third_person": "!c.is_first_person"
+                    }
+                ]
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ]
+        }
+    }
+}

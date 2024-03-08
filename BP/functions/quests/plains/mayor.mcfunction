@@ -1,1 +1,0 @@
-tellraw @s[tag=quests_plains_mayor] {"rawtext":[{"text":"§4You have already completed this quest!"}]}

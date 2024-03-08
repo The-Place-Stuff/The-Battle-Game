@@ -2,14 +2,17 @@
 	"resource_pack_name": "RPG World",
 	"texture_name": "atlas.items",
 	"texture_data": {
-		"place_npc": {
-			"textures": "textures/items/place_npc"
+		"sludge_slasher": {
+			"textures": "textures/items/sludge_slasher"
 		},
-		"slime_nugget": {
-			"textures": "textures/items/slime_nugget"
+		"hammer": {
+			"textures": "textures/items/hammer"
 		},
-		"sludgy_slasher": {
-			"textures": "textures/items/sludgy_slasher"
+		"quiver": {
+			"textures": "textures/items/quiver"
+		},
+		"cactus_hat": {
+			"textures": "textures/items/cactus_hat"
 		},
 		"slingshot": {
 			"textures": "textures/items/slingshot"

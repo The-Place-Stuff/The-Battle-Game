@@ -8,7 +8,7 @@
       "is_experimental": false
     },
     "component_groups": {
-      "the_battle_game:instant_despawn": {
+      "battle:instant_despawn": {
         "minecraft:instant_despawn": {}
       }
     },
@@ -48,12 +48,12 @@
     },
     "events": {
       "minecraft:entity_spawned": {
-        "trigger": "the_battle_game:instant_despawn"
+        "trigger": "battle:instant_despawn"
       },
-      "the_battle_game:instant_despawn": {
+      "battle:instant_despawn": {
         "add": {
           "component_groups": [
-            "the_battle_game:instant_despawn"
+            "battle:instant_despawn"
           ]
         }
       }

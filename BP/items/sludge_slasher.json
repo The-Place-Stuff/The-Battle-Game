@@ -1,0 +1,25 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:item": {
+		"description": {
+			"identifier": "battle:sludge_slasher"
+		},
+		"components": {
+			"minecraft:icon": {
+				"texture": "sludge_slasher"
+			},
+			"minecraft:damage": 4,
+			"minecraft:hand_equipped": true,
+			"minecraft:can_destroy_in_creative": false,
+			"minecraft:render_offsets": {
+				"main_hand": {
+					"third_person": {
+						"position": [ 0.2, 1.3, -0.5 ]
+					}
+				}
+			},
+			"minecraft:max_stack_size": 1,
+			"minecraft:weapon": {}
+		}
+	}
+}

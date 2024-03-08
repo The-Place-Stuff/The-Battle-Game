@@ -2,7 +2,7 @@
   "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
-      "identifier": "the_battle_game:falling_slime",
+      "identifier": "battle:falling_slime",
       "materials": {
         "default": "slime",
         "outer": "slime_outer"

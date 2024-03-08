@@ -2,12 +2,12 @@
 	"format_version": "1.20.60",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "the_battle_game:tropical_slime",
+			"identifier": "battle:tropical_slime",
 			"is_summonable": true,
 			"is_spawnable": true
 		},
 		"component_groups": {
-			"the_battle_game:calm_slime": {
+			"battle:calm_slime": {
 				"minecraft:movement": {
 					"value": 0.65
 				},
@@ -15,7 +15,7 @@
 					"jump_delay": [ 1, 1.2 ]
 				}
 			},
-			"the_battle_game:aggressive_slime": {
+			"battle:aggressive_slime": {
 				"minecraft:movement": {
 					"value": 0.9
 				},
@@ -64,7 +64,7 @@
 				"on_death": "query.last_hit_by_player ? 1 : 0"
 			},
 			"minecraft:loot": {
-				"table": "loot_tables/mobs/slime.json"
+				"table": "loot_tables/entities/slime.json"
 			},
 			"minecraft:damage_sensor": {
 				"triggers": {
@@ -132,11 +132,11 @@
 				"width": 0.5
 			},
 			"minecraft:on_target_acquired": {
-				"event": "the_battle_game:become_aggressive",
+				"event": "battle:become_aggressive",
 				"target": "self"
 			},
 			"minecraft:on_target_escape": {
-				"event": "the_battle_game:become_calm",
+				"event": "battle:become_calm",
 				"target": "self"
 			},
 			"minecraft:jump.static": {}
@@ -145,31 +145,31 @@
 			"minecraft:entity_spawned": {
 				"add": {
 					"component_groups": [
-						"the_battle_game:calm_slime"
+						"battle:calm_slime"
 					]
 				}
 			},
-			"the_battle_game:become_calm": {
+			"battle:become_calm": {
 				"add": {
 					"component_groups": [
-						"the_battle_game:calm_slime"
+						"battle:calm_slime"
 					]
 				},
 				"remove": {
 					"component_groups": [
-						"the_battle_game:aggressive_slime"
+						"battle:aggressive_slime"
 					]
 				}
 			},
-			"the_battle_game:become_aggressive": {
+			"battle:become_aggressive": {
 				"add": {
 					"component_groups": [
-						"the_battle_game:aggressive_slime"
+						"battle:aggressive_slime"
 					]
 				},
 				"remove": {
 					"component_groups": [
-						"the_battle_game:calm_slime"
+						"battle:calm_slime"
 					]
 				}
 			}

@@ -2,26 +2,22 @@
 	"format_version": "1.19.40",
 	"minecraft:item": {
 		"description": {
-			"identifier": "the_battle_game:otherworldly_diamond"
+			"identifier": "battle:otherworldly_diamond"
 		},
 		"components": {
 			"minecraft:max_stack_size": 1,
 			"minecraft:icon": {
 				"texture": "otherworldly_diamond"
 			},
-			"minecraft:on_use": {
-				"on_use": {
-					"event": "swing",
+			"minecraft:on_use_on": {
+				"on_use_on": {
+					"event": "battle:swing_hand",
 					"target": "self"
 				}
-			},
-			"minecraft:cooldown": {
-				"category": "summon",
-				"duration": 1
 			}
 		},
 		"events": {
-			"swing": {
+			"battle:swing_hand": {
 				"swing": {}
 			}
 		}

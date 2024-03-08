@@ -1,0 +1,57 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "battle:summon_manager",
+			"is_summonable": true,
+			"is_spawnable": false,
+			"runtime_identifier": "minecraft:arrow"
+		},
+		"component_groups": {
+			"battle:transform_into_allay": {
+				"minecraft:transformation": {
+					"into": "battle:allay<battle:on_tame>",
+					"keep_owner": true
+				}
+			},
+			"battle:transform_into_wolf": {
+				"minecraft:transformation": {
+					"into": "battle:wolf<battle:on_tame>",
+					"keep_owner": true
+				}
+			},
+			"battle:transform_into_bootrap": {
+				"minecraft:transformation": {
+					"into": "battle:bootrap<battle:on_tame>",
+					"keep_owner": true
+				}
+			}
+		},
+		"components": {
+			"minecraft:projectile": {}
+		},
+		"events": {
+			"battle:transform_into_allay": {
+				"add": {
+					"component_groups": [
+						"battle:transform_into_allay"
+					]
+				}
+			},
+			"battle:transform_into_wolf": {
+				"add": {
+					"component_groups": [
+						"battle:transform_into_wolf"
+					]
+				}
+			},
+			"battle:transform_into_bootrap": {
+				"add": {
+					"component_groups": [
+						"battle:transform_into_bootrap"
+					]
+				}
+			}
+		}
+	}
+}

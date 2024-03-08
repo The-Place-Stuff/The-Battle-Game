@@ -2,12 +2,12 @@
 	"format_version": "1.20.60",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "the_battle_game:slime",
+			"identifier": "battle:slime",
 			"is_summonable": true,
 			"is_spawnable": true
 		},
 		"component_groups": {
-			"the_battle_game:calm_slime": {
+			"battle:calm_slime": {
 				"minecraft:movement": {
 					"value": 0.5
 				},
@@ -15,7 +15,7 @@
 					"jump_delay": [ 1, 1.2 ]
 				}
 			},
-			"the_battle_game:aggressive_slime": {
+			"battle:aggressive_slime": {
 				"minecraft:movement": {
 					"value": 0.9
 				},
@@ -33,10 +33,13 @@
 					}
 				}
 			},
-			"the_battle_game:from_king_jello": {
+			"battle:from_king_jello": {
 				"minecraft:health": {
-					"value": 6,
-					"max": 6
+					"value": 7,
+					"max": 7
+				},
+				"minecraft:loot": {
+					"table": "loot_tables/empty.json"
 				}
 			}
 		},
@@ -51,17 +54,40 @@
 			"minecraft:scale": {
 				"value": 1.5
 			},
-			"minecraft:physics": {},
-			"minecraft:navigation.walk": {
-				"avoid_water": true,
-				"can_path_over_water": true
+			"minecraft:type_family": {
+				"family": [
+					"slime",
+					"monster",
+					"mob"
+				]
 			},
-			"minecraft:persistent": {},
+			"minecraft:collision_box": {
+				"height": 0.5,
+				"width": 0.5
+			},
 			"minecraft:experience_reward": {
 				"on_death": "query.last_hit_by_player ? 1 : 0"
 			},
 			"minecraft:loot": {
-				"table": "loot_tables/mobs/slime.json"
+				"table": "loot_tables/entities/slime.json"
+			},
+			
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"breathes_air": true,
+				"breathes_water": false
+			},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 4
+					}
+				]
 			},
 			"minecraft:damage_sensor": {
 				"triggers": {
@@ -69,7 +95,22 @@
 					"damage_modifier": -20
 				}
 			},
-			"minecraft:can_climb": {},
+			"minecraft:on_target_acquired": {
+				"event": "battle:become_aggressive",
+				"target": "self"
+			},
+			"minecraft:on_target_escape": {
+				"event": "battle:become_calm",
+				"target": "self"
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 1
+			},
+			"minecraft:behavior.slime_float": {
+				"priority": 1,
+				"jump_chance_percentage": 0.8,
+				"speed_multiplier": 1.2
+			},
 			"minecraft:behavior.nearest_attackable_target": {
 				"priority": 2,
 				"entity_types": [
@@ -98,18 +139,6 @@
 				],
 				"must_see": true
 			},
-			"minecraft:type_family": {
-				"family": [
-					"slime",
-					"monster",
-					"mob"
-				]
-			},
-			"minecraft:behavior.slime_float": {
-				"priority": 1,
-				"jump_chance_percentage": 0.8,
-				"speed_multiplier": 1.2
-			},
 			"minecraft:behavior.slime_attack": {
 				"priority": 3,
 				"set_persistent": true
@@ -124,56 +153,54 @@
 				"priority": 5,
 				"speed_multiplier": 1.0
 			},
-			"minecraft:collision_box": {
-				"height": 0.5,
-				"width": 0.5
+			"minecraft:navigation.walk": {
+				"avoid_water": true,
+				"can_path_over_water": true
 			},
-			"minecraft:on_target_acquired": {
-				"event": "the_battle_game:become_aggressive",
-				"target": "self"
-			},
-			"minecraft:on_target_escape": {
-				"event": "the_battle_game:become_calm",
-				"target": "self"
-			},
-			"minecraft:jump.static": {}
+			"minecraft:jump.static": {},
+			"minecraft:nameable": {},
+			"minecraft:pushable": {},
+			"minecraft:physics": {},
+			"minecraft:persistent": {},
+			"minecraft:can_climb": {},
+			"minecraft:is_hidden_when_invisible": {}
 		},
 		"events": {
 			"minecraft:entity_spawned": {
 				"add": {
 					"component_groups": [
-						"the_battle_game:calm_slime"
+						"battle:calm_slime"
 					]
 				}
 			},
-			"the_battle_game:from_king_jello": {
+			"battle:from_king_jello": {
 				"add": {
 					"component_groups": [
-						"the_battle_game:from_king_jello"
+						"battle:from_king_jello"
 					]
 				}
 			},
-			"the_battle_game:become_calm": {
+			"battle:become_calm": {
 				"add": {
 					"component_groups": [
-						"the_battle_game:calm_slime"
+						"battle:calm_slime"
 					]
 				},
 				"remove": {
 					"component_groups": [
-						"the_battle_game:aggressive_slime"
+						"battle:aggressive_slime"
 					]
 				}
 			},
-			"the_battle_game:become_aggressive": {
+			"battle:become_aggressive": {
 				"add": {
 					"component_groups": [
-						"the_battle_game:aggressive_slime"
+						"battle:aggressive_slime"
 					]
 				},
 				"remove": {
 					"component_groups": [
-						"the_battle_game:calm_slime"
+						"battle:calm_slime"
 					]
 				}
 			}

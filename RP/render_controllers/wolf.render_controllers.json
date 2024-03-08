@@ -1,0 +1,28 @@
+{
+    "format_version": "1.10.0",
+    "render_controllers": {
+        "controller.render.revamped_wolf": {
+            "arrays": {
+                "textures": {
+                    "Array.variants": [
+                        "Texture.pale",
+                        "Texture.ashen",
+                        "Texture.black",
+                        "Texture.chestnut",
+                        "Texture.rusty",
+                        "Texture.snowy",
+                        "Texture.spotted",
+                        "Texture.striped",
+                        "Texture.woods"
+                    ]
+                }
+            },
+            "geometry": "Geometry.default",
+            "materials": [{"*": "Material.default"}],
+            "textures": [
+                "Array.variants[query.variant]",
+                "Texture.collar"
+            ]
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:attachable": {
+		"description": {
+			"identifier": "battle:cactus_hat",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/cactus_hat"
+			},
+			"geometry": {
+				"default": "geometry.cactus_hat"
+			},
+			"animations": {
+				"scale": "animation.helmet.scale"
+			},
+			"scripts": {
+				"animate": [
+					"scale"
+				]
+			},
+			"render_controllers": [
+				"controller.render.default"
+			]
+		}
+	}
+}
