@@ -1,6 +1,6 @@
-import { StructureRotation, Vector3, Dimension } from '@minecraft/server'
+import { system, StructureRotation, Vector3, Dimension } from '@minecraft/server'
 import { Vector3d, VectorUtils } from '../utils/vector_utils'
-import Decorator from './decorators/decorator'
+import PlacedDecorator from './decorators/placed_decorator'
 import Random from '../utils/random_utils'
 
 const rotationMap: Map<StructureRotation, string> = new Map([
@@ -14,10 +14,10 @@ const random = new Random(100)
 export default class Tile {
     private readonly location: string
     private readonly rotation: StructureRotation
-    private readonly decorators: Decorator[]
+    private readonly decorators: PlacedDecorator[]
     private readonly heightmap: Vector3[]
     
-    public constructor(location: string, rotation: StructureRotation, decorators: Decorator[]) {
+    public constructor(location: string, rotation: StructureRotation, decorators: PlacedDecorator[]) {
         this.location = location
         this.rotation = rotation
         this.decorators = decorators
@@ -29,8 +29,8 @@ export default class Tile {
         const tileEnd = VectorUtils.add(tileStart, new Vector3d(15, 0, 15))
 
         dimension.runCommand(`structure load "${this.location}" ${tileStart.x} ${tileStart.y} ${tileStart.z} ${this.getRotation()}`)
-        this.scanHeightmap(dimension, tileStart, tileEnd)
-        this.placeDecorators(dimension, random, tileStart)
+        system.runTimeout(() => this.scanHeightmap(dimension, tileStart, tileEnd), 2)
+        system.runTimeout(() => this.placeDecorators(dimension, random, tileStart), 4)
     }
 
     private scanHeightmap(dimension: Dimension, tileStart: Vector3, tileEnd: Vector3) {
@@ -49,25 +49,17 @@ export default class Tile {
 
     public placeDecorators(dimension: Dimension, random: Random, tileStart: Vector3) {
         for (const decorator of this.decorators) {
-            const options = decorator.options
-            
-            for (let i = 0; i < options.count; i++) {
-                const spread = new Vector3d(random.nextInt(options.spread.x), 0, random.nextInt(options.spread.z))
-                let origin = VectorUtils.add(tileStart, spread)
-                origin = this.getSurfacePos(origin)
-                origin = VectorUtils.add(origin, new Vector3d(0, 1, 0))
-
-                if (decorator.canPlace(dimension, random, origin)) {
-                    try {
-                        decorator.place(dimension, random, origin)
-                    }
-                    catch {}
-                }
+            try {
+                decorator.place(this, dimension, random, tileStart)
             }
+            catch (error) {
+                console.warn(error)
+            }
+            
         }
     }
     
-    private getSurfacePos(pos: Vector3) {
+    public getSurfacePos(pos: Vector3) {
         return this.heightmap.find((surfacePos) => surfacePos.x == pos.x && surfacePos.z == pos.z)
     }
 

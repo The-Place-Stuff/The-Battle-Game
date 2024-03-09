@@ -1,7 +1,7 @@
 import { world, system, StructureRotation, Vector3 } from '@minecraft/server'
 import { Vector3d } from '../utils/vector_utils'
 import Tile from './tile'
-import { TALL_GRASS_PATCH, DANDELION_PATCH, TREE } from '../constants'
+import * as Decorators from './decorators'
 
 const overworld = world.getDimension('overworld')
 
@@ -65,14 +65,14 @@ export default class Arena {
     }
 
     private getFloorTile(): Tile {
-        return new Tile(`battle:${this.id}/tile`, StructureRotation.None, [TALL_GRASS_PATCH, TREE])
+        return new Tile(`battle:${this.id}/tile`, StructureRotation.None, [Decorators.TALL_GRASS_PATCH_FEATURE, Decorators.DANDELION_PATCH_FEATURE, Decorators.TREE_FEATURE])
     }
 
     private getSideTile(rotation: StructureRotation): Tile {
-        return new Tile(`battle:${this.id}/tile_side`, rotation, [TALL_GRASS_PATCH, DANDELION_PATCH, TREE])
+        return new Tile(`battle:${this.id}/tile_side`, rotation, [Decorators.TALL_GRASS_PATCH_FEATURE, Decorators.TREE_WALLS_FEATURE])
     }
 
     private getCornerTile(rotation: StructureRotation): Tile {
-        return new Tile(`battle:${this.id}/tile_corner`, rotation, [TALL_GRASS_PATCH, DANDELION_PATCH, TREE])
+        return new Tile(`battle:${this.id}/tile_corner`, rotation, [Decorators.TALL_GRASS_PATCH_FEATURE, Decorators.TREE_WALLS_FEATURE])
     }
 }

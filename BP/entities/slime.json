@@ -106,11 +106,6 @@
 			"minecraft:behavior.hurt_by_target": {
 				"priority": 1
 			},
-			"minecraft:behavior.slime_float": {
-				"priority": 1,
-				"jump_chance_percentage": 0.8,
-				"speed_multiplier": 1.2
-			},
 			"minecraft:behavior.nearest_attackable_target": {
 				"priority": 2,
 				"entity_types": [
@@ -152,6 +147,11 @@
 			"minecraft:behavior.slime_keep_on_jumping": {
 				"priority": 5,
 				"speed_multiplier": 1.0
+			},
+			"minecraft:behavior.slime_float": {
+				"priority": 6,
+				"jump_chance_percentage": 0.8,
+				"speed_multiplier": 1.2
 			},
 			"minecraft:navigation.walk": {
 				"avoid_water": true,

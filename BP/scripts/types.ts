@@ -21,3 +21,8 @@ export type BlockFilter = {
     states: Record<string, string | number | boolean>
     offset: Vector3
 }
+
+export enum HeightmapType {
+    Static = 'static',
+    Dynamic = 'dynamic'
+}

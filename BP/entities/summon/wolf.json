@@ -11,7 +11,10 @@
         "minecraft:instant_despawn": {}
       },
       "battle:tamed_wolf": {
-        "minecraft:is_tamed": {}
+        "minecraft:is_tamed": {},
+        "minecraft:color": {
+          "value": 14
+        }
       },
       "battle:ashen_wolf": {
         "minecraft:variant": {
@@ -116,7 +119,8 @@
             "test": "is_family",
             "subject": "other",
             "value": "monster"
-          }
+          },
+          "max_dist": 16
         }
       }
     },

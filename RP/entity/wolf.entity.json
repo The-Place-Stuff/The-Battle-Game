@@ -15,8 +15,7 @@
         "snowy": "textures/entity/revamped_wolf/wolf_snowy",
         "spotted": "textures/entity/revamped_wolf/wolf_spotted",
         "striped": "textures/entity/revamped_wolf/wolf_striped",
-        "woods": "textures/entity/revamped_wolf/wolf_woods",
-        "collar": "textures/entity/revamped_wolf/collar"
+        "woods": "textures/entity/revamped_wolf/wolf_woods"
       },
       "geometry": {
         "default": "geometry.wolf"

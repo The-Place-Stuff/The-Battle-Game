@@ -308,10 +308,13 @@
 				"can_path_over_water": true
 			},
 			"minecraft:nameable": {},
-			"minecraft:pushable": {},
+			"minecraft:pushable": {
+				"is_pushable": false
+			},
 			"minecraft:can_climb": {},
 			"minecraft:physics": {},
-			"minecraft:persistent": {}
+			"minecraft:persistent": {},
+			"minecraft:is_hidden_when_invisible": {}
 		},
 		"events": {
 			"minecraft:entity_spawned": {

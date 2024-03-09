@@ -1,6 +1,7 @@
 // Misc
 import './types'
 import './constants'
+import './world/decorators'
 
 // Mechanics
 import './mechanics/player_properties'

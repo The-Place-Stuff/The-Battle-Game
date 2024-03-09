@@ -5,10 +5,10 @@
             "arrays": {
                 "textures": {
                     "Array.variants": [
-                        "Texture.pale",
                         "Texture.ashen",
                         "Texture.black",
                         "Texture.chestnut",
+                        "Texture.pale",
                         "Texture.rusty",
                         "Texture.snowy",
                         "Texture.spotted",
@@ -20,8 +20,7 @@
             "geometry": "Geometry.default",
             "materials": [{"*": "Material.default"}],
             "textures": [
-                "Array.variants[query.variant]",
-                "Texture.collar"
+                "Array.variants[query.variant]"
             ]
         }
     }
