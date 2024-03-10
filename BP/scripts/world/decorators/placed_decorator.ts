@@ -22,7 +22,6 @@ export default class PlacedDecorator {
         }
         const decorator = this.decorator
         for (const position of positions) {
-            console.warn(`Placing at ${position.x} ${position.y} ${position.z}`)
             decorator.place(tile, dimension, random, position)
         }
     }

@@ -14,6 +14,7 @@ import { Vector3d } from '../utils/vector_utils'
 export const TALL_GRASS = new SimpleBlockDecorator('minecraft:tallgrass', {})
 export const DANDELION = new SimpleBlockDecorator('minecraft:yellow_flower', {})
 export const TREE = new StructureDecorator('battle:plains_arena/tree', new Vector3d(-2, 0, -2))
+export const BOULDER = new StructureDecorator('battle:plains_arena/boulder', new Vector3d(-2, 0, -2))
 
 export const DANDELION_PATCH = new RandomPatchDecorator(new PlacedDecorator(DANDELION, [
     new BlockFilterRule([
@@ -23,9 +24,16 @@ export const DANDELION_PATCH = new RandomPatchDecorator(new PlacedDecorator(DAND
             offset: {
                 x: 0, y: 0, z: 0
             }
+        },
+        {
+            name: 'minecraft:grass_block',
+            states: {},
+            offset: {
+                x: 0, y: -1, z: 0
+            }
         }
     ])
-]), 24, 4, 0)
+]), 16, 4, 0)
 
 export const TALL_GRASS_PATCH = new RandomPatchDecorator(new PlacedDecorator(TALL_GRASS, [
     new BlockFilterRule([
@@ -35,13 +43,20 @@ export const TALL_GRASS_PATCH = new RandomPatchDecorator(new PlacedDecorator(TAL
             offset: {
                 x: 0, y: 0, z: 0
             }
+        },
+        {
+            name: 'minecraft:grass_block',
+            states: {},
+            offset: {
+                x: 0, y: -1, z: 0
+            }
         }
     ])
-]), 48, 4, 0)
+]), 32, 4, 0)
 
 export const TALL_GRASS_PATCH_FEATURE = new PlacedDecorator(TALL_GRASS_PATCH, [
     new CountRule(4),
-    new SpreadRule(13),
+    new SpreadRule(15),
     new HeightmapRule(HeightmapType.Static)
 ])
 export const DANDELION_PATCH_FEATURE = new PlacedDecorator(DANDELION_PATCH, [
@@ -49,9 +64,9 @@ export const DANDELION_PATCH_FEATURE = new PlacedDecorator(DANDELION_PATCH, [
     new SpreadRule(15),
     new HeightmapRule(HeightmapType.Static)
 ])
-export const TREE_WALLS_FEATURE = new PlacedDecorator(TREE, [
+export const TREE_FEATURE = new PlacedDecorator(TREE, [
     new CountRule(6),
-    new SpreadRule(13),
+    new SpreadRule(15),
     new HeightmapRule(HeightmapType.Dynamic),
     new BlockFilterRule([
         {
@@ -59,22 +74,41 @@ export const TREE_WALLS_FEATURE = new PlacedDecorator(TREE, [
             states: {},
             offset: {
                 x: 0, y: -1, z: 0
+            }
+        },
+        {
+            name: 'minecraft:air',
+            states: {},
+            offset: {
+                x: 1, y: 0, z: 0
+            }
+        },
+        {
+            name: 'minecraft:air',
+            states: {},
+            offset: {
+                x: -1, y: 0, z: 0
+            }
+        },
+        {
+            name: 'minecraft:air',
+            states: {},
+            offset: {
+                x: 0, y: 0, z: 1
+            }
+        },
+        {
+            name: 'minecraft:air',
+            states: {},
+            offset: {
+                x: 1, y: 0, z: -1
             }
         }
     ])
 ])
-export const TREE_FEATURE = new PlacedDecorator(TREE, [
+export const BOULDER_FEATURE = new PlacedDecorator(BOULDER, [
     new CountRule(1),
     new RarityRule(4),
-    new SpreadRule(13),
-    new HeightmapRule(HeightmapType.Dynamic),
-    new BlockFilterRule([
-        {
-            name: 'minecraft:grass_block',
-            states: {},
-            offset: {
-                x: 0, y: -1, z: 0
-            }
-        }
-    ])
+    new SpreadRule(15),
+    new HeightmapRule(HeightmapType.Static)
 ])

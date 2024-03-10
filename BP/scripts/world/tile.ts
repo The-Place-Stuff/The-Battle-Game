@@ -29,8 +29,8 @@ export default class Tile {
         const tileEnd = VectorUtils.add(tileStart, new Vector3d(15, 0, 15))
 
         dimension.runCommand(`structure load "${this.location}" ${tileStart.x} ${tileStart.y} ${tileStart.z} ${this.getRotation()}`)
-        system.runTimeout(() => this.scanHeightmap(dimension, tileStart, tileEnd), 2)
-        system.runTimeout(() => this.placeDecorators(dimension, random, tileStart), 4)
+        system.runTimeout(() => this.scanHeightmap(dimension, tileStart, tileEnd), 1)
+        system.runTimeout(() => this.placeDecorators(dimension, random, tileStart), 2)
     }
 
     private scanHeightmap(dimension: Dimension, tileStart: Vector3, tileEnd: Vector3) {

@@ -33,7 +33,7 @@ export default class Arena {
         return new Promise<void>(async resolve => system.runTimeout(async () => {
             await tile.place(overworld, tileX, tileZ)
             resolve()
-        }, delay * 2))
+        }, delay * 4))
     }
 
     private getTileAt(tileX: number, tileZ: number): Tile {
@@ -65,14 +65,14 @@ export default class Arena {
     }
 
     private getFloorTile(): Tile {
-        return new Tile(`battle:${this.id}/tile`, StructureRotation.None, [Decorators.TALL_GRASS_PATCH_FEATURE, Decorators.DANDELION_PATCH_FEATURE, Decorators.TREE_FEATURE])
+        return new Tile(`battle:${this.id}/tile`, StructureRotation.None, [Decorators.TALL_GRASS_PATCH_FEATURE, Decorators.DANDELION_PATCH_FEATURE, Decorators.BOULDER_FEATURE])
     }
 
     private getSideTile(rotation: StructureRotation): Tile {
-        return new Tile(`battle:${this.id}/tile_side`, rotation, [Decorators.TALL_GRASS_PATCH_FEATURE, Decorators.TREE_WALLS_FEATURE])
+        return new Tile(`battle:${this.id}/tile_side`, rotation, [Decorators.TREE_FEATURE, Decorators.TALL_GRASS_PATCH_FEATURE])
     }
 
     private getCornerTile(rotation: StructureRotation): Tile {
-        return new Tile(`battle:${this.id}/tile_corner`, rotation, [Decorators.TALL_GRASS_PATCH_FEATURE, Decorators.TREE_WALLS_FEATURE])
+        return new Tile(`battle:${this.id}/tile_corner`, rotation, [Decorators.TREE_FEATURE, Decorators.TALL_GRASS_PATCH_FEATURE])
     }
 }
