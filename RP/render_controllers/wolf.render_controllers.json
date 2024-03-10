@@ -20,7 +20,7 @@
             "geometry": "Geometry.default",
             "materials": [{"*": "Material.default"}],
             "textures": [
-                "Array.variants[query.variant]"
+                "Array.variants[query.property('battle:variant')]"
             ]
         }
     }
