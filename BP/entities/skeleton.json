@@ -17,6 +17,15 @@
             "minecraft:shooter": {
                 "def": "minecraft:arrow"
             },
+            "minecraft:equipment": {
+                "table": "loot_tables/entities/skeleton_gear.json",
+                "slot_drop_chance": [
+                    {
+                        "slot": "slot.weapon.mainhand",
+                        "drop_chance": 0
+                    }
+                ]
+            },
             "minecraft:type_family": {
                 "family": [
                     "skeleton",
@@ -56,7 +65,8 @@
                 "priority": 0,
                 "attack_interval_min": 1.0,
                 "attack_interval_max": 3.0,
-                "attack_radius": 15.0
+                "attack_radius": 15.0,
+                "speed_multiplier": 1.5
             },
             "minecraft:behavior.hurt_by_target": {
                 "priority": 1
