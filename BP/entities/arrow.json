@@ -10,7 +10,7 @@
         "component_groups": {
             "minecraft:default": {
                 "minecraft:projectile": {
-                    "power": 2.5,
+                    "power": 2.2,
                     "gravity": 0.06,
                     "uncertainty_base": 4,
                     "uncertainty_multiplier": 0,
@@ -40,7 +40,7 @@
             },
             "minecraft:quiver": {
                 "minecraft:projectile": {
-                    "power": 2.5,
+                    "power": 2.2,
                     "gravity": 0.06,
                     "uncertainty_base": 1,
                     "uncertainty_multiplier": 0,
@@ -70,7 +70,7 @@
             },
             "minecraft:skeleton": {
                 "minecraft:projectile": {
-                    "power": 1.6,
+                    "power": 1.25,
                     "gravity": 0.05,
                     "uncertainty_base": 16,
                     "uncertainty_multiplier": 4,
