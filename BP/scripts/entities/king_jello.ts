@@ -1,6 +1,44 @@
 import { world, Dimension, Player, Entity, Vector3, GameMode } from '@minecraft/server'
 import { Vector3d, VectorUtils } from '../utils/vector_utils'
 
+const excludeTypes = [
+    'battle:falling_slime',
+    'battle:king_jello',
+    'minecraft:area_effect_cloud',
+    'minecraft:armor_stand',
+    'minecraft:arrow',
+    'minecraft:boat',
+    'minecraft:chest_boat',
+    'minecraft:chest_minecart',
+    'minecraft:command_block_minecart',
+    'minecraft:dragon_fireball',
+    'minecraft:egg',
+    'minecraft:ender_crystal',
+    'minecraft:ender_pearl',
+    'minecraft:eye_of_ender_signal',
+    'minecraft:fireball',
+    'minecraft:fireworks_rocket',
+    'minecraft:fishing_hook',
+    'minecraft:hopper_minecart',
+    'minecraft:lightning_bolt',
+    'minecraft:lingering_potion',
+    'minecraft:llama_spit',
+    'minecraft:minecart',
+    'minecraft:npc',
+    'minecraft:shulker_bullet',
+    'minecraft:small_fireball',
+    'minecraft:snowball',
+    'minecraft:splash_potion',
+    'minecraft:thrown_trident',
+    'minecraft:tnt',
+    'minecraft:tnt_minecart',
+    'minecraft:tripod_camera',
+    'minecraft:wither_skull',
+    'minecraft:wither_skull_dangerous',
+    'minecraft:xp_bottle',
+    'minecraft:xp_orb'
+]
+
 world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
     const entity = event.entity
     const id = event.eventId
@@ -25,12 +63,7 @@ function performStompAttack(entity: Entity) {
     const dimension = entity.dimension
     for (const target of getKnockbackTargets(5, entity.location, dimension)) {
         const knockbackDir = getLaunchDirection(entity, target)
-        try {
-            target.applyKnockback(knockbackDir.x, knockbackDir.z, 6, 0.25)
-        }
-        catch {
-            console.warn(target.typeId)
-        }
+        target.applyKnockback(knockbackDir.x, knockbackDir.z, 6, 0.25)
     }
     dimension.spawnParticle('battle:stomp_emitter', { x: entity.location.x, y: entity.location.y + 0.5, z: entity.location.z})
     entity.runCommand('camerashake add @a[r=4] 0.1 0.5 rotational')
@@ -66,13 +99,7 @@ function performKnockbackRoar(entity: Entity) {
     const dimension = entity.dimension
     for (const target of getKnockbackTargets(7, entity.location, dimension)) {
         const knockbackDir = getLaunchDirection(entity, target)
-        try {
-            target.applyKnockback(knockbackDir.x, knockbackDir.z, 6, 0.25)
-        }
-        catch {
-            console.warn(target.typeId)
-        }
-        
+        target.applyKnockback(knockbackDir.x, knockbackDir.z, 6, 0.5)
     }
     dimension.spawnParticle('minecraft:knockback_roar_particle', entity.location)
 }
@@ -87,21 +114,13 @@ function getTarget(location: Vector3, dimension: Dimension): Player {
 }
 
 function getLaunchDirection(entity: Entity, target: Entity): Vector3 {
-    return new Vector3d(target.location.x - entity.location.x, 0, target.location.z - entity.location.z).normalized()
+    return new Vector3d(target.location.x - entity.location.x, 1, target.location.z - entity.location.z).normalized()
 }
 
 function getKnockbackTargets(maxDistance: number, location: Vector3, dimension: Dimension) {
     return dimension.getEntities({
-        location,
-        excludeTypes: [
-            'minecraft:arrow',
-            'battle:falling_slime',
-            'minecraft:item'
-        ],
-        excludeGameModes: [
-            GameMode.creative,
-            GameMode.spectator
-        ],
-        maxDistance
+        location, 
+        maxDistance,
+        excludeTypes
     })
 }
