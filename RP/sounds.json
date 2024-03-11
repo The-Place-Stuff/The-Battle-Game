@@ -29,7 +29,8 @@
                 "events": {
                     "ambient": "mob.allay.idle_holding",
                     "death": "mob.allay.death",
-                    "hurt": "mob.allay.hurt"
+                    "hurt": "mob.allay.hurt",
+                    "throw": "mob.witch.throw"
                 },
                 "pitch": [0.80, 1.20],
                 "volume": 1

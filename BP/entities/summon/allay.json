@@ -1,108 +1,187 @@
 {
-  "format_version": "1.20.40",
-  "minecraft:entity": {
-    "description": {
-      "identifier": "battle:allay",
-      "is_summonable": true,
-      "is_spawnable": false
-    },
-    "component_groups": {
-      "battle:instant_despawn": {
-        "minecraft:instant_despawn": {}
-      },
-      "battle:tamed_allay": {
-        "minecraft:is_tamed": {}
-      }
-    },
-    "components": {
-      "minecraft:health": {
-        "value": 20,
-        "max": 20
-      },
-      "minecraft:movement": {
-        "value": 0.3
-      },
-      "minecraft:flying_speed": {
-        "value": 0.3
-      },
-      "minecraft:collision_box": {
-        "width": 0.35,
-        "height": 0.6
-      },
-      "minecraft:inventory": {
-        "inventory_size": 1
-      },
-      "minecraft:damage_sensor": {
-        "triggers": {
-          "on_damage": {
-            "filters": {
-              "test": "is_family",
-              "subject": "other",
-              "value": "player"
+    "format_version": "1.20.60",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "battle:allay",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "component_groups": {
+            "battle:tamed_allay": {
+                "minecraft:is_tamed": {}
             }
-          },
-          "deals_damage": false
-        }
-      },
-      "minecraft:navigation.hover": {
-        "can_path_over_water": true,
-        "can_sink": false,
-        "can_pass_doors": false,
-        "can_path_from_air": true,
-        "avoid_water": true,
-        "avoid_damage_blocks": true,
-        "avoid_sun": false
-      },
-      "minecraft:movement.hover": {},
-      "minecraft:follow_range": {
-        "value": 1024
-      },
-      "minecraft:interact": {
-        "interactions": [
-          {
-            "on_interact": {
-              "filters": {
-                "test": "is_owner",
-                "subject": "other",
-                "value": true
-              }
+        },
+        "components": {
+            "minecraft:health": {
+                "value": 20,
+                "max": 20
             },
-            "swing": true,
-            "give_item": true,
-            "take_item": true
-          }
-        ]
-      },
-      "minecraft:jump.static": {},
-      "minecraft:can_fly": {},
-      "minecraft:physics": {
-        "has_gravity": false
-      },
-      "minecraft:pushable": {},
-
-      // Behaviors
-      "minecraft:behavior.follow_owner": {
-        "priority": 1,
-        "start_distance": 3,
-        "stop_distance": 2,
-        "can_teleport": true
-      }
-    },
-    "events": {
-      "battle:instant_despawn": {
-        "add": {
-          "component_groups": [
-            "battle:instant_despawn"
-          ]
+            "minecraft:movement": {
+                "value": 0.2
+            },
+            "minecraft:flying_speed": {
+                "value": 0.2
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "allay",
+                    "summon",
+                    "mob"
+                ]
+            },
+            "minecraft:equipment": {
+                "table": "loot_tables/entities/allay_gear.json",
+                "slot_drop_chance": [
+                    {
+                        "slot": "slot.weapon.mainhand",
+                        "drop_chance": 0
+                    }
+                ]
+            },
+            "minecraft:collision_box": {
+                "width": 0.35,
+                "height": 0.6
+            },
+            "minecraft:breathable": {
+                "total_supply": 15,
+                "breathes_air": true,
+                "breathes_water": false
+            },
+            "minecraft:hurt_on_condition": {
+                "damage_conditions": [
+                    {
+                        "filters": {
+                            "test": "in_lava",
+                            "value": true
+                        },
+                        "cause": "lava",
+                        "damage_per_tick": 4
+                    }
+                ]
+            },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "on_damage": {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "is_owner",
+                                    "subject": "other",
+                                    "value": false
+                                },
+                                {
+                                    "test": "has_ability",
+                                    "subject": "other",
+                                    "operator": "not",
+                                    "value": "invulnerable"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "player"
+                                }
+                            ]
+                        }
+                    },
+                    "deals_damage": false
+                }
+            },
+            "minecraft:shooter": {
+                "def": "minecraft:splash_potion",
+                "aux_val": 28,
+                "sound": "throw",
+                "magic": true
+            },
+            "minecraft:behavior.ranged_attack": {
+                "priority": 0,
+                "swing": true,
+                "attack_interval": 3,
+                "attack_radius": 8,
+                "speed_multiplier": 2.5
+            },
+            "minecraft:behavior.nearest_attackable_target": {
+                "priority": 1,
+                "attack_owner": true,
+                "entity_types": [
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_family",
+                                            "subject": "other",
+                                            "value": "player"
+                                        },
+                                        {
+                                            "test": "is_family",
+                                            "subject": "other",
+                                            "value": "summon"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "operator": "not",
+                                    "value": "allay"
+                                },
+                                {
+                                    "test": "is_missing_health",
+                                    "subject": "other",
+                                    "value": true
+                                },
+                                {
+                                    "test": "has_mob_effect",
+                                    "subject": "other",
+                                    "operator": "not",
+                                    "value": "regeneration"
+                                }
+                            ]
+                        },
+                        "reevaluate_description": true,
+                        "max_dist": 16
+                    }
+                ]
+            },
+            "minecraft:behavior.follow_owner": {
+                "priority": 2,
+                "can_teleport": true,
+                "start_distance": 5,
+                "speed_multiplier": 2.0
+            },
+            "minecraft:behavior.look_at_player": {
+                "priority": 3,
+                "look_distance": 8,
+                "probability": 0.1
+            },
+            "minecraft:movement.hover": {},
+            "minecraft:navigation.hover": {
+                "can_path_over_water": true,
+                "can_sink": false,
+                "can_pass_doors": false,
+                "can_path_from_air": true,
+                "avoid_water": true,
+                "avoid_damage_blocks": true,
+                "avoid_sun": false
+            },
+            "minecraft:jump.static": {},
+            "minecraft:physics": {},
+            "minecraft:pushable": {},
+            "minecraft:nameable": {},
+            "minecraft:can_fly": {},
+            "minecraft:persistent": {},
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:conditional_bandwidth_optimization": {}
+        },
+        "events": {
+            "battle:on_tame": {
+                "add": {
+                    "component_groups": [
+                        "battle:tamed_allay"
+                    ]
+                }
+            }
         }
-      },
-      "battle:on_tame": {
-        "add": {
-          "component_groups": [
-            "battle:tamed_allay"
-          ]
-        }
-      }
     }
-  }
 }

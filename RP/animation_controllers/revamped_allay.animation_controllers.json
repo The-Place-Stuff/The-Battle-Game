@@ -1,0 +1,28 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.revamped_allay.throw": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "throw": "variable.attack_time > 0"
+                        }
+                    ]
+                },
+                "throw": {
+                    "animations": [
+                        "throw"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "query.any_animation_finished"
+                        }
+                    ],
+                    "blend_transition": 0.1
+                }
+            }
+        }
+    }
+}
