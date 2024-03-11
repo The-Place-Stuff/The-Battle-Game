@@ -3,6 +3,5 @@
 	"padding": 8,
 	"resource_pack_name": "RPG World",
 	"texture_name": "atlas.terrain",
-	"texture_data": {
-	}
+	"texture_data": {}
 }

@@ -1,4 +1,4 @@
-import { Dimension, Vector3, BlockPermutation } from '@minecraft/server'
+import { Dimension, Vector3 } from '@minecraft/server'
 import Tile from '../tile'
 import Random from '../../utils/random_utils'
 
