@@ -9,7 +9,7 @@
 		"component_groups": {
 			"battle:calm_slime": {
 				"minecraft:movement": {
-					"value": 0.65
+					"value": 0.5
 				},
 				"minecraft:movement.jump": {
 					"jump_delay": [ 1, 1.2 ]
@@ -31,40 +31,54 @@
 						"subject": "other",
 						"value": true
 					}
-				},
-				"minecraft:behavior.jump_to_block": {
-					"priority": 0,
-					"cooldown_range": [ 4, 6 ],
-					"minimum_distance": 1,
-					"minimum_path_length": 1,
-					"search_height": 15,
-					"search_width": 10,
-					"max_velocity": 3
 				}
 			}
 		},
 		"components": {
 			"minecraft:health": {
-				"value": 20,
-				"max": 20
+				"value": 15,
+				"max": 15
 			},
 			"minecraft:attack": {
 				"damage": 4
 			},
 			"minecraft:scale": {
-				"value": 2
+				"value": 1.5
 			},
-			"minecraft:physics": {},
-			"minecraft:navigation.walk": {
-				"avoid_water": true,
-				"can_path_over_water": true
+			"minecraft:type_family": {
+				"family": [
+					"slime",
+					"monster",
+					"mob"
+				]
 			},
-			"minecraft:persistent": {},
+			"minecraft:collision_box": {
+				"height": 0.5,
+				"width": 0.5
+			},
 			"minecraft:experience_reward": {
 				"on_death": "query.last_hit_by_player ? 1 : 0"
 			},
 			"minecraft:loot": {
 				"table": "loot_tables/entities/slime.json"
+			},
+			
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"breathes_air": true,
+				"breathes_water": false
+			},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 4
+					}
+				]
 			},
 			"minecraft:damage_sensor": {
 				"triggers": {
@@ -72,7 +86,25 @@
 					"damage_modifier": -20
 				}
 			},
-			"minecraft:can_climb": {},
+			"minecraft:on_target_acquired": {
+				"event": "battle:become_aggressive",
+				"target": "self"
+			},
+			"minecraft:on_target_escape": {
+				"event": "battle:become_calm",
+				"target": "self"
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 1,
+				"entity_types": {
+					"filters": {
+						"test": "is_family",
+						"subject": "other",
+						"operator": "not",
+						"value": "slime"
+					}
+				}
+			},
 			"minecraft:behavior.nearest_attackable_target": {
 				"priority": 2,
 				"entity_types": [
@@ -101,18 +133,6 @@
 				],
 				"must_see": true
 			},
-			"minecraft:type_family": {
-				"family": [
-					"slime",
-					"monster",
-					"mob"
-				]
-			},
-			"minecraft:behavior.slime_float": {
-				"priority": 1,
-				"jump_chance_percentage": 0.8,
-				"speed_multiplier": 1.2
-			},
 			"minecraft:behavior.slime_attack": {
 				"priority": 3,
 				"set_persistent": true
@@ -127,19 +147,22 @@
 				"priority": 5,
 				"speed_multiplier": 1.0
 			},
-			"minecraft:collision_box": {
-				"height": 0.5,
-				"width": 0.5
+			"minecraft:behavior.slime_float": {
+				"priority": 6,
+				"jump_chance_percentage": 0.8,
+				"speed_multiplier": 1.2
 			},
-			"minecraft:on_target_acquired": {
-				"event": "battle:become_aggressive",
-				"target": "self"
+			"minecraft:navigation.walk": {
+				"avoid_water": true,
+				"can_path_over_water": true
 			},
-			"minecraft:on_target_escape": {
-				"event": "battle:become_calm",
-				"target": "self"
-			},
-			"minecraft:jump.static": {}
+			"minecraft:jump.static": {},
+			"minecraft:nameable": {},
+			"minecraft:pushable": {},
+			"minecraft:physics": {},
+			"minecraft:persistent": {},
+			"minecraft:can_climb": {},
+			"minecraft:is_hidden_when_invisible": {}
 		},
 		"events": {
 			"minecraft:entity_spawned": {
