@@ -65,20 +65,15 @@
                         "filters": {
                             "all_of": [
                                 {
-                                    "test": "is_owner",
+                                    "test": "is_family",
                                     "subject": "other",
-                                    "value": false
+                                    "value": "player"
                                 },
                                 {
                                     "test": "has_ability",
                                     "subject": "other",
                                     "operator": "not",
-                                    "value": "invulnerable"
-                                },
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "value": "player"
+                                    "value": "flying"
                                 }
                             ]
                         }
