@@ -9,8 +9,8 @@
 			"minecraft:icon": {
 				"texture": "allay_bottle"
 			},
-			"minecraft:on_use_on": {
-				"on_use_on": {
+			"minecraft:on_use": {
+				"on_use": {
 					"event": "battle:consume_item",
 					"target": "self"
 				}
