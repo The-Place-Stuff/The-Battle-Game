@@ -1,89 +1,62 @@
 {
-  "format_version": "1.20.40",
-  "minecraft:entity": {
-    "description": {
-      "identifier": "battle:bootrap",
-      "is_summonable": true,
-      "is_spawnable": false
-    },
-    "component_groups": {
-      "battle:instant_despawn": {
-        "minecraft:instant_despawn": {}
-      },
-      "battle:tamed_bootrap": {
-        "minecraft:is_tamed": {}
-      }
-    },
-    "components": {
-      "minecraft:health": {
-        "value": 20,
-        "max": 20
-      },
-      "minecraft:movement": {
-        "value": 0.3
-      },
-      "minecraft:flying_speed": {
-        "value": 0.25
-      },
-      "minecraft:collision_box": {
-        "width": 0.6,
-        "height": 0.8
-      },
-      "minecraft:follow_range": {
-        "value": 1024
-      },
-      "minecraft:damage_sensor": {
-        "triggers": {
-          "on_damage": {
-            "filters": {
-              "test": "is_family",
-              "subject": "other",
-              "value": "player"
+    "format_version": "1.20.60",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "battle:bootrap"
+        },
+        "component_groups": {
+            "battle:tamed_bootrap": {
+                "minecraft:is_tamed": {}
             }
-          },
-          "deals_damage": false
+        },
+        "components": {
+            "minecraft:health": {
+                "value": 30,
+                "max": 30
+            },
+            "minecraft:movement": {
+                "value": 0.3
+            },
+            "minecraft:flying_speed": {
+                "value": 0.3
+            },
+            "minecraft:collision_box": {
+                "width": 0.6,
+                "height": 0.8
+            },
+            "minecraft:behavior.follow_owner": {
+                "priority": 1,
+                "start_distance": 5,
+                "speed_multiplier": 1.5,
+                "can_teleport": true
+            },
+            "minecraft:behavior.look_at_player": {
+                "priority": 2,
+                "look_distance": 8,
+                "probability": 0.1
+            },
+            "minecraft:movement.hover": {},
+            "minecraft:navigation.hover": {
+                "can_path_over_water": true,
+                "can_path_from_air": true
+            },
+            "minecraft:jump.static": {},
+            "minecraft:nameable": {},
+            "minecraft:pushable": {},
+            "minecraft:physics": {},
+            "minecraft:persistent": {},
+            "minecraft:can_climb": {},
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:conditional_bandwidth_optimization": {}
+        },
+        "events": {
+            "battle:on_tame": {
+                "add": {
+                    "component_groups": [
+                        "battle:tamed_bootrap"
+                    ]
+                }
+            }
         }
-      },
-      "minecraft:navigation.hover": {
-        "can_path_over_water": true,
-        "can_sink": false,
-        "can_pass_doors": false,
-        "can_path_from_air": true,
-        "avoid_water": true,
-        "avoid_damage_blocks": true,
-        "avoid_sun": false
-      },
-      "minecraft:movement.hover": {},
-      "minecraft:jump.static": {},
-      "minecraft:can_fly": {},
-      "minecraft:physics": {
-        "has_gravity": false
-      },
-      "minecraft:pushable": {},
-
-      // Behaviors
-      "minecraft:behavior.follow_owner": {
-        "priority": 1,
-        "start_distance": 3,
-        "stop_distance": 2,
-        "can_teleport": false
-      }
-    },
-    "events": {
-      "battle:instant_despawn": {
-        "add": {
-          "component_groups": [
-            "battle:instant_despawn"
-          ]
-        }
-      },
-      "battle:on_tame": {
-        "add": {
-          "component_groups": [
-             "battle:tamed_bootrap"
-          ]
-        }
-      }
     }
-  }
 }

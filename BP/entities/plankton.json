@@ -12,27 +12,30 @@
                 "max": 20
             },
             "minecraft:movement": {
-                "value": 0.2
+                "value": 0.45
+            },
+            "minecraft:attack": {
+                "damage": 6
+            },
+            "minecraft:scale": {
+                "value": 0.75
+            },
+            "minecraft:collision_box": {
+                "width": 0.3,
+                "height": 0.5
+            },
+            "minecraft:behavior.random_stroll": {
+                "priority": 1
             },
             "minecraft:movement.basic": {},
             "minecraft:navigation.walk": {},
             "minecraft:jump.static": {},
             "minecraft:physics": {},
-            "minecraft:behavior.random_stroll": {
-                "priority": 0,
-                "xz_dist": 10,
-                "y_dist": 3
-            },
-            "minecraft:behavior.melee_attack": {
-                "priority": 1,
-                "speed_multiplier": 2
-            },
-            "minecraft:attack": {
-                "damage": 2
-            },
-            "minecraft:behavior.hurt_by_target": {
-                "priority": 0
-            }
+            "minecraft:persistent": {},
+            "minecraft:nameable": {},
+            "minecraft:can_climb": {},
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:conditional_bandwidth_optimization": {}
         }
     }
 }
