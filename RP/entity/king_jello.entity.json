@@ -23,11 +23,15 @@
         "summon": "animation.king_jello.summon",
         "rapid_summon": "animation.king_jello.rapid_summon",
         "roar": "animation.king_jello.roar",
+        "hurt": "animation.king_jello.hurt",
         "controller": "controller.animation.king_jello",
         "summon_controller": "controller.animation.king_jello.summon",
         "roar_controller": "controller.animation.king_jello.roar"
       },
       "scripts": {
+        "pre_animation": [
+          "variable.old_health = query.health;"
+        ],
         "animate": [
           "scale",
           "position_crown",

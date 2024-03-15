@@ -371,7 +371,7 @@
 								},
 								"randomize": [
 									{
-										"trigger": "battle:switch_to_leaping_state",
+										"trigger": "battle:switch_to_charging_state",
 										"weight": 2
 									},
 									{

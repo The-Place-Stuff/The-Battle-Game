@@ -59,11 +59,24 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
     }
 })
 
+world.afterEvents.entityHurt.subscribe(event => {
+    const entity = event.hurtEntity
+
+    if (entity.typeId == 'battle:king_jello') {
+        entity.playAnimation('animation.king_jello.hurt')
+    }
+})
+
 function performStompAttack(entity: Entity) {
     const dimension = entity.dimension
     for (const target of getKnockbackTargets(5, entity.location, dimension)) {
         const knockbackDir = getLaunchDirection(entity, target)
-        target.applyKnockback(knockbackDir.x, knockbackDir.z, 6, 0.25)
+        try {
+            target.applyKnockback(knockbackDir.x, knockbackDir.z, 6, 0.25)
+        }
+        catch {
+            console.warn(target.typeId)
+        }
     }
     dimension.spawnParticle('battle:stomp_emitter', { x: entity.location.x, y: entity.location.y + 0.5, z: entity.location.z})
     entity.runCommand('camerashake add @a[r=4] 0.1 0.5 rotational')
@@ -99,7 +112,12 @@ function performKnockbackRoar(entity: Entity) {
     const dimension = entity.dimension
     for (const target of getKnockbackTargets(7, entity.location, dimension)) {
         const knockbackDir = getLaunchDirection(entity, target)
-        target.applyKnockback(knockbackDir.x, knockbackDir.z, 6, 0.5)
+        try {
+            target.applyKnockback(knockbackDir.x, knockbackDir.z, 6, 0.5)
+        }
+        catch {
+            console.warn(target.typeId)
+        }
     }
     dimension.spawnParticle('minecraft:knockback_roar_particle', entity.location)
 }
