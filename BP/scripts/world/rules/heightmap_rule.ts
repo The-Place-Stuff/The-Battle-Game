@@ -27,6 +27,7 @@ export default class HeightmapRule extends PlacementRule {
 
     private getDynamicSurfacePos(dimension: Dimension, origin: Vector3): Vector3 | false {
         const scanner = dimension.getBlockFromRay(VectorUtils.add(origin, new Vector3d(0, 32, 0)), new Vector3d(0, -1, 0), {
+            includePassableBlocks: true,
             maxDistance: 64
         })
         if (scanner.block) {

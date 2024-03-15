@@ -1,5 +1,5 @@
-import { Vector3 } from '@minecraft/server'
-import Decorator from './world/decorators/decorator'
+import { Vector3, BlockPermutation } from '@minecraft/server'
+import PlacedDecorator from './world/decorators/placed_decorator'
 
 export type DefaultItemStack = {
     lore: string[]
@@ -24,7 +24,7 @@ export type BlockFilter = {
 }
 
 export type DecoratorChoice = {
-    decorator: Decorator,
+    decorator: PlacedDecorator,
     weight: number
 }
 

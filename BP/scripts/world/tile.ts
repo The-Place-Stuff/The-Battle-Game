@@ -47,15 +47,14 @@ export default class Tile {
         }
     }
 
-    public placeDecorators(dimension: Dimension, random: Random, tileStart: Vector3) {
+    public async placeDecorators(dimension: Dimension, random: Random, tileStart: Vector3) {
         for (const decorator of this.decorators) {
             try {
                 decorator.place(this, dimension, random, tileStart)
             }
             catch (error) {
-                console.warn(error)
+                console.warn(`Decorator at ${tileStart.x} ${tileStart.y} ${tileStart.z} produced this error: ${error}`)
             }
-            
         }
     }
     
