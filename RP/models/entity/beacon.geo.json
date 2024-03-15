@@ -1,0 +1,33 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.beacon",
+				"texture_width": 128,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "beacon",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-8, 0, -8], "size": [16, 4, 16], "uv": [56, 0]},
+						{"origin": [-7, 4, -7], "size": [14, 14, 14], "uv": [0, 0]},
+						{"origin": [-9, 1.1, -9], "size": [18, 18, 18], "inflate": 1, "uv": [0, 28]}
+					]
+				},
+				{
+					"name": "beam",
+					"pivot": [0, 18, 0],
+					"cubes": [
+						{"origin": [-3.5, 18, -3.5], "size": [7, 7, 7], "uv": [100, 50]}
+					]
+				}
+			]
+		}
+	]
+}

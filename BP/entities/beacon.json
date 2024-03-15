@@ -1,0 +1,20 @@
+{
+    "format_version": "1.20.60",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "battle:beacon",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "components": {
+            "minecraft:health": {
+                "value": 100,
+                "max": 100
+            },
+            "minecraft:nameable": {},
+            "minecraft:persistent": {},
+            "minecraft:physics": {},
+            "minecraft:conditional_bandwidth_optimization": {}
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "battle:beacon",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/entity/beacon"
+            },
+            "geometry": {
+                "default": "geometry.beacon"
+            },
+            "animations": {
+                "setup_beam": "animation.beacon.setup_beam",
+                "hide_beam": "animation.beacon.hide_beam"
+            },
+            "scripts": {
+                "animate": [
+                    "setup_beam"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.beacon"
+            ]
+        }
+    }
+}

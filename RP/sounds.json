@@ -1,6 +1,13 @@
 {
     "entity_sounds": {
         "entities": {
+            "battle:beacon": {
+                "volume": 1,
+                "pitch": [0.8, 1.2],
+                "events": {
+                    "ambient": "beacon.ambient"
+                }
+            },
             "battle:slime": {
                 "volume": 1,
                 "pitch": 1,

@@ -1,0 +1,22 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.beacon.hide_beam": {
+			"loop": true,
+			"bones": {
+				"beam": {
+					"scale": 0
+				}
+			}
+		},
+		"animation.beacon.setup_beam": {
+			"loop": true,
+			"bones": {
+				"beam": {
+					"rotation": [0, "query.anim_time * 360", 0],
+					"scale": [1, 400, 1]
+				}
+			}
+		}
+	}
+}
