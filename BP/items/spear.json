@@ -1,0 +1,14 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "battle:spear"
+		},
+		"components": {
+			"minecraft:icon": "spear",
+			"minecraft:max_stack_size": 1,
+			"minecraft:damage": 4,
+			"minecraft:can_destroy_in_creative": false
+		}
+	}
+}

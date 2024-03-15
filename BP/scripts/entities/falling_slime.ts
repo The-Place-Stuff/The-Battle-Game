@@ -27,7 +27,9 @@ function onSlimeLand(projectile: Entity, location: Vector3) {
         const targets = getSludgeTargets(effectLocation, dimension)
 
         for (const target of targets) {
-            target.addEffect('slowness', 100)
+            target.addEffect('slowness', 100, {
+                amplifier: 3
+            })
         }
         dimension.spawnParticle('battle:sludge_wave', {
             x: location.x,
@@ -43,9 +45,15 @@ function onSlimeLand(projectile: Entity, location: Vector3) {
 }
 
 function getSludgeTargets(location: Vector3, dimension: Dimension) {
-    return dimension.getEntities({
+    const searchOptions = dimension.getEntities({
         location,
-        type: 'minecraft:player',
         maxDistance: 6
+    })
+    return searchOptions.filter(entity => {
+        if (!entity.hasComponent('minecraft:type_family')) {
+            return false
+        }
+        const family = entity.getComponent('minecraft:type_family')
+        return family.hasTypeFamily('player') || family.hasTypeFamily('summon')
     })
 }

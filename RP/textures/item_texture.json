@@ -5,6 +5,9 @@
 		"sludge_slasher": {
 			"textures": "textures/items/sludge_slasher"
 		},
+		"spear": {
+			"textures": "textures/items/spear"
+		},
 		"hammer": {
 			"textures": "textures/items/hammer"
 		},
