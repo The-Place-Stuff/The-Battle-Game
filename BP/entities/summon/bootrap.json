@@ -55,7 +55,7 @@
                                     "test": "has_ability",
                                     "subject": "other",
                                     "operator": "not",
-                                    "value": "flying"
+                                    "value": "invulnerable"
                                 }
                             ]
                         }

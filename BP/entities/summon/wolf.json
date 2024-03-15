@@ -70,7 +70,7 @@
                                     "test": "has_ability",
                                     "subject": "other",
                                     "operator": "not",
-                                    "value": "flying"
+                                    "value": "invulnerable"
                                 }
                             ]
                         }
@@ -97,14 +97,16 @@
                 "yd": 0.4,
                 "target_dist": 0.4
             },
-            "minecraft:behavior.melee_box_attack": {
-                "priority": 4
+            "minecraft:behavior.melee_attack": {
+                "priority": 4,
+                "reach_multiplier": 1.25,
+                "speed_multiplier": 1.15
             },
             "minecraft:behavior.follow_owner": {
                 "priority": 5,
                 "start_distance": 5,
                 "can_teleport": true,
-                "speed_multiplier": 1.25
+                "speed_multiplier": 1.15
             },
             "minecraft:behavior.look_at_player": {
                 "priority": 6,

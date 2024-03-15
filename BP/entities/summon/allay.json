@@ -73,7 +73,7 @@
                                     "test": "has_ability",
                                     "subject": "other",
                                     "operator": "not",
-                                    "value": "flying"
+                                    "value": "invulnerable"
                                 }
                             ]
                         }
@@ -83,15 +83,15 @@
             },
             "minecraft:shooter": {
                 "def": "minecraft:splash_potion",
-                "aux_val": 28,
+                "aux_val": 30,
                 "sound": "throw",
                 "magic": true
             },
             "minecraft:behavior.ranged_attack": {
                 "priority": 0,
                 "swing": true,
-                "attack_interval": 3,
-                "attack_radius": 8,
+                "attack_interval": 2,
+                "attack_radius": 4,
                 "speed_multiplier": 2.5
             },
             "minecraft:behavior.nearest_attackable_target": {
