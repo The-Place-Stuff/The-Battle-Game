@@ -1,0 +1,161 @@
+{
+    "format_version": "1.20.60",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "minecraft:spider",
+            "is_spawnable": true,
+            "is_summonable": true
+        },
+        "component_groups": {
+            "minecraft:skeleton_jockey": {
+                "minecraft:addrider": {
+                    "entity_type": "minecraft:skeleton"
+                }
+            }
+        },
+        "components": {
+            "minecraft:health": {
+                "value": 16,
+                "max": 16
+            },
+            "minecraft:attack": {
+                "damage": 2
+            },
+            "minecraft:movement": {
+                "value": 0.3
+            },
+            "minecraft:collision_box": {
+                "width": 1.4,
+                "height": 0.9
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "spider",
+                    "monster",
+                    "mob"
+                ]
+            },
+            "minecraft:breathable": {
+                "total_supply": 15,
+                "breathes_air": true,
+                "breathes_water": false
+            },
+            "minecraft:experience_reward": {
+                "on_death": "query.last_hit_by_player ? 5 : 0"
+            },
+            "minecraft:loot": {
+                "table": "loot_tables/entities/spider.json"
+            },
+            "minecraft:hurt_on_condition": {
+                "damage_conditions": [
+                    {
+                        "filters": {
+                            "test": "in_lava",
+                            "value": true
+                        },
+                        "cause": "lava",
+                        "damage_per_tick": 4
+                    }
+                ]
+            },
+            "minecraft:behavior.float": {
+                "priority": 1
+            },
+            "minecraft:behavior.hurt_by_target": {
+                "priority": 1
+            },
+            "minecraft:behavior.nearest_attackable_target": {
+                "priority": 2,
+                "must_see": true,
+                "attack_interval": 5,
+                "entity_types": {
+                    "filters": {
+                        "any_of": [
+                            {
+                                "test": "is_family",
+                                "subject": "other",
+                                "value": "player"
+                            },
+                            {
+                                "test": "is_family",
+                                "subject": "other",
+                                "value": "irongolem"
+                            },
+                            {
+                                "test": "is_family",
+                                "subject": "other",
+                                "value": "snowgolem"
+                            }
+                        ]
+                    },
+                    "max_dist": 16
+                }
+            },
+            "minecraft:behavior.leap_at_target": {
+                "priority": 3,
+                "yd": 0.4,
+                "must_be_on_ground": false
+            },
+            "minecraft:behavior.melee_box_attack": {
+                "priority": 4,
+                "track_target": true
+            },
+            "minecraft:behavior.mount_pathing": {
+                "priority": 5,
+                "speed_multiplier": 1.25,
+                "target_dist": 0.0,
+                "track_target": true
+            },
+            "minecraft:behavior.random_stroll": {
+                "priority": 6,
+                "speed_multiplier": 0.8
+            },
+            "minecraft:behavior.look_at_player": {
+                "priority": 7,
+                "look_distance": 6,
+                "probability": 0.02
+            },
+            "minecraft:behavior.random_look_around": {
+                "priority": 8
+            },
+            "minecraft:rideable": {
+                "seat_count": 1,
+                "family_types": [
+                    "skeleton"
+                ],
+                "seats": {
+                    "position": [ 0.0, 0.54, 0.0]
+                }
+            },
+            "minecraft:movement.basic": {},
+            "minecraft:navigation.climb": {
+                "can_path_over_water": true
+            },
+            "minecraft:jump.static": {},
+            "minecraft:nameable": {},
+            "minecraft:can_climb": {},
+            "minecraft:physics": {},
+            "minecraft:pushable": {},
+            "minecraft:persistent": {},
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:conditional_bandwidth_optimization": {}
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "randomize": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "minecraft:skeleton_jockey"
+                            ]
+                        },
+                        "weight": 1
+                    },
+                    {
+                        "weight": 49
+                    }
+                ]
+            }
+        }
+    }
+}
