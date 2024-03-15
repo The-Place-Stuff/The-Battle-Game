@@ -4,7 +4,7 @@ import './constants'
 import './world/decorators'
 
 // Mechanics
-import './mechanics/player_properties'
+import './mechanics/game_configuration'
 import './mechanics/volume_manager'
 import './mechanics/summon_manager'
 
