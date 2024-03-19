@@ -4,25 +4,38 @@
         "description": {
             "identifier": "battle:beacon",
             "materials": {
-                "default": "entity_alphatest"
+                "default": "entity_alphatest",
+                "beam": "entity_alphatest"
             },
             "textures": {
-                "default": "textures/entity/beacon"
+                "default": "textures/entity/beacon/beacon",
+                "cracked_none": "textures/entity/beacon/cracked_none",
+                "cracked_low": "textures/entity/beacon/cracked_low",
+                "cracked_medium": "textures/entity/beacon/cracked_medium",
+                "cracked_high": "textures/entity/beacon/cracked_high",
+                "beam": "textures/entity/beacon/beam"
             },
             "geometry": {
-                "default": "geometry.beacon"
+                "default": "geometry.beacon",
+                "beam": "geometry.beacon_beam"
             },
             "animations": {
-                "setup_beam": "animation.beacon.setup_beam",
-                "hide_beam": "animation.beacon.hide_beam"
+                "setup": "animation.beacon.setup"
             },
             "scripts": {
+                "pre_animation": [
+                    "variable.speed = query.anim_time * 180;"
+                ],
                 "animate": [
-                    "setup_beam"
-                ]
+                    "setup"
+                ],
+                "should_update_bones_and_effects_offscreen": true,
+                "should_update_effects_offscreen": true
             },
             "render_controllers": [
-                "controller.render.beacon"
+                "controller.render.beacon",
+                "controller.render.beacon.cracked_level",
+                "controller.render.beacon.beam"
             ]
         }
     }

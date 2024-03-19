@@ -12,11 +12,58 @@
                 }
             ],
             "is_hurt_color": {
-                "r": 1,
-                "g": 1,
-                "b": 1,
-                "a": 0.25
-            }
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "a": 0
+            },
+            "ignore_lighting": true
+        },
+        "controller.render.beacon.cracked_level": {
+            "arrays": {
+                "textures": {
+                    "Array.cracks": [
+                        "Texture.cracked_high",
+                        "Texture.cracked_medium",
+                        "Texture.cracked_low",
+                        "Texture.cracked_none"
+                    ]
+                }
+            },
+            "textures": [
+                "Array.cracks[query.property('battle:cracked_level') == 'high' ? 0 : query.property('battle:cracked_level') == 'medium' ? 1 : query.property('battle:cracked_level') == 'low' ? 2 : query.property('battle:cracked_level') == 'none' ? 3 : 4]"
+            ],
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "is_hurt_color": {
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "a": 0
+            },
+            "ignore_lighting": true
+        },
+        "controller.render.beacon.beam": {
+            "textures": [
+                "Texture.beam"
+            ],
+            "geometry": "Geometry.beam",
+            "materials": [
+                {
+                    "*": "Material.beam"
+                }
+            ],
+            "is_hurt_color": {
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "a": 0
+            },
+            "ignore_lighting": true
         }
     }
 }

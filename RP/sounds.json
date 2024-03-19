@@ -1,11 +1,23 @@
 {
     "entity_sounds": {
         "entities": {
+            "minecraft:enderman": {
+                "volume": 1,
+                "pitch": [0.8, 1.2],
+                "events": {
+                    "ambient": "mob.endermen.idle",
+                    "attack": "mob.endermen.swing",
+                    "hurt": "mob.endermen.hit",
+                    "death": "mob.endermen.death"
+                }
+            },
             "battle:beacon": {
                 "volume": 1,
                 "pitch": [0.8, 1.2],
                 "events": {
-                    "ambient": "beacon.ambient"
+                    "ambient": "beacon.ambient",
+                    "hurt": "hit.anvil",
+                    "death": "hit.anvil"
                 }
             },
             "battle:slime": {
@@ -71,9 +83,9 @@
             },
             "battle:bootrap": {
                 "events": {
-                    "ambient": "item.book.page_turn"
+                    "hurt": "item.book.put"
                 },
-                "pitch": 1,
+                "pitch": [0.8, 1.2],
                 "volume": 1
             },
             "battle:plankton": {

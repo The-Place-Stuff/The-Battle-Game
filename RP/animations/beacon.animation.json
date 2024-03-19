@@ -1,20 +1,19 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.beacon.hide_beam": {
+		"animation.beacon.setup": {
 			"loop": true,
 			"bones": {
+				"core": {
+					"rotation": ["variable.speed / 2", "variable.speed", 0],
+					"position": [0, "8 + (math.cos(variable.speed) * 3)", 0]
+				},
 				"beam": {
-					"scale": 0
-				}
-			}
-		},
-		"animation.beacon.setup_beam": {
-			"loop": true,
-			"bones": {
-				"beam": {
-					"rotation": [0, "query.anim_time * 360", 0],
-					"scale": [1, 400, 1]
+					"rotation": [0, "variable.speed", 0],
+					"position": [0, "12 + (math.cos(variable.speed) * 3)", 0]
+				},
+				"extended": {
+					"scale": [1, 250, 1]
 				}
 			}
 		}
