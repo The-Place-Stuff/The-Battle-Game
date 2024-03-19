@@ -1,0 +1,20 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "battle:bootrap_mage",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/entity/bootrap_mage"
+            },
+            "geometry": {
+                "default": "geometry.bootrap_mage"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ]
+        }
+    }
+}

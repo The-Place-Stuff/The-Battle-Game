@@ -167,6 +167,15 @@
 				"height": 2,
 				"width": 2
 			},
+			"minecraft:custom_hit_test": {
+				"hitboxes": [
+					{
+						"pivot": [0, 1.25, 0],
+						"width": 2.5,
+						"height": 2.5
+					}
+				]
+			},
 			"minecraft:boss": {
 				"hud_range": 256,
 				"name": "King Jello",
