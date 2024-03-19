@@ -1,42 +1,9 @@
 {
 	"format_version": "1.19.40",
 	"sound_definitions": {
-		"music.plains": {
-			"category": "music",
-			"sounds": [
-				{
-					"stream": true,
-					"name": "sounds/music/plains",
-					"volume": 0.2,
-					"load_on_low_memory": true
-				}
-			]
-		},
-		"music.king_jello": {
-			"category": "music",
-			"sounds": [
-				{
-					"stream": true,
-					"name": "sounds/music/king_jello",
-					"volume": 0.4,
-					"load_on_low_memory": true
-				}
-			]
-		},
-		"music.desert": {
-			"category": "music",
-			"sounds": [
-				{
-					"stream": true,
-					"name": "sounds/music/desert",
-					"volume": 0.2,
-					"load_on_low_memory": true
-				}
-			]
-		},
 		"random.sweep": {
 			"category": "player",
-			"min_distance": 5,
+			"min_distance": 12,
 			"sounds": [
 				"sounds/random/sweep1",
 				"sounds/random/sweep2",
@@ -47,71 +14,30 @@
 				"sounds/random/sweep7"
 			]
 		},
-		"mob.wolf.summon": {
+		"mob.endermen.swing": {
 			"max_distance": 12,
-			"category": "player",
+			"category": "hostile",
 			"sounds": [
-				"sounds/mob/wolf/bark1",
-				"sounds/mob/wolf/bark2",
-				"sounds/mob/wolf/bark3"
+				"sounds/mob/endermen/swing1",
+				"sounds/mob/endermen/swing2",
+				"sounds/mob/endermen/swing3"
 			]
 		},
-		"mob.wolf.despawn": {
-			"max_distance": 12,
+		"mob.beacon.hurt": {
+			"max_distance": 20,
 			"category": "player",
 			"sounds": [
-				"sounds/mob/wolf/whine"
-			]
-		},
-		"mob.allay.summon": {
-			"max_distance": 12,
-			"category": "player",
-			"sounds": [
-				"sounds/mob/allay/item_given1",
-				"sounds/mob/allay/item_given2",
-				"sounds/mob/allay/item_given3",
-				"sounds/mob/allay/item_given4"
-			]
-		},
-		"mob.allay.despawn": {
-			"max_distance": 12,
-			"category": "player",
-			"sounds": [
-				"sounds/mob/allay/item_taken1",
-				"sounds/mob/allay/item_taken2",
-				"sounds/mob/allay/item_taken3",
-				"sounds/mob/allay/item_taken4"
-			]
-		},
-		"mob.bootrap.summon": {
-			"max_distance": 12,
-			"category": "player",
-			"sounds": [
-				"sounds/item/book/open_flip1",
-				"sounds/item/book/open_flip2",
-				"sounds/item/book/open_flip3"
-			]
-		},
-		"mob.bootrap.despawn": {
-			"max_distance": 12,
-			"category": "player",
-			"sounds": [
-				"sounds/item/book/close_put1",
-				"sounds/item/book/close_put2"
+				"sounds/mob/beacon/hurt1",
+				"sounds/mob/beacon/hurt2",
+				"sounds/mob/beacon/hurt3"
 			]
 		},
 		"mob.beacon.crack": {
 			"max_distance": 64,
-			"category": "block",
+			"category": "player",
 			"sounds": [
-				"sounds/mob/beacon/crack"
-			]
-		},
-		"mob.beacon.destroy": {
-			"max_distance": 64,
-			"category": "block",
-			"sounds": [
-				"sounds/mob/beacon/destroy"
+				"sounds/mob/beacon/crack1",
+				"sounds/mob/beacon/crack2"
 			]
 		},
 		"mob.king_jello.roar": {

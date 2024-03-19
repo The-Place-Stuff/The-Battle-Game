@@ -1,0 +1,110 @@
+{
+    "format_version": "1.20.60",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "minecraft:enderman",
+            "is_spawnable": true,
+            "is_summonable": true
+        },
+        "components": {
+            "minecraft:health": {
+                "value": 100,
+                "max": 100
+            },
+            "minecraft:movement": {
+                "value": 0.3
+            },
+            "minecraft:attack": {
+                "damage": 10
+            },
+            "minecraft:knockback_resistance": {
+                "value": 1
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "enderman",
+                    "boss",
+                    "monster",
+                    "mob"
+                ]
+            },
+            "minecraft:collision_box": {
+                "width": 0.6,
+                "height": 2.9
+            },
+            "minecraft:breathable": {
+                "total_supply": 15,
+                "breathes_air": true,
+                "breathes_water": false
+            },
+            "minecraft:experience_reward": {
+                "on_death": "query.last_hit_by_player ? 20 : 0"
+            },
+            "minecraft:loot": {
+                "table": "loot_tables/empty.json"
+            },
+            "minecraft:hurt_on_condition": {
+                "damage_conditions": [
+                    {
+                        "filters": {
+                            "test": "in_lava",
+                            "value": true
+                        },
+                        "cause": "lava",
+                        "damage_per_tick": 4
+                    },
+                    {
+                        "filters": {
+                            "test": "in_contact_with_water",
+                            "value": true
+                        },
+                        "cause": "drowning",
+                        "damage_per_tick": 1
+                    }
+                ]
+            },
+            "minecraft:behavior.hurt_by_target": {
+                "priority": 1
+            },
+            "minecraft:behavior.nearest_attackable_target": {
+                "priority": 2,
+                "must_see": false,
+                "entity_types": {
+                    "filters": {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "beacon"
+                    },
+                    "max_dist": 32
+                }
+            },
+            "minecraft:behavior.delayed_attack": {
+                "priority": 3,
+                "random_stop_interval": 0,
+                "reach_multiplier": 5.0,
+                "attack_duration": 0.75,
+                "hit_delay_pct": 0.66
+            },
+            "minecraft:behavior.random_stroll": {
+                "priority": 4
+            },
+            "minecraft:behavior.look_at_player": {
+                "priority": 5,
+                "look_distance": 6
+            },
+            "minecraft:behavior.random_look_around": {
+                "priority": 6
+            },
+            "minecraft:movement.basic": {},
+            "minecraft:navigation.walk": {},
+            "minecraft:jump.static": {},
+            "minecraft:can_climb": {},
+            "minecraft:nameable": {},
+            "minecraft:physics": {},
+            "minecraft:persistent": {},
+            "minecraft:pushable": {},
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:conditional_bandwidth_optimization": {}
+        }
+    }
+}

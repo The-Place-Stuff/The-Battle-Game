@@ -1,0 +1,53 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.revamped_enderman.walk": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"walking": "variable.moving"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"walking": {
+					"animations": [
+						{
+							"walk": "math.min(1.0, math.lerp(0.4, 1.25, query.modified_move_speed))"
+						}
+					],
+					"transitions": [
+						{
+							"default": "!variable.moving"
+						}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		},
+		"controller.animation.revamped_enderman.attack": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"delayed_attacking": "query.is_delayed_attacking"
+						}
+					]
+				},
+				"delayed_attacking": {
+					"animations": [
+						"attack"
+					],
+					"transitions": [
+						{
+							"default": "query.any_animation_finished"
+						}
+					]
+				}
+			}
+		}
+	}
+}

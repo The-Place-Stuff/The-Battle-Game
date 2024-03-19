@@ -1,0 +1,43 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "minecraft:enderman",
+			"materials": {
+				"default": "enderman",
+				"invisible": "enderman_invisible"
+			},
+			"textures": {
+				"default": "textures/entity/enderman/enderman"
+			},
+			"geometry": {
+				"default": "geometry.revamped_enderman"
+			},
+			"animations": {
+				"look_at_target": "animation.humanoid.look_at_target.default",
+				"walk": "animation.revamped_enderman.walk",
+				"attack": "animation.revamped_enderman.attack",
+				"walk_controller": "controller.animation.revamped_enderman.walk",
+				"attack_controller": "controller.animation.revamped_enderman.attack"
+			},
+			"scripts": {
+				"pre_animation": [
+					"variable.moving = query.modified_move_speed > 0.05 || query.vertical_speed > 0.05;",
+					"variable.enraged_attacking = variable.attack_time > 0.0 && !query.is_delayed_attacking;"
+				],
+				"animate": [
+					"walk_controller",
+					"attack_controller"
+				]
+			},
+			"render_controllers": [
+				"controller.render.enderman"
+			],
+			"spawn_egg": {
+				"texture": "spawn_egg",
+				"texture_index": 7
+			},
+			"min_engine_version": "1.12.0"
+		}
+	}
+}
