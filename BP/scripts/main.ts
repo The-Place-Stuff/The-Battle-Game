@@ -13,6 +13,7 @@ import './items/sludge_slasher'
 import './items/cactus_hat'
 
 // Entities
+import './entities/beacon'
 import './entities/king_jello'
 import './entities/falling_slime'
 
