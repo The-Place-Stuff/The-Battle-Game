@@ -4,17 +4,89 @@
         "description": {
             "identifier": "battle:beacon",
             "is_spawnable": false,
-            "is_summonable": true
+            "is_summonable": true,
+            "properties": {
+                "battle:cracked_level": {
+                    "client_sync": true,
+                    "type": "enum",
+                    "default": "none",
+                    "values": [
+                        "none",
+                        "low",
+                        "medium",
+                        "high"
+                    ]
+                }
+            }
+        },
+        "component_groups": {
+            "battle:despawn": {
+                "minecraft:instant_despawn": {}
+            }
         },
         "components": {
             "minecraft:health": {
+                "min": 1,
                 "value": 100,
                 "max": 100
             },
-            "minecraft:nameable": {},
+            "minecraft:knockback_resistance": {
+                "value": 1
+            },
+            "minecraft:collision_box": {
+                "width": 1.25,
+                "height": 1.25
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "beacon"
+                ]
+            },
+            "minecraft:interact": {
+                "interactions": [
+                    {
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_ability",
+                                        "subject": "other",
+                                        "value": "invulnerable"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "minecraft:blaze_rod"
+                                    }
+                                ]
+                            },
+                            "event": "battle:despawn",
+                            "target": "self"
+                        },
+                        "swing": true
+                    }
+                ]
+            },
+            "minecraft:nameable": {
+                "always_show": true
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
             "minecraft:persistent": {},
             "minecraft:physics": {},
-            "minecraft:conditional_bandwidth_optimization": {}
+            "minecraft:is_hidden_when_invisible": {}
+        },
+        "events": {
+            "battle:despawn": {
+                "add": {
+                    "component_groups": [
+                        "battle:despawn"
+                    ]
+                }
+            }
         }
     }
 }
