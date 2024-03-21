@@ -6,7 +6,7 @@ import './world/decorators'
 // Mechanics
 import './mechanics/game_configuration'
 import './mechanics/volume_manager'
-import './mechanics/summon_manager'
+//import './mechanics/summon_manager'
 
 // Items
 import './items/sludge_slasher'

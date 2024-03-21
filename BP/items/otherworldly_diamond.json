@@ -1,28 +1,15 @@
 {
-	"format_version": "1.19.40",
+	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
 			"identifier": "battle:otherworldly_diamond"
 		},
 		"components": {
+			"minecraft:icon": "otherworldly_diamond",
 			"minecraft:max_stack_size": 1,
-			"minecraft:icon": {
-				"texture": "otherworldly_diamond"
-			},
-			"minecraft:on_use": {
-				"on_use": {
-					"event": "battle:consume_item",
-					"target": "self"
-				}
-			}
-		},
-		"events": {
-			"battle:consume_item": {
-				"swing": {},
-				"decrement_stack": {
-					"ignore_game_mode": false
-				}
-			}
+			"minecraft:custom_components": [
+				"battle:bootrap_summon"
+			]
 		}
 	}
 }

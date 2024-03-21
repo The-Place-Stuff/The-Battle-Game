@@ -1,28 +1,15 @@
 {
-	"format_version": "1.19.40",
+	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
 			"identifier": "battle:allay_bottle"
 		},
 		"components": {
+			"minecraft:icon": "allay_bottle",
 			"minecraft:max_stack_size": 1,
-			"minecraft:icon": {
-				"texture": "allay_bottle"
-			},
-			"minecraft:on_use": {
-				"on_use": {
-					"event": "battle:consume_item",
-					"target": "self"
-				}
-			}
-		},
-		"events": {
-			"battle:consume_item": {
-				"swing": {},
-				"decrement_stack": {
-					"ignore_game_mode": false
-				}
-			}
+			"minecraft:custom_components": [
+				"battle:allay_summon"
+			]
 		}
 	}
 }
