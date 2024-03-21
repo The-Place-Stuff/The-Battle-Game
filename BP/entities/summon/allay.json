@@ -141,7 +141,7 @@
             },
             "minecraft:behavior.follow_owner": {
                 "priority": 2,
-                "can_teleport": true,
+                "can_teleport": false,
                 "start_distance": 5,
                 "speed_multiplier": 2.0
             },

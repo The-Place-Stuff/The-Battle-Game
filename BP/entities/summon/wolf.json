@@ -105,7 +105,7 @@
             "minecraft:behavior.follow_owner": {
                 "priority": 5,
                 "start_distance": 5,
-                "can_teleport": true,
+                "can_teleport": false,
                 "speed_multiplier": 1.15
             },
             "minecraft:behavior.look_at_player": {
