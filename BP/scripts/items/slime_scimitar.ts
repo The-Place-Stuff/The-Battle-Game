@@ -13,7 +13,7 @@ function handleAttack(attacker: Player, victim: Entity) {
     const equippableComp = attacker.getComponent('minecraft:equippable')
     const mainhandStack = equippableComp.getEquipment(EquipmentSlot.Mainhand)
     
-    if (!mainhandStack || mainhandStack.typeId != 'battle:sludge_slasher') return
+    if (!mainhandStack || mainhandStack.typeId != 'battle:slime_scimitar') return
     if (attacker.isFalling) return
 
     world.playSound('random.sweep', attacker.location, { pitch: 1.0, volume: 1.0 })
@@ -23,8 +23,8 @@ function handleAttack(attacker: Player, victim: Entity) {
         z: (attacker.location.z + victim.location.z) / 2
     })
     for (const monster of findNearbyMonsters(victim.location, dimension)) {
-        monster.addEffect('slowness', 20, { amplifier: 1, showParticles: false })
-        dimension.spawnParticle('battle:sludged', monster.location)
+        monster.addEffect('slowness', 40, { amplifier: 1, showParticles: false })
+        dimension.spawnParticle('battle:slime_bubble', monster.location)
     }
 }
 

@@ -5,7 +5,7 @@ entity.battle:quest_villager.name=NPC
 item.spawn_egg.entity.battle:quest_villager.name=Spawn NPC
 
 ## Items
-item.battle:sludge_slasher=Sludge Slasher
+item.battle:slime_scimitar=Slime Scimitar
 item.battle:allay_bottle=Bottle of Allay
 item.battle:loyal_bone=Loyal Bone
 item.battle:otherworldly_diamond=Otherworldly Diamond

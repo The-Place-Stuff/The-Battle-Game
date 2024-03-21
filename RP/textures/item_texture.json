@@ -2,8 +2,8 @@
 	"resource_pack_name": "RPG World",
 	"texture_name": "atlas.items",
 	"texture_data": {
-		"sludge_slasher": {
-			"textures": "textures/items/sludge_slasher"
+		"slime_scimitar": {
+			"textures": "textures/items/slime_scimitar"
 		},
 		"spear": {
 			"textures": "textures/items/spear"

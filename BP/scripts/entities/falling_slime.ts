@@ -31,7 +31,7 @@ function onSlimeLand(projectile: Entity, location: Vector3) {
                 amplifier: 3
             })
         }
-        dimension.spawnParticle('battle:sludge_wave', {
+        dimension.spawnParticle('battle:slime_bubble_swarm', {
             x: location.x,
             y: location.y + 0.5,
             z: location.z

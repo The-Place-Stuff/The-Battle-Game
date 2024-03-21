@@ -1,0 +1,24 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "battle:slime_scimitar"
+		},
+		"components": {
+			"minecraft:icon": "slime_scimitar",
+			"minecraft:hand_equipped": true,
+			"minecraft:max_stack_size": 1,
+			"minecraft:damage": 4,
+			"minecraft:can_destroy_in_creative": false
+			/*
+			"minecraft:render_offsets": {
+				"main_hand": {
+					"third_person": {
+						"position": [ 0.2, 1.3, -0.5 ]
+					}
+				}
+			}
+			*/
+		}
+	}
+}

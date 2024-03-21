@@ -9,7 +9,7 @@ import './mechanics/volume_manager'
 //import './mechanics/summon_manager'
 
 // Items
-import './items/sludge_slasher'
+import './items/slime_scimitar'
 import './items/cactus_hat'
 
 // Entities
