@@ -44,14 +44,14 @@
 					],
 					"transitions": [
 						{
-							"release": "query.main_hand_item_use_duration <= 0.0"
+							"release": "variable.charge_amount > 0.25 && query.main_hand_item_use_duration <= 0.0"
 						}
 					],
 					"blend_transition": 1
 				},
 				"release": {
 					"animations": [
-						"first_person_release"
+						"first_person_jab"
 					],
 					"transitions": [
 						{

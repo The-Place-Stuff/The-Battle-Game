@@ -12,6 +12,10 @@
 			"minecraft:use_modifiers": {
 				"movement_modifier": 0.5,
 				"use_duration": 180
+			},
+			"minecraft:cooldown": {
+				"category": "spear",
+				"duration": 1
 			}
 		}
 	}

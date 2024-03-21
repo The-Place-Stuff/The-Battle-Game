@@ -19,45 +19,6 @@
 				}
 			}
 		},
-		"animation.spear.jab": {
-			"animation_length": 0.28,
-			"bones": {
-				"spear": {
-					"rotation": {
-						"0.0": {
-							"post": [0, 25, -75],
-							"lerp_mode": "catmullrom"
-						},
-						"0.08": {
-							"post": [0, 67.5, -72.5],
-							"lerp_mode": "catmullrom"
-						},
-						"0.2": {
-							"post": [0, 67.5, -72.5],
-							"lerp_mode": "catmullrom"
-						},
-						"0.28": {
-							"post": [0, 25, -75],
-							"lerp_mode": "catmullrom"
-						}
-					},
-					"position": {
-						"0.0": {
-							"post": [0, 6, 0],
-							"lerp_mode": "catmullrom"
-						},
-						"0.08": {
-							"post": [0, 3, -7],
-							"lerp_mode": "catmullrom"
-						},
-						"0.28": {
-							"post": [0, 6, 0],
-							"lerp_mode": "catmullrom"
-						}
-					}
-				}
-			}
-		},
 		"animation.spear.first_person_charge": {
 			"loop": true,
 			"bones": {
@@ -67,7 +28,7 @@
 				}
 			}
 		},
-		"animation.spear.first_person_release": {
+		"animation.spear.first_person_jab": {
 			"loop": true,
 			"bones": {
 				"spear": {

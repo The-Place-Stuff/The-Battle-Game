@@ -86,6 +86,22 @@
 				"sounds/mob/plankton/death1",
 				"sounds/mob/plankton/death2"
 			]
+		},
+		"item.spear.jab": {
+			"max_distance": 12,
+			"category": "player",
+			"sounds": [
+				"sounds/item/spear/jab1",
+				"sounds/item/spear/jab2",
+				"sounds/item/spear/jab3"
+			]
+		},
+		"item.spear.land_hit": {
+			"max_distance": 12,
+			"category": "player",
+			"sounds": [
+				"sounds/item/spear/land_hit"
+			]
 		}
 	}
 }

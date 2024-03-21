@@ -56,6 +56,14 @@ export class VectorUtils {
             z: first.z + second.z
         }
     }
+
+    public static subtract(first: Vector3, second: Vector3) {
+        return {
+            x: first.x - second.x,
+            y: first.y - second.y,
+            z: first.z - second.z
+        }
+    }
     
     public static multiply(first: Vector3, second: Vector3 | number) {
         if (typeof second == 'number') {

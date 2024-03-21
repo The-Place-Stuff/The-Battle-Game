@@ -10,6 +10,7 @@ import './mechanics/volume_manager'
 
 // Items
 import './items/slime_scimitar'
+import './items/spear'
 import './items/cactus_hat'
 
 // Entities
