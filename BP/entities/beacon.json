@@ -26,7 +26,6 @@
         },
         "components": {
             "minecraft:health": {
-                "min": 1,
                 "value": 100,
                 "max": 100
             },

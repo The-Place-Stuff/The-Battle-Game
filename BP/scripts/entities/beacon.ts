@@ -15,7 +15,7 @@ world.afterEvents.entityDie.subscribe(event => {
         
         for (const beacon of searchForBeacon(dimension)) {
             const health = beacon.getComponent('minecraft:health')
-            health.setCurrentValue(health.currentValue + 5)
+            health.setCurrentValue(Math.min(health.effectiveMax, health.currentValue + 5))
         }
     }
 })
