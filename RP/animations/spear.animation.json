@@ -57,6 +57,24 @@
 					}
 				}
 			}
+		},
+		"animation.spear.first_person_charge": {
+			"loop": true,
+			"bones": {
+				"spear": {
+					"rotation": [30, -20, -65],
+					"position": [6, 1, "2 + math.lerp(0, 5, variable.charge_amount) + (variable.charge_amount >= 1.0 ? math.sin(query.life_time * 1280) * 0.25 : 0)"]
+				}
+			}
+		},
+		"animation.spear.first_person_release": {
+			"loop": true,
+			"bones": {
+				"spear": {
+					"rotation": [30, -20, -65],
+					"position": [7, -1, -6]
+				}
+			}
 		}
 	}
 }

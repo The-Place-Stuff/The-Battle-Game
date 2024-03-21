@@ -15,9 +15,15 @@
             "animations": {
                 "first_person": "animation.spear.first_person",
                 "third_person": "animation.spear.third_person",
-                "controller": "controller.animation.spear"
+                "first_person_charge": "animation.spear.first_person_charge",
+                "first_person_release": "animation.spear.first_person_release",
+                "controller": "controller.animation.spear",
+                "first_person_controller": "controller.animation.spear.first_person"
             },
             "scripts": {
+                "pre_animation": [
+                    "variable.charge_amount = math.clamp((query.main_hand_item_max_duration - (query.main_hand_item_use_duration - query.frame_alpha + 1.0)) / 10.0, 0.0, 1.0f);"
+                ],
                 "animate": [
                     "controller"
                 ]
