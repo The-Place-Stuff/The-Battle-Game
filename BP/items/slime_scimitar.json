@@ -2,7 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
-			"identifier": "battle:slime_scimitar"
+			"identifier": "battle:slime_scimitar",
+			"menu_category": {
+				"category": "equipment"
+			}
 		},
 		"components": {
 			"minecraft:icon": "slime_scimitar",

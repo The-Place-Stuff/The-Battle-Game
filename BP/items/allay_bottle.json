@@ -2,7 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
-			"identifier": "battle:allay_bottle"
+			"identifier": "battle:allay_bottle",
+			"menu_category": {
+				"category": "equipment"
+			}
 		},
 		"components": {
 			"minecraft:icon": "allay_bottle",

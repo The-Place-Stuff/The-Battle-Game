@@ -2,7 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:item": {
 		"description": {
-			"identifier": "battle:otherworldly_diamond"
+			"identifier": "battle:otherworldly_diamond",
+			"menu_category": {
+				"category": "equipment"
+			}
 		},
 		"components": {
 			"minecraft:icon": "otherworldly_diamond",
