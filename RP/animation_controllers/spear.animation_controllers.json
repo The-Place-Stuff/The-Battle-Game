@@ -44,7 +44,7 @@
 					],
 					"transitions": [
 						{
-							"release": "variable.charge_amount > 0.25 && query.main_hand_item_use_duration <= 0.0"
+							"release": "query.main_hand_item_use_duration <= 0.0"
 						}
 					],
 					"blend_transition": 1
