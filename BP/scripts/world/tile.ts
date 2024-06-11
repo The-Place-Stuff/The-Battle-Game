@@ -29,8 +29,8 @@ export default class Tile {
         const tileEnd = VectorUtils.add(tileStart, new Vector3d(15, 0, 15))
 
         dimension.runCommand(`structure load "${this.location}" ${tileStart.x} ${tileStart.y} ${tileStart.z} ${this.getRotation()}`)
-        system.runTimeout(() => this.scanHeightmap(dimension, tileStart, tileEnd), 1)
-        system.runTimeout(() => this.placeDecorators(dimension, random, tileStart), 2)
+        this.scanHeightmap(dimension, tileStart, tileEnd)
+        this.placeDecorators(dimension, random, tileStart)
     }
 
     private scanHeightmap(dimension: Dimension, tileStart: Vector3, tileEnd: Vector3) {
@@ -53,7 +53,7 @@ export default class Tile {
                 decorator.place(this, dimension, random, tileStart)
             }
             catch (error) {
-                console.warn(`Decorator at ${tileStart.x} ${tileStart.y} ${tileStart.z} produced this error: ${error}`)
+                console.warn(`Failed to place decorator at ${tileStart.x} ${tileStart.y} ${tileStart.z}: ${error}`)
             }
         }
     }

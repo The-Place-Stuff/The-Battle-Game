@@ -162,6 +162,9 @@
             },
             "minecraft:jump.static": {},
             "minecraft:physics": {},
+            "minecraft:tameable": {
+                "probability": 0
+            },
             "minecraft:pushable": {},
             "minecraft:nameable": {},
             "minecraft:can_fly": {},

@@ -15,25 +15,18 @@ export default class Arena {
     }
 
     public async build(origin: Vector3) {
-        const promises: Promise<void>[] = []
         const tileStart = new Vector3d(Math.floor(origin.x / 16), 0, Math.floor(origin.z / 16))
-        let delay = 0
 
         for (let tileX = -this.size; tileX <= this.size; tileX++) {
             for (let tileZ = -this.size; tileZ <= this.size; tileZ++) {
                 const tile = this.getTileAt(tileX, tileZ)
-                promises.push(this.placeTile(tile, tileStart.x + tileX, tileStart.z + tileZ, delay))
-                delay++
+                this.placeTile(tile, tileStart.x + tileX, tileStart.z + tileZ)
             }
         }
-        return Promise.all(promises)
     }
 
-    private async placeTile(tile: Tile, tileX: number, tileZ: number, delay: number): Promise<void> {
-        return new Promise<void>(async resolve => system.runTimeout(async () => {
-            await tile.place(overworld, tileX, tileZ)
-            resolve()
-        }, delay * 20))
+    private async placeTile(tile: Tile, tileX: number, tileZ: number) {
+        tile.place(overworld, tileX, tileZ)
     }
 
     private getTileAt(tileX: number, tileZ: number): Tile {

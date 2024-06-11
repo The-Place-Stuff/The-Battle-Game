@@ -1,5 +1,6 @@
 import { world } from '@minecraft/server'
-import SummonItemComponent from '../components/items/summon_item_component'
+import SummonComponent from '../item_components/summon_component'
+import SlimeScimitarComponent from '../item_components/slime_scimitar_component'
 
 world.afterEvents.playerSpawn.subscribe(event => {
     const player = event.player
@@ -23,7 +24,8 @@ world.afterEvents.worldInitialize.subscribe(event => {
 
 world.beforeEvents.worldInitialize.subscribe(event => {
     const itemRegistry = event.itemComponentRegistry
-    itemRegistry.registerCustomComponent('battle:wolf_summon', new SummonItemComponent('wolf'))
-    itemRegistry.registerCustomComponent('battle:allay_summon', new SummonItemComponent('allay'))
-    itemRegistry.registerCustomComponent('battle:bootrap_summon', new SummonItemComponent('bootrap'))
+    itemRegistry.registerCustomComponent('battle:wolf_summon', new SummonComponent('battle:wolf'))
+    itemRegistry.registerCustomComponent('battle:allay_summon', new SummonComponent('battle:allay'))
+    itemRegistry.registerCustomComponent('battle:bootrap_summon', new SummonComponent('battle:bootrap'))
+    itemRegistry.registerCustomComponent('battle:slime_scimitar', new SlimeScimitarComponent())
 })

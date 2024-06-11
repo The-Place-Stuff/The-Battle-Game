@@ -6,10 +6,8 @@ import './world/decorators'
 // Mechanics
 import './mechanics/game_configuration'
 import './mechanics/volume_manager'
-//import './mechanics/summon_manager'
 
 // Items
-import './items/slime_scimitar'
 import './items/spear'
 import './items/cactus_hat'
 

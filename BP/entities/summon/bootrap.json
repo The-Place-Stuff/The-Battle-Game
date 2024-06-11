@@ -80,6 +80,9 @@
                 "can_path_from_air": true
             },
             "minecraft:jump.static": {},
+            "minecraft:tameable": {
+                "probability": 0
+            },
             "minecraft:nameable": {},
             "minecraft:pushable": {},
             "minecraft:physics": {},

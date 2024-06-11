@@ -1,6 +1,6 @@
 import { ItemCustomComponent, ItemComponentUseEvent, Player } from '@minecraft/server'
 
-export default class SummonItemComponent implements ItemCustomComponent {
+export default class SummonComponent implements ItemCustomComponent {
     private readonly summonId: string
 
     public constructor(summonId: string) {
@@ -9,20 +9,19 @@ export default class SummonItemComponent implements ItemCustomComponent {
     }
 
     public onUse(event: ItemComponentUseEvent): void {
-        this.spawnManager(event.source)
+        this.createSummon(event.source)
         this.clearItem(event.source)
     }
 
-    private spawnManager(owner: Player): void {
-        const manager = owner.dimension.spawnEntity('battle:summon_manager', owner.location)
-        const projectile = manager.getComponent('minecraft:projectile')
-        projectile.owner = owner
-        manager.triggerEvent(`battle:transform_into_${this.summonId}`)
+    private createSummon(owner: Player): void {
+        const summon = owner.dimension.spawnEntity(this.summonId, owner.location)
+        const tameableComponent = summon.getComponent('minecraft:tameable')
+        tameableComponent.tame(owner)
     }
 
     private clearItem(owner: Player): void {
         const inventory = owner.getComponent('minecraft:inventory')
         const container = inventory.container
-        container.setItem(owner.selectedSlot)
+        container.setItem(owner.selectedSlotIndex)
     }
 }

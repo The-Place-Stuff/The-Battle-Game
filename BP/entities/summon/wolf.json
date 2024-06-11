@@ -130,6 +130,9 @@
                 "avoid_damage_blocks": true
             },
             "minecraft:jump.static": {},
+            "minecraft:tameable": {
+                "probability": 0
+            },
             "minecraft:nameable": {},
             "minecraft:pushable": {},
             "minecraft:physics": {},
