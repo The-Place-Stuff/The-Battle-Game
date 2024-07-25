@@ -1,4 +1,4 @@
-import { ItemCustomComponent, ItemComponentHitEntityEvent, Entity, Dimension, system } from '@minecraft/server'
+import { ItemCustomComponent, ItemComponentHitEntityEvent, Entity, Dimension } from '@minecraft/server'
 import { VectorUtils } from '../utils/vector_utils'
 
 
