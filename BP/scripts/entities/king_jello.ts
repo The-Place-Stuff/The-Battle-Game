@@ -1,9 +1,13 @@
-import { world, Dimension, Player, Entity, Vector3, GameMode } from '@minecraft/server'
+import { world, Dimension, Player, Entity, Vector3, GameMode, EntityProjectileComponent } from '@minecraft/server'
 import { Vector3d, VectorUtils } from '../utils/vector_utils'
 
 const excludeTypes = [
+    // Insert custom non-living entities
     'battle:falling_slime',
+
+    // Specifically King Jello
     'battle:king_jello',
+    
     'minecraft:area_effect_cloud',
     'minecraft:armor_stand',
     'minecraft:arrow',
@@ -89,7 +93,7 @@ function summonMinion(entity: Entity) {
         y: entity.location.y + 5,
         z: entity.location.z
     })
-    const component = projectile.getComponent('minecraft:projectile')
+    const component = projectile.getComponent('minecraft:projectile') as EntityProjectileComponent
     const target = getTarget(entity.location, dimension)
     let shootVelocity
     

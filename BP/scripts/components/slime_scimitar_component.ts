@@ -17,7 +17,7 @@ export default class SlimeScimitarComponent implements ItemCustomComponent {
     }
 
     private performSweep(attacker: Entity, victim: Entity, dimension: Dimension): void {
-        const particleLocation = VectorUtils.divide(VectorUtils.add(attacker.location, victim.location), 2)
+        const particleLocation = VectorUtils.divide(VectorUtils.add(attacker.getHeadLocation(), victim.location), 2)
         const targets = dimension.getEntities({
             location: attacker.location,
             families: ['monster'],

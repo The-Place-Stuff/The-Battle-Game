@@ -1,6 +1,6 @@
 import { world } from '@minecraft/server'
-import SummonComponent from '../item_components/summon_component'
-import SlimeScimitarComponent from '../item_components/slime_scimitar_component'
+import SummonComponent from '../components/summon_component'
+import SlimeScimitarComponent from '../components/slime_scimitar_component'
 
 world.afterEvents.playerSpawn.subscribe(event => {
     const player = event.player

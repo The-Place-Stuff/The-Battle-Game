@@ -1,8 +1,8 @@
-import { world, EquipmentSlot, EntityDamageCause } from '@minecraft/server'
+import { world, EquipmentSlot, EntityDamageCause, EntityEquippableComponent } from '@minecraft/server'
 
 world.afterEvents.entityHurt.subscribe(event => {
     const entity = event.hurtEntity
-    const equippableComponent = entity.getComponent('minecraft:equippable')
+    const equippableComponent = entity.getComponent('minecraft:equippable') as EntityEquippableComponent
     const source = event.damageSource
 
     if (!source.damagingEntity || source.cause == EntityDamageCause.thorns) return

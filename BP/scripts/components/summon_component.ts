@@ -1,4 +1,4 @@
-import { ItemCustomComponent, ItemComponentUseEvent, Player } from '@minecraft/server'
+import { ItemCustomComponent, ItemComponentUseEvent, Player, EntityInventoryComponent, EntityTameableComponent } from '@minecraft/server'
 
 export default class SummonComponent implements ItemCustomComponent {
     private readonly summonId: string
@@ -15,12 +15,12 @@ export default class SummonComponent implements ItemCustomComponent {
 
     private createSummon(owner: Player): void {
         const summon = owner.dimension.spawnEntity(this.summonId, owner.location)
-        const tameableComponent = summon.getComponent('minecraft:tameable')
+        const tameableComponent = summon.getComponent('minecraft:tameable') as EntityTameableComponent
         tameableComponent.tame(owner)
     }
 
     private clearItem(owner: Player): void {
-        const inventory = owner.getComponent('minecraft:inventory')
+        const inventory = owner.getComponent('minecraft:inventory') as EntityInventoryComponent
         const container = inventory.container
         container.setItem(owner.selectedSlotIndex)
     }

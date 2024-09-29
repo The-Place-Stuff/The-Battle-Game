@@ -31,6 +31,7 @@
             "minecraft:navigation.walk": {},
             "minecraft:jump.static": {},
             "minecraft:physics": {},
+            "minecraft:pushable": {},
             "minecraft:persistent": {},
             "minecraft:nameable": {},
             "minecraft:can_climb": {},

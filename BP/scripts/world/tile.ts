@@ -1,4 +1,4 @@
-import { system, StructureRotation, Vector3, Dimension } from '@minecraft/server'
+import { world, system, StructureRotation, Vector3, Dimension } from '@minecraft/server'
 import { Vector3d, VectorUtils } from '../utils/vector_utils'
 import PlacedDecorator from './decorators/placed_decorator'
 import Random from '../utils/random_utils'
@@ -10,6 +10,7 @@ const rotationMap: Map<StructureRotation, string> = new Map([
     [StructureRotation.Rotate90, '90_degrees']
 ])
 const random = new Random(100)
+const structureManager = world.structureManager
 
 export default class Tile {
     private readonly location: string
@@ -27,8 +28,10 @@ export default class Tile {
     public async place(dimension: Dimension, tileX: number, tileZ: number) {
         const tileStart = new Vector3d(tileX * 16, 0, tileZ * 16)
         const tileEnd = VectorUtils.add(tileStart, new Vector3d(15, 0, 15))
-
-        dimension.runCommand(`structure load "${this.location}" ${tileStart.x} ${tileStart.y} ${tileStart.z} ${this.getRotation()}`)
+        
+        structureManager.place(this.location, dimension, tileStart, {
+            rotation: this.rotation
+        })
         this.scanHeightmap(dimension, tileStart, tileEnd)
         this.placeDecorators(dimension, random, tileStart)
     }

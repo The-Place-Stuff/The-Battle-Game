@@ -4,7 +4,8 @@
         "description": {
             "identifier": "battle:cactus_hat",
             "menu_category": {
-				"category": "equipment"
+				"category": "equipment",
+                "group": "itemGroup.name.specialEquipment"
 			}
         },
         "components": {

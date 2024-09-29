@@ -1,4 +1,4 @@
-import { world, system, Player, ItemStack, StructureRotation, EquipmentSlot, ScriptEventSource, Block } from '@minecraft/server'
+import { world, system, Player, ItemStack, StructureRotation, ScriptEventSource, Block } from '@minecraft/server'
 import Arena from'../world/arena'
 import { DEFAULT_ITEM_STACKS } from '../constants'
 

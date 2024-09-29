@@ -1,21 +1,21 @@
-import { world, Dimension, Entity, Vector3 } from '@minecraft/server'
+import { world, Dimension, Entity, Vector3, EntityProjectileComponent, EntityTypeFamilyComponent } from '@minecraft/server'
 
 world.afterEvents.projectileHitBlock.subscribe(event => {
     if (event.projectile.typeId != 'battle:falling_slime') return
-    if (event.projectile.lifetimeState) {
+    if (event.projectile.isValid()) {
         onSlimeLand(event.projectile, event.location)
     }
 })
 
 world.afterEvents.projectileHitEntity.subscribe(event => {
     if (event.projectile.typeId != 'battle:falling_slime') return
-    if (event.projectile.lifetimeState) {
+    if (event.projectile.isValid()) {
         onSlimeLand(event.projectile, event.location)
     }
 })
 
 function onSlimeLand(projectile: Entity, location: Vector3) {
-    const component = projectile.getComponent('minecraft:projectile')
+    const component = projectile.getComponent('minecraft:projectile') as EntityProjectileComponent
     const owner = component.owner
     const dimension = projectile.dimension
     const effectLocation = {
@@ -53,7 +53,7 @@ function getSludgeTargets(location: Vector3, dimension: Dimension) {
         if (!entity.hasComponent('minecraft:type_family')) {
             return false
         }
-        const family = entity.getComponent('minecraft:type_family')
+        const family = entity.getComponent('minecraft:type_family') as EntityTypeFamilyComponent
         return family.hasTypeFamily('player') || family.hasTypeFamily('summon')
     })
 }

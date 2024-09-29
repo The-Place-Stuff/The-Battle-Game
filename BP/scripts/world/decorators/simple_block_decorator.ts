@@ -17,6 +17,12 @@ export default class SimpleBlockDecorator extends Decorator {
         const permutation = BlockPermutation.resolve(this.name, this.states)
         const block = dimension.getBlock(origin)
         
-        block.trySetPermutation(permutation)
+    
+        try {
+            block.setPermutation(permutation)
+        }
+        catch (err) {
+            console.warn(err)
+        }
     }
 }
