@@ -1,47 +1,8 @@
-import { world, Dimension, Player, Entity, Vector3, GameMode, EntityProjectileComponent } from '@minecraft/server'
+import { world, Dimension, Player, Entity, Vector3, EntityProjectileComponent } from '@minecraft/server'
 import { Vector3d, VectorUtils } from '../utils/vector_utils'
+import { NON_LIVING_ENTITIES } from '../constants'
 
-const excludeTypes = [
-    // Insert custom non-living entities
-    'battle:falling_slime',
-
-    // Specifically King Jello
-    'battle:king_jello',
-    
-    'minecraft:area_effect_cloud',
-    'minecraft:armor_stand',
-    'minecraft:arrow',
-    'minecraft:boat',
-    'minecraft:chest_boat',
-    'minecraft:chest_minecart',
-    'minecraft:command_block_minecart',
-    'minecraft:dragon_fireball',
-    'minecraft:egg',
-    'minecraft:ender_crystal',
-    'minecraft:ender_pearl',
-    'minecraft:eye_of_ender_signal',
-    'minecraft:fireball',
-    'minecraft:fireworks_rocket',
-    'minecraft:fishing_hook',
-    'minecraft:hopper_minecart',
-    'minecraft:lightning_bolt',
-    'minecraft:lingering_potion',
-    'minecraft:llama_spit',
-    'minecraft:minecart',
-    'minecraft:npc',
-    'minecraft:shulker_bullet',
-    'minecraft:small_fireball',
-    'minecraft:snowball',
-    'minecraft:splash_potion',
-    'minecraft:thrown_trident',
-    'minecraft:tnt',
-    'minecraft:tnt_minecart',
-    'minecraft:tripod_camera',
-    'minecraft:wither_skull',
-    'minecraft:wither_skull_dangerous',
-    'minecraft:xp_bottle',
-    'minecraft:xp_orb'
-]
+const excludeTypes = getExcludedTypes()
 
 world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
     const entity = event.entity
@@ -145,4 +106,10 @@ function getKnockbackTargets(maxDistance: number, location: Vector3, dimension: 
         maxDistance,
         excludeTypes
     })
+}
+
+function getExcludedTypes() {
+    const types = NON_LIVING_ENTITIES
+    types.push('battle:king_jello') // King Jello shouldn't be affected by their own projectiles lol
+    return types
 }

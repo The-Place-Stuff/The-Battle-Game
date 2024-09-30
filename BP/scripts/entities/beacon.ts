@@ -1,4 +1,4 @@
-import { world, Dimension, MolangVariableMap } from '@minecraft/server'
+import { world, Dimension, MolangVariableMap, EntityHealthComponent, EntityTypeFamilyComponent } from '@minecraft/server'
 
 const particleVariables = new MolangVariableMap()
 particleVariables.setFloat('emitter_radius', 0.75)
@@ -7,14 +7,14 @@ particleVariables.setFloat('emitter_intensity', 4)
 
 world.afterEvents.entityDie.subscribe(event => {
     const entity = event.deadEntity
-    const familyComponent = entity.getComponent('minecraft:type_family')
+    const familyComponent = entity.getComponent('minecraft:type_family') as EntityTypeFamilyComponent
     if (!entity.hasComponent('minecraft:type_family')) return
 
     if (familyComponent.hasTypeFamily('monster')) {
         const dimension = entity.dimension
         
         for (const beacon of searchForBeacon(dimension)) {
-            const health = beacon.getComponent('minecraft:health')
+            const health = beacon.getComponent('minecraft:health') as EntityHealthComponent
             health.setCurrentValue(Math.min(health.effectiveMax, health.currentValue + 5))
         }
     }
@@ -30,7 +30,7 @@ world.afterEvents.entityHealthChanged.subscribe(event => {
     const entity = event.entity
     if (entity.typeId != 'battle:beacon') return
 
-    const health = entity.getComponent('minecraft:health')
+    const health = entity.getComponent('minecraft:health') as EntityHealthComponent
     const dimension = entity.dimension
     const hurt = event.newValue < event.oldValue
 

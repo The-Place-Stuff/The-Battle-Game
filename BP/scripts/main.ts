@@ -2,10 +2,7 @@
 import './types'
 import './constants'
 import './world/decorators'
-
-// Mechanics
-import './mechanics/game_configuration'
-import './mechanics/volume_manager'
+import './world/setup'
 
 // Items
 import './items/spear'

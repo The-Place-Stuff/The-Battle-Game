@@ -4,7 +4,8 @@
 		"description": {
 			"identifier": "battle:spear",
 			"menu_category": {
-				"category": "equipment"
+				"category": "equipment",
+				"group": "itemGroup.name.specialWeapon"
 			}
 		},
 		"components": {
