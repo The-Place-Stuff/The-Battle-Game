@@ -5,7 +5,7 @@
 			"loop": true,
 			"bones": {
 				"rightArm": {
-					"rotation": ["math.clamp(query.target_x_rotation, -50, 50)", "math.clamp(query.target_y_rotation, -15, 15)", 10]
+					"rotation": ["math.clamp(query.target_x_rotation, -50, 50)", "math.clamp(query.target_y_rotation, -50, 50)", 15]
 				}
 			}
 		},

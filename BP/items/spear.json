@@ -14,7 +14,7 @@
 			"minecraft:damage": 4,
 			"minecraft:can_destroy_in_creative": false,
 			"minecraft:use_modifiers": {
-				"movement_modifier": 0.5,
+				"movement_modifier": 0.75,
 				"use_duration": 180
 			},
 			"minecraft:cooldown": {
