@@ -40,6 +40,19 @@
 				},
 				"minecraft:loot": {
 					"table": "loot_tables/empty.json"
+				},
+				"minecraft:timer": {
+					"looping": false,
+					"time": 60,
+					"time_down_event": {
+						"event": "battle:start_periodic_damage"
+					}
+				}
+			},
+			"battle:periodic_damage": {
+				"minecraft:damage_over_time": {
+					"damage_per_hurt": 1,
+					"time_between_hurt": 1
 				}
 			}
 		},
@@ -175,40 +188,33 @@
 		"events": {
 			"minecraft:entity_spawned": {
 				"add": {
-					"component_groups": [
-						"battle:calm_slime"
-					]
+					"component_groups": ["battle:calm_slime"]
 				}
 			},
 			"battle:from_king_jello": {
 				"add": {
-					"component_groups": [
-						"battle:from_king_jello"
-					]
+					"component_groups": ["battle:from_king_jello"]
 				}
 			},
 			"battle:become_calm": {
 				"add": {
-					"component_groups": [
-						"battle:calm_slime"
-					]
+					"component_groups": ["battle:calm_slime"]
 				},
 				"remove": {
-					"component_groups": [
-						"battle:aggressive_slime"
-					]
+					"component_groups": ["battle:aggressive_slime"]
 				}
 			},
 			"battle:become_aggressive": {
 				"add": {
-					"component_groups": [
-						"battle:aggressive_slime"
-					]
+					"component_groups": ["battle:aggressive_slime"]
 				},
 				"remove": {
-					"component_groups": [
-						"battle:calm_slime"
-					]
+					"component_groups": ["battle:calm_slime"]
+				}
+			},
+			"battle:start_periodic_damage": {
+				"add": {
+					"component_groups": ["battle:periodic_damage"]
 				}
 			}
 		}

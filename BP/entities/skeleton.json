@@ -18,7 +18,7 @@
                 "def": "minecraft:arrow"
             },
             "minecraft:equipment": {
-                "table": "loot_tables/entities/skeleton_gear.json",
+                "table": "loot_tables/equipment/skeleton.json",
                 "slot_drop_chance": [
                     {
                         "slot": "slot.weapon.mainhand",

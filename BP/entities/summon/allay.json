@@ -30,7 +30,7 @@
                 ]
             },
             "minecraft:equipment": {
-                "table": "loot_tables/entities/allay_gear.json",
+                "table": "loot_tables/equipment/allay.json",
                 "slot_drop_chance": [
                     {
                         "slot": "slot.weapon.mainhand",
