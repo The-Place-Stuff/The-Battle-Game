@@ -106,7 +106,7 @@
                 "priority": 5,
                 "start_distance": 6,
                 "stop_distance": 2,
-                "can_teleport": false,
+                "can_teleport": true,
                 "speed_multiplier": 1.15
             },
             "minecraft:behavior.look_at_player": {
