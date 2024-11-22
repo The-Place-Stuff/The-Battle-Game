@@ -22,12 +22,16 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
         performKnockbackRoar(entity)
         return
     }
+    if (id == 'battle:perform_death_explosion') {
+        performDeathExplosion(entity)
+        return
+    }
 })
 
 world.afterEvents.entityHurt.subscribe(event => {
     const entity = event.hurtEntity
 
-    if (entity.typeId == 'battle:king_jello') {
+    if (entity.typeId == 'battle:king_jello' && entity.isValid()) {
         entity.playAnimation('animation.king_jello.hurt')
     }
 })
@@ -85,6 +89,24 @@ function performKnockbackRoar(entity: Entity) {
         }
     }
     dimension.spawnParticle('minecraft:knockback_roar_particle', entity.location)
+}
+
+function performDeathExplosion(entity: Entity) {
+    const dimension = entity.dimension
+
+    for (let i = 0; i < 10; i++) {
+        const slime = dimension.spawnEntity('battle:slime', entity.getHeadLocation())
+        const velocity: Vector3 = {
+            x: (Math.random() - Math.random()) * 2,
+            y: 1,
+            z: (Math.random() - Math.random()) * 2
+        }
+        slime.triggerEvent('battle:from_king_jello')
+        slime.applyImpulse(velocity)
+    }
+    dimension.playSound('random.explode', entity.location)
+    dimension.spawnParticle('minecraft:huge_explosion_emitter', entity.getHeadLocation())
+    entity.remove()
 }
 
 function getTarget(location: Vector3, dimension: Dimension): Player {

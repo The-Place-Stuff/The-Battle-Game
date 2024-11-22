@@ -33,7 +33,11 @@
 				"roar_controller": "controller.animation.king_jello.roar"
 			},
 			"scripts": {
-				"animate": ["leap_controller", "summon_controller", "roar_controller"]
+				"animate": [
+					"leap_controller", 
+					"summon_controller", 
+					"roar_controller"
+				]
 			}
 		},
 		"component_groups": {
@@ -115,6 +119,14 @@
 					"jump_power": 0.0
 				}
 			},
+			"battle:death_state": {
+				"minecraft:movement": {
+					"value": 0.0
+				},
+				"minecraft:jump.static": {
+					"jump_power": 0.0
+				}
+			},
 			"battle:movement_behaviors": {
 				"minecraft:behavior.slime_float": {
 					"priority": 1,
@@ -139,6 +151,7 @@
 		},
 		"components": {
 			"minecraft:health": {
+				"min": 1,
 				"value": 500,
 				"max": 500
 			},
@@ -259,6 +272,11 @@
 									"value": 250
 								},
 								{
+									"test": "actor_health",
+									"operator": ">",
+									"value": 1
+								},
+								{
 									"test": "bool_property",
 									"domain": "battle:second_phase",
 									"value": false
@@ -272,6 +290,24 @@
 								{
 									"test": "on_ground",
 									"value": true
+								}
+							]
+						}
+					},
+					{
+						"event": "battle:perform_death_explosion",
+						"filters": {
+							"all_of": [
+								{
+									"test": "actor_health",
+									"operator": "==",
+									"value": 1
+								},
+								{
+									"test": "enum_property",
+									"domain": "battle:state",
+									"operator": "not",
+									"value": "death"
 								}
 							]
 						}
@@ -512,7 +548,8 @@
 			// Scripted events
 			"battle:perform_stomp_attack": {},
 			"battle:summon_minion": {},
-			"battle:perform_knockback_roar": {}
+			"battle:perform_knockback_roar": {},
+			"battle:perform_death_explosion": {}
 		}
 	}
 }
